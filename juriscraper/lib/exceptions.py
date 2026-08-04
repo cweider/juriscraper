@@ -1,4 +1,5 @@
 import logging
+from collections.abc import Hashable
 
 from juriscraper.lib.log_tools import make_default_logger
 
@@ -26,28 +27,28 @@ class SkipRowError(JuriscraperException):
 class SlownessException(Exception):
     """Raised when things are too slow."""
 
-    def __init__(self, message):
+    def __init__(self, message: str):
         Exception.__init__(self, message)
 
 
 class ParsingException(Exception):
     """Raised when parsing fails."""
 
-    def __init__(self, message):
+    def __init__(self, message: str):
         Exception.__init__(self, message)
 
 
 class InsanityException(Exception):
     """Raised when data validation fails."""
 
-    def __init__(self, message):
+    def __init__(self, message: str):
         Exception.__init__(self, message)
 
 
 class PacerLoginException(Exception):
     """Raised when the system cannot authenticate with PACER"""
 
-    def __init__(self, message):
+    def __init__(self, message: str):
         Exception.__init__(self, message)
 
 
@@ -81,7 +82,7 @@ class AutoLoggingException(Exception):
         logger: logging.Logger | None = None,
         logging_level: int | None = None,
         fingerprint: list[str] | None = None,
-        data: dict | None = None,
+        data: dict[Hashable, object] | None = None,
     ):
         if not message:
             message = self.message
@@ -90,14 +91,16 @@ class AutoLoggingException(Exception):
         if not logging_level:
             logging_level = self.logging_level
 
-        log_kwargs = {}
+        extra: dict[str, object] | None
         if fingerprint:
-            log_kwargs["extra"] = {"fingerprint": fingerprint}
+            extra = {"fingerprint": fingerprint}
+        else:
+            extra = None
 
         # pass custom data that an outer try/except block can access
         self.data = data
 
-        logger.log(logging_level, message, **log_kwargs)
+        logger.log(logging_level, message, extra=extra)
         super().__init__(message)
 
 
