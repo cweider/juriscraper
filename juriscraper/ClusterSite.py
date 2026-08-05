@@ -276,7 +276,7 @@ class ClusterSite(OpinionSiteLinear):
             the cluster dict if the current case dict was clustered
         """
         if not possible_clusters:
-            return
+            return None
 
         opinion_fields = ["type", "url", "per_curiam", "author", "joined_by"]
 
@@ -314,4 +314,4 @@ class ClusterSite(OpinionSiteLinear):
 
             return candidate_cluster
 
-        return
+        return None
