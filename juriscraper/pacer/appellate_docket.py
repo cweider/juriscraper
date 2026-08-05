@@ -634,6 +634,7 @@ class AppellateDocketReport(BaseDocketReport, BaseReport):
         count = get_input_value_from_tr(tr, 2, 4, " ")
         if count is not None:
             return int(count)
+        return None
 
     @staticmethod
     def _get_file_size_bytes_from_tr(tr: html.HtmlElement) -> int | None:
