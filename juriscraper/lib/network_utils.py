@@ -95,8 +95,8 @@ class AcmsApiClient:
                 else None
             ),
             "byteCount": (
-                int(raw_data.get("byteCount"))
-                if raw_data.get("byteCount")
+                int(byteCount)
+                if (byteCount := raw_data.get("byteCount"))
                 else None
             ),
             "natureOfSuit": (
@@ -130,8 +130,8 @@ class AcmsApiClient:
             "isCaseSealed": raw_data.get("isCaseSealed"),
             "isUserCaseParticipant": raw_data.get("isUserCaseParticipant"),
             "byteCount": (
-                int(raw_data.get("byteCount"))
-                if raw_data.get("byteCount")
+                int(byteCount)
+                if (byteCount := raw_data.get("byteCount"))
                 else None
             ),
         }
