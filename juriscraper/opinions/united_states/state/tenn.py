@@ -21,7 +21,7 @@ class Site(ClusterSite):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.url = "https://www.tncourts.gov/courts/supreme-court/opinions"
+        self.url: str = "https://www.tncourts.gov/courts/supreme-court/opinions"
         self.court_id = self.__module__
         self.status = "Unknown"
         self.should_have_results = True
