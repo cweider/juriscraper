@@ -258,7 +258,7 @@ class Site(OpinionSiteLinear):
         content = content.decode("utf-8")
         if "<html" not in content.lower():
             tree = strip_bad_html_tags_insecure(content, remove_scripts=True)
-            new_tree = etree.Element("html")
+            new_tree = html.Element("html")
             body = etree.SubElement(new_tree, "body")
             body.append(tree)
             return html.tostring(new_tree)

@@ -127,7 +127,7 @@ class Site(OpinionSiteLinear):
                 "masssuperct: no opinion content found in page"
             )
 
-        new_tree = etree.Element("html")
+        new_tree = html.Element("html")
         body = etree.SubElement(new_tree, "body")
         body.append(content[0])
         return html.tostring(new_tree)
