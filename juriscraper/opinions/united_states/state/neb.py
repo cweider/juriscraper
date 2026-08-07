@@ -1,6 +1,8 @@
 import re
 from typing import Any
 
+from lxml.html import HtmlElement
+
 from juriscraper.AbstractSite import logger
 from juriscraper.lib.html_utils import fix_links_in_lxml_tree
 from juriscraper.lib.string_utils import titlecase
@@ -28,7 +30,7 @@ class Site(OpinionSiteLinear):
         )
         self.should_have_results = True
 
-    def _return_response_text_object(self):
+    def _return_response_text_object(self) -> HtmlElement | None:
         """Remove faulty URLs from HTML
 
         Override _return_response_text_object in Abstract Site to remove any
@@ -57,6 +59,8 @@ class Site(OpinionSiteLinear):
                     fix_links_in_lxml_tree, base_href=self.request["url"]
                 )
             return html_tree
+        else:
+            return None
 
     def _process_html(self):
         for table in self.html.xpath(".//table"):

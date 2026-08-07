@@ -12,6 +12,7 @@ from datetime import datetime
 import certifi
 import httpx
 from charset_normalizer import from_bytes
+from lxml.html import HtmlElement
 
 from juriscraper.lib.date_utils import (
     json_date_handler,
@@ -617,7 +618,7 @@ class AbstractSite:
         self.request["response"].raise_for_status()
         set_response_encoding(self.request["response"])
 
-    def _return_response_text_object(self):
+    def _return_response_text_object(self) -> HtmlElement | None:
         if self.request["response"]:
             if "json" in self.request["response"].headers.get(
                 "content-type", ""
@@ -636,6 +637,8 @@ class AbstractSite:
                         fix_links_in_lxml_tree, base_href=self.request["url"]
                     )
                 return html_tree
+        else:
+            return None
 
     async def _get_html_tree_by_url(self, url, parameters=None):
         if parameters is None:
