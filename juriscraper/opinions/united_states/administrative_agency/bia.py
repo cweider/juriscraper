@@ -113,7 +113,7 @@ class Site(OpinionSiteLinear):
         download_url: str,
         doctor_is_available: bool = True,
         media_root: str = "",
-    ) -> str | bytes:
+    ) -> bytes:
         """Overrides regular download_content to handle the
         "I am not a robot challenge". See #1724
         """

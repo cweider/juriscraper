@@ -8,6 +8,7 @@ import ssl
 import urllib.parse
 import urllib.request
 from datetime import datetime
+from typing import final
 
 import certifi
 import httpx
@@ -390,6 +391,7 @@ class AbstractSite:
         self._post_process_response()
         return self._return_response_text_object()
 
+    @final
     def _download_content_urllib(self, download_url: str, headers: dict):
         """Download content using urllib to bypass Cloudflare
 
@@ -411,7 +413,7 @@ class AbstractSite:
         download_url: str,
         doctor_is_available: bool = True,
         media_root: str = "",
-    ) -> str | bytes:
+    ) -> bytes:
         """Download the URL and return the cleaned content
 
         Downloads the file, covering a few special cases such as invalid SSL
