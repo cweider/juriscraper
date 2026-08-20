@@ -1,13 +1,17 @@
 import os
 import traceback
 from logging import getLogger
+from types import ModuleType
+from typing import Iterable, cast, Any, AsyncGenerator, overload
 
 from httpx import HTTPError
+
+from juriscraper.AbstractSite import AbstractSite
 
 logger = getLogger()
 
 
-def build_module_list(court_id):
+def build_module_list(court_id: str) -> list[str]:
     """Takes a string and builds up a list of modules to import.
 
     This is a simple recursive function that iteratively looks for __all__
@@ -23,9 +27,9 @@ def build_module_list(court_id):
 
     https://docs.python.org/2/library/pkgutil.html#pkgutil.walk_packages
     """
-    module_strings = []
+    module_strings: list[str] = []
 
-    def find_all_attr_or_punt(court_id):
+    def find_all_attr_or_punt(court_id: str) -> None:
         """Checks that we have an __all__ attribute. If so, recurses. If not,
         adds the item to our list
         """
@@ -56,7 +60,7 @@ def build_module_list(court_id):
     return module_strings
 
 
-def get_module_by_name(name):
+def get_module_by_name(name: str) -> AbstractSite | None:
     db_root = os.path.abspath(
         os.path.join(os.path.dirname(__file__), "..", "opinions")
     )
@@ -74,11 +78,14 @@ def get_module_by_name(name):
                     [module],
                 )
                 return juriscraper_module.Site()
+    return None
 
+async def site_yielder(iterable: Iterable[object], mod: ModuleType, save_response_fn=None) -> AsyncGenerator[
+    AbstractSite, None]:
+    site_class = cast(type[AbstractSite], mod.Site)
 
-async def site_yielder(iterable, mod, save_response_fn=None):
     for i in iterable:
-        site = mod.Site(save_response_fn=save_response_fn)
+        site = site_class(save_response_fn=save_response_fn)
         # Empty pages are expected during historical backscrapes, so don't
         # let no_results_warning log an error for this court.
         site.should_have_results = False
