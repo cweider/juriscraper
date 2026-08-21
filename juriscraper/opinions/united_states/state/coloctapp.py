@@ -9,6 +9,7 @@ History:
     - 2023-11-19: Updated by William E. Palin
     - 2025-08-11: Add cleanup_content method, quevon24
 """
+from typing_extensions import override
 
 from juriscraper.opinions.united_states.state import colo
 
@@ -22,7 +23,8 @@ class Site(colo.Site):
         super().__init__(*args, **kwargs)
         self.expected_content_types = ["application/pdf"]
 
+    @override
     @staticmethod
-    def cleanup_content(content):
+    def cleanup_content(content: bytes) -> bytes:
         """Return raw pdf content"""
         return content

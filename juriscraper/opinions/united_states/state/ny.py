@@ -14,6 +14,7 @@ History:
 import re
 from datetime import date, timedelta
 from typing import Any
+from typing_extensions import override
 from urllib.parse import urljoin
 
 import nh3
@@ -207,6 +208,7 @@ class Site(OpinionSiteLinear):
         self.html = await self._download()
         self._process_html()
 
+    @override
     @staticmethod
     def cleanup_content(content: bytes) -> bytes:
         """Keep only the opinion content, without hash altering elements

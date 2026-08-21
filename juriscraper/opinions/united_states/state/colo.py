@@ -15,6 +15,7 @@ History:
 
 import re
 from datetime import date, datetime, timedelta
+from typing_extensions import override
 from urllib.parse import urlencode
 
 from lxml import etree, html
@@ -248,8 +249,9 @@ class Site(OpinionSiteLinear):
         self.url = f"{self.base_url}?{urlencode(params)}"
         return dates
 
+    @override
     @staticmethod
-    def cleanup_content(content):
+    def cleanup_content(content: bytes) -> bytes:
         """Wrap content in HTML structure if needed
 
         :param content: The scraped HTML

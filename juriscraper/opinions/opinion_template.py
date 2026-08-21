@@ -6,6 +6,7 @@ Reviewer:
 History:
   YYYY-MM-DD: Created by XXX
 """
+from typing_extensions import override
 
 from lxml import html
 
@@ -209,8 +210,9 @@ class Site(OpinionSite):
     Optional methods for special purposes
     """
 
+    @override
     @staticmethod
-    def cleanup_content(content):
+    def cleanup_content(content: bytes) -> bytes:
         """
         Given the HTML from a page, this method is used to strip it down to
         its bare essentials.

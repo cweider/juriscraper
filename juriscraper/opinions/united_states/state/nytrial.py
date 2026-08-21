@@ -10,6 +10,7 @@ History:
 import re
 from datetime import date
 from typing import Any
+from typing_extensions import override
 
 from lxml.html import fromstring
 
@@ -229,6 +230,7 @@ class Site(OpinionSiteLinear):
 
         return {k: v for k, v in metadata.items() if v}
 
+    @override
     @staticmethod
     def cleanup_content(content: bytes) -> bytes:
         return ny.Site.cleanup_content(content)

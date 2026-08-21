@@ -61,9 +61,9 @@ class ScraperCleanupContentTest(unittest.TestCase):
 
             with open(path, "rb") as fixture_file:
                 content = fixture_file.read()
+            self.assertIsInstance(content, bytes)
             cleaned = site.cleanup_content(content)
-            if isinstance(cleaned, str):
-                cleaned = cleaned.encode()
+            self.assertIsInstance(cleaned, bytes)
 
             compare_path = f"{path.rsplit('.', 1)[0]}{COMPARE_EXTENSION}"
             if os.path.isfile(compare_path):

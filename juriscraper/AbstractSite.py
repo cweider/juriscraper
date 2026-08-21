@@ -699,7 +699,7 @@ class AbstractSite:
         )
 
     @staticmethod
-    def cleanup_content(content):
+    def cleanup_content(content: bytes) -> bytes:
         """
         Given the HTML from a page, the binary PDF file, or similar, do any
         last-minute cleaning.

@@ -14,6 +14,7 @@ Notes:
 """
 
 from datetime import date, datetime
+from typing_extensions import override
 from urllib.parse import quote, urljoin
 
 from lxml import etree, html
@@ -102,6 +103,7 @@ class Site(OpinionSiteLinear):
                 }
             )
 
+    @override
     @staticmethod
     def cleanup_content(content: bytes) -> bytes:
         """Remove non-opinion HTML

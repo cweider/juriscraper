@@ -3,6 +3,7 @@
 # Date updated: 2020-02-25
 
 import re
+from typing_extensions import override
 
 from juriscraper.AbstractSite import logger
 from juriscraper.lib.exceptions import InvalidDocumentError
@@ -117,6 +118,7 @@ class Site(OpinionSiteLinear):
 
         return result
 
+    @override
     @staticmethod
     def cleanup_content(content: bytes) -> bytes:
         """Raise an error if the content is invalid; otherwise just return it

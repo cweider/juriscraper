@@ -5,7 +5,7 @@
 # Author: Andrei Chelaru
 # Reviewer: mlr
 # Date: 2014-07-05
-
+from typing_extensions import override
 
 from lxml import html
 
@@ -47,8 +47,9 @@ class Site(OpinionSiteLinear):
                 }
             )
 
+    @override
     @staticmethod
-    def cleanup_content(content):
+    def cleanup_content(content: bytes) -> bytes:
         """Remove non-opinion HTML
 
         Oklahoma uses ISO-8859-1 formatting which we need to account for

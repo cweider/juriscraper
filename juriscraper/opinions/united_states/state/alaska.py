@@ -18,6 +18,7 @@ Notes:
 import re
 from datetime import date, timedelta
 from html import unescape
+from typing_extensions import override
 from urllib.parse import urlencode, urljoin
 
 from lxml import html
@@ -229,6 +230,7 @@ class Site(OpinionSiteLinear):
                 }
             )
 
+    @override
     @staticmethod
     def cleanup_content(content: bytes) -> bytes:
         """Isolate the opinion from the surrounding Westlaw site chrome.
