@@ -8,11 +8,12 @@ import ssl
 import urllib.parse
 import urllib.request
 from datetime import datetime
-from typing import final
+from typing import Union, final
 
 import certifi
 import httpx
 from charset_normalizer import from_bytes
+from http.client import HTTPResponse
 
 from juriscraper.lib.date_utils import (
     json_date_handler,
@@ -392,7 +393,7 @@ class AbstractSite:
         return self._return_response_text_object()
 
     @final
-    def _download_content_urllib(self, download_url: str, headers: dict):
+    def _download_content_urllib(self, download_url: str, headers: dict) -> tuple[HTTPResponse, bytes]:
         """Download content using urllib to bypass Cloudflare
 
         Uses urllib instead of httpx because Cloudflare blocks httpx
@@ -404,9 +405,9 @@ class AbstractSite:
         """
         req = urllib.request.Request(download_url, headers=headers)
         response = self.urllib_opener.open(req, timeout=90)
-        response.content = response.read()
+        content = response.read()
 
-        return response
+        return response, content
 
     async def download_content(
         self,
@@ -429,6 +430,10 @@ class AbstractSite:
         :raises: NoDownloadUrlError, UnexpectedContentTypeError, EmptyFileError
         """
         check_download_url(download_url)
+
+        s: httpx.AsyncClient
+        r: Union[httpx.Response | HTTPResponse]
+        content: bytes
 
         # noinspection PyBroadException
         if self.test_mode_enabled():
@@ -460,7 +465,7 @@ class AbstractSite:
             headers = {"User-Agent": "CourtListener"}
 
         if self.use_urllib:
-            r = self._download_content_urllib(download_url, headers)
+            r, content = self._download_content_urllib(download_url, headers)
         else:
             s = self.request["session"]
             # Note that we do a GET even if self.method is POST. This is
@@ -471,17 +476,19 @@ class AbstractSite:
                 cookies=self.cookies,
                 timeout=300,
             )
+            content = r.content
 
         check_empty_downloaded_file(r, download_url)
         check_expected_content_types(self, r, download_url)
 
-        if doctor_is_available and not self.use_urllib:
+        if doctor_is_available and isinstance(r, httpx.Response) and not self.use_urllib:
             # test for and follow meta redirects, uses doctor get_extension
             # service
             r = await follow_redirections(r, s)
+            content = r.content
             r.raise_for_status()
 
-        content = self.cleanup_content(r.content)
+        content = self.cleanup_content(content)
 
         return content
 
