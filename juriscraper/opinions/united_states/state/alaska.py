@@ -230,7 +230,7 @@ class Site(OpinionSiteLinear):
             )
 
     @staticmethod
-    def cleanup_content(content: bytes) -> str:
+    def cleanup_content(content: bytes) -> bytes:
         """Isolate the opinion from the surrounding Westlaw site chrome.
 
         Also deletes hash-altering per-request tokens.
@@ -252,7 +252,7 @@ class Site(OpinionSiteLinear):
 
         # Strip per-request tokens from embedded image/link URLs so the
         # content hash is stable across downloads (CL dedupes on hash) #2009
-        return Site.volatile_token_regex.sub("", cleaned)
+        return Site.volatile_token_regex.sub("", cleaned).encode("utf-8")
 
     async def _download_backwards(self, dates: tuple[date, date]) -> None:
         """Configure the date window for a historical range and download.

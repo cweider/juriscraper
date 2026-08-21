@@ -103,7 +103,7 @@ class Site(OpinionSiteLinear):
             )
 
     @staticmethod
-    def cleanup_content(content):
+    def cleanup_content(content: bytes) -> bytes:
         """Remove non-opinion HTML
 
         Cleanup HTML from Social Law page so we can properly display
@@ -130,7 +130,7 @@ class Site(OpinionSiteLinear):
         new_tree = etree.Element("html")
         body = etree.SubElement(new_tree, "body")
         body.append(content[0])
-        return html.tostring(new_tree)
+        return html.tostring(new_tree, encoding="unicode").encode("utf-8")
 
     async def _download_backwards(self, search_date: date) -> None:
         """Download and process HTML for a given target date.
