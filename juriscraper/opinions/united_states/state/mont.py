@@ -118,7 +118,7 @@ class Site(OpinionSiteLinear):
         return result
 
     @staticmethod
-    def cleanup_content(content: str | bytes) -> str:
+    def cleanup_content(content: bytes) -> bytes:
         """Raise an error if the content is invalid; otherwise just return it
 
         Not cleaning up in the common sense; but avoids ingesting error
@@ -126,7 +126,7 @@ class Site(OpinionSiteLinear):
         and does not have content type headers; so we can't detect the error
         through standard controls
 
-        The content may be a string if it's a string error response, like in
+        The content may be text if it's a string error response, like in
         https://storage.courtlistener.com/txt/2025/01/17/mercer_v._dphhs.txt
 
         When the content is PDF bytes, it contains the
@@ -137,10 +137,18 @@ class Site(OpinionSiteLinear):
         :param content: the downloaded content; maybe a string or PDF bytes
         :return: the downloaded content, unchanged
         """
-        if isinstance(content, str) and (
-            "No document found with CTrack ID" in content[:1000]
-            or "Your support ID is" in content[:1000]
-        ):
+
+        try:
+            content_str = content.decode("utf-8")
+        except UnicodeDecodeError:
+            return content
+
+        sentinel_strings = [
+            "No document found with CTrack ID",
+            "Your support ID is"
+        ]
+
+        if any(s in content_str[:1000] for s in sentinel_strings):
             raise InvalidDocumentError(content)
 
-        return content
+        return content_str.encode("utf-8")
