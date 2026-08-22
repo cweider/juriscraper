@@ -263,7 +263,7 @@ class Site(OpinionSiteLinear):
         # misclassify the result as text/plain and skip the HTML extractor.
         return (
             f"<!DOCTYPE html><html><body>{normalized_html}</body></html>"
-        ).encode()
+        ).encode("utf-8")
 
     @staticmethod
     def clean_docket_match(match: re.Match) -> str:
