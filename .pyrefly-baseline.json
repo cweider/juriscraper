@@ -937,54 +937,6 @@
       "severity": "error"
     },
     {
-      "line": 105,
-      "column": 34,
-      "stop_line": 105,
-      "stop_column": 69,
-      "path": "juriscraper/opinions/united_states/state/mont.py",
-      "code": -2,
-      "name": "no-matching-overload",
-      "description": "No matching overload found for function `typing.MutableMapping.setdefault` called with arguments: (Literal['OriginatingCourtInformation'], dict[@_, @_])\n  Possible overloads:\n    (key: str, default: None = None, /) -> _T | None\n    (key: str, default: str, /) -> str [closest match]\n  Argument `dict[@_, @_]` is not assignable to parameter `default` with type `str` in function `typing.MutableMapping.setdefault`",
-      "concise_description": "No matching overload found for function `typing.MutableMapping.setdefault` called with arguments: (Literal['OriginatingCourtInformation'], dict[@_, @_])",
-      "severity": "error"
-    },
-    {
-      "line": 110,
-      "column": 34,
-      "stop_line": 110,
-      "stop_column": 69,
-      "path": "juriscraper/opinions/united_states/state/mont.py",
-      "code": -2,
-      "name": "no-matching-overload",
-      "description": "No matching overload found for function `typing.MutableMapping.setdefault` called with arguments: (Literal['OriginatingCourtInformation'], dict[@_, @_])\n  Possible overloads:\n    (key: str, default: None = None, /) -> _T | None\n    (key: str, default: str, /) -> str [closest match]\n  Argument `dict[@_, @_]` is not assignable to parameter `default` with type `str` in function `typing.MutableMapping.setdefault`",
-      "concise_description": "No matching overload found for function `typing.MutableMapping.setdefault` called with arguments: (Literal['OriginatingCourtInformation'], dict[@_, @_])",
-      "severity": "error"
-    },
-    {
-      "line": 116,
-      "column": 30,
-      "stop_line": 116,
-      "stop_column": 44,
-      "path": "juriscraper/opinions/united_states/state/mont.py",
-      "code": -2,
-      "name": "no-matching-overload",
-      "description": "No matching overload found for function `typing.MutableMapping.setdefault` called with arguments: (Literal['Docket'], dict[@_, @_])\n  Possible overloads:\n    (key: str, default: None = None, /) -> _T | None\n    (key: str, default: str, /) -> str [closest match]\n  Argument `dict[@_, @_]` is not assignable to parameter `default` with type `str` in function `typing.MutableMapping.setdefault`",
-      "concise_description": "No matching overload found for function `typing.MutableMapping.setdefault` called with arguments: (Literal['Docket'], dict[@_, @_])",
-      "severity": "error"
-    },
-    {
-      "line": 146,
-      "column": 16,
-      "stop_line": 146,
-      "stop_column": 23,
-      "path": "juriscraper/opinions/united_states/state/mont.py",
-      "code": -2,
-      "name": "bad-return",
-      "description": "Returned type `bytes | str` is not assignable to declared return type `str`",
-      "concise_description": "Returned type `bytes | str` is not assignable to declared return type `str`",
-      "severity": "error"
-    },
-    {
       "line": 84,
       "column": 16,
       "stop_line": 84,
