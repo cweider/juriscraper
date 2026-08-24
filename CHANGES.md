@@ -18,7 +18,7 @@ Features:
 -
 
 Changes:
--
+- Improve type of `Deserializable.deserialize()` to conserve the subject type.
 
 Fixes:
 - Fix `bap1` backscraper: fixed a missing `await` that made it return zero results. #2136
