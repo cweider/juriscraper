@@ -8,6 +8,7 @@ baseline = ".pyrefly-baseline.json"
 min-severity = "warn"
 
 # These options are "good", but sub-configs may opt out.
+check-all-matches = true
 permissive-ignores = false
 strict-callable-subtyping = true
 ignore-missing-imports = []
@@ -78,6 +79,9 @@ missing-module-attribute = true
 missing-source = true
 missing-source-for-stubs = true
 name-mismatch = true
+no-access = true
+no-matching-overload = true
+non-exhaustive-match = true
 not-a-type = true
 not-async = true
 not-callable = true
