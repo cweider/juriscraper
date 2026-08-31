@@ -18,7 +18,7 @@ Features:
 -
 
 Changes:
--
+- Introduce Phyrefly static type checking configuration for all files outside of tests.
 
 Fixes:
 - Fix `bap1` backscraper: fixed a missing `await` that made it return zero results. #2136
