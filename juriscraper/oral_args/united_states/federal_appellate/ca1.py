@@ -11,6 +11,7 @@ History:
 import feedparser
 from typing_extensions import override
 
+from juriscraper.AbstractSite import MissingRequestException
 from juriscraper.OralArgumentSiteLinear import OralArgumentSiteLinear
 
 
@@ -29,6 +30,8 @@ class Site(OralArgumentSiteLinear):
         the date, case name, docket number, and status and pdf URL.
         Return: None
         """
+        if self.request["response"] is None:
+            raise MissingRequestException
         feed = feedparser.parse(self.request["response"].content)
         for item in feed["entries"]:
             self.cases.append(

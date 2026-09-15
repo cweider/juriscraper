@@ -16,6 +16,7 @@ import feedparser
 from lxml.html import fromstring
 from typing_extensions import override
 
+from juriscraper.AbstractSite import MissingRequestException
 from juriscraper.lib.string_utils import titlecase
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
@@ -42,6 +43,8 @@ class Site(OpinionSiteLinear):
         the date, case name, docket number, and status and pdf URL.
         Return: None
         """
+        if self.request["response"] is None:
+            raise MissingRequestException
         feed = feedparser.parse(self.request["response"].content)
         for item in feed["entries"]:
             value = item["content"][0]["value"]
