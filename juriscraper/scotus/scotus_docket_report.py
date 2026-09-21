@@ -40,7 +40,7 @@ class SCOTUSDocketReport:
     SCOTUS_BASE_URL = "https://www.supremecourt.gov"
 
     def __init__(self, court_id: str = "scotus"):
-        self._scotus_json = None
+        self._scotus_json: dict | Any = None
 
     @property
     def data(self) -> dict:
