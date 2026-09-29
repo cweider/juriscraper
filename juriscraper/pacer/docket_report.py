@@ -71,7 +71,7 @@ class BaseDocketReport:
             setattr(self, f"_{attr}", None)
 
     @property
-    def data(self):
+    def data(self) -> dict:
         """Get all the data back from this endpoint."""
         if self.is_valid is False:
             return {}
@@ -536,7 +536,7 @@ class DocketReport(BaseDocketReport, BaseReport):
 
     @property
     @override
-    def data(self):
+    def data(self) -> dict:
         """Get all the data back from this endpoint after validations."""
         if self.is_valid is False or self.docket_report_has_content is False:
             return {}

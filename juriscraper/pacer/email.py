@@ -99,7 +99,7 @@ class NotificationEmail(BaseDocketReport, BaseReport):
 
     @property
     @override
-    def data(self):
+    def data(self) -> dict:
         # Emails with attached images should be ignored.
         if self.is_valid is False or self.tree is None or self.image_attached:
             return {}

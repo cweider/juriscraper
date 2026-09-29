@@ -51,7 +51,7 @@ class PossibleCaseNumberApi(BaseReport):
     @override
     def data(
         self, case_name=None, office_number=None, docket_number_letters=None
-    ):
+    ) -> dict[str, str] | None:
         """Get data back from this query for the matching case.
 
         :param case_name: This endpoint can return multiple cases for a given
@@ -236,7 +236,7 @@ class ShowCaseDocApi(BaseReport):
 
     @property
     @override
-    def data(self):
+    def data(self) -> str:
         """Get the URL out of the response object."""
         url = self.response.url
         if "doc1" in url:
@@ -267,7 +267,7 @@ class AcmsCaseSearch(BaseReport):
 
     @property
     @override
-    def data(self):
+    def data(self) -> dict:
         """
         Retrieves the parsed case data from the API response.
 

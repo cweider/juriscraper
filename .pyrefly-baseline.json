@@ -1009,13 +1009,6 @@
       "severity": "error"
     },
     {
-      "column": 7,
-      "path": "juriscraper/pacer/appellate_docket.py",
-      "name": "inconsistent-inheritance",
-      "concise_description": "Field `data` has inconsistent types inherited from multiple base classes",
-      "severity": "error"
-    },
-    {
       "column": 9,
       "path": "juriscraper/pacer/appellate_docket.py",
       "name": "bad-override",
@@ -1251,6 +1244,13 @@
       "path": "juriscraper/pacer/case_query_advanced.py",
       "name": "bad-override",
       "concise_description": "Class member `CaseQueryAdvancedBankruptcy.query` overrides parent class `BaseCaseQueryAdvanced` in an inconsistent manner",
+      "severity": "error"
+    },
+    {
+      "column": 16,
+      "path": "juriscraper/pacer/claims_activity.py",
+      "name": "bad-return",
+      "concise_description": "Returned type `dict[Unknown, Unknown] | list[dict[str, Unknown]] | Unknown` is not assignable to declared return type `dict[Unknown, Unknown]`",
       "severity": "error"
     },
     {
@@ -1989,6 +1989,13 @@
       "severity": "error"
     },
     {
+      "column": 9,
+      "path": "juriscraper/pacer/hidden_api.py",
+      "name": "bad-override",
+      "concise_description": "Class member `PossibleCaseNumberApi.data` overrides parent class `BaseReport` in an inconsistent manner",
+      "severity": "error"
+    },
+    {
       "column": 22,
       "path": "juriscraper/pacer/hidden_api.py",
       "name": "missing-attribute",
@@ -2266,6 +2273,13 @@
       "path": "juriscraper/pacer/rss_feeds.py",
       "name": "unknown-attribute-type",
       "concise_description": "This expression is implicitly inferred to be `Any`. Please provide an explicit type annotation.",
+      "severity": "error"
+    },
+    {
+      "column": 9,
+      "path": "juriscraper/pacer/rss_feeds.py",
+      "name": "bad-override",
+      "concise_description": "Class member `PacerRssFeed.data` overrides parent class `DocketReport` in an inconsistent manner",
       "severity": "error"
     },
     {

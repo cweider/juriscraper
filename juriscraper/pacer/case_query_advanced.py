@@ -49,7 +49,7 @@ class BaseCaseQueryAdvanced(BaseDocketReport, BaseReport):
 
     @property
     @override
-    def data(self):
+    def data(self) -> dict:
         """Get all the data back from this endpoint.
 
         Don't attempt to return parties or docket_entries like the superclass

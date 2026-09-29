@@ -130,7 +130,7 @@ class BaseReport:
         self.is_valid = True
 
     @property
-    def data(self):
+    def data(self) -> dict | list[dict] | str | None:
         """Extract the data from the tree and return it."""
         raise NotImplementedError(".data() must be overridden.")
 

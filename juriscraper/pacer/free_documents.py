@@ -177,7 +177,7 @@ class FreeOpinionReport(BaseReport):
 
     @property
     @override
-    def data(self):
+    def data(self) -> list[dict]:
         results = []
         for tree in self.trees:
             opinion_count = self._get_reported_opinion_count(tree)
@@ -285,7 +285,7 @@ class FreeOpinionRow(BaseDocketReport):
 
     @property
     @override
-    def data(self):
+    def data(self) -> dict:
         """Get all the data back from this endpoint."""
         data = self.metadata.copy()
         return data

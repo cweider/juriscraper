@@ -49,7 +49,7 @@ class AttachmentPage(BaseReport):
 
     @property
     @override
-    def data(self):
+    def data(self) -> dict:
         """Get data back from the query for the matching document entry.
 
         :return: If lookup fails, an empty dict. Else, a dict containing the
