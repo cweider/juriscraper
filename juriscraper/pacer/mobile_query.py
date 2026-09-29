@@ -6,6 +6,8 @@ This provides the total number of docket entries, which is useful for alerts
 import pprint
 import sys
 
+from typing_extensions import override
+
 from juriscraper.lib.log_tools import make_default_logger
 from juriscraper.lib.utils import clean_court_object
 
@@ -127,6 +129,7 @@ class MobileQuery(BaseDocketReport, BaseReport):
         self.parse()
 
     @property
+    @override
     def data(self):
         """Get all the data back from this endpoint.
 

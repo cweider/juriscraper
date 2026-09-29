@@ -1,5 +1,6 @@
 import requests
 from requests import Response
+from typing_extensions import override
 
 from juriscraper.lib.log_tools import make_default_logger
 from juriscraper.pacer.reports import BaseReport
@@ -30,6 +31,7 @@ class ListOfCreditors(BaseDocketReport, BaseReport):
         )
 
     @property
+    @override
     def data(self):
         """Get all the data back from this endpoint."""
         if self.is_valid is False:

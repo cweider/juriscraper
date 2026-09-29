@@ -5,6 +5,8 @@ which is free.
 import pprint
 import sys
 
+from typing_extensions import override
+
 from juriscraper.lib.date_utils import make_date_range_tuples
 from juriscraper.lib.html_utils import (
     clean_html,
@@ -174,6 +176,7 @@ class FreeOpinionReport(BaseReport):
         )
 
     @property
+    @override
     def data(self):
         results = []
         for tree in self.trees:
@@ -281,6 +284,7 @@ class FreeOpinionRow(BaseDocketReport):
         return data
 
     @property
+    @override
     def data(self):
         """Get all the data back from this endpoint."""
         data = self.metadata.copy()

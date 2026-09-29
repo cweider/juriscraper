@@ -9,6 +9,7 @@ from dateutil.tz import gettz
 from lxml import etree
 from lxml.etree import _ElementUnicodeResult
 from lxml.html import HtmlElement, fromstring, tostring
+from typing_extensions import override
 
 from juriscraper.lib.judge_parsers import normalize_judge_string
 from juriscraper.lib.log_tools import make_default_logger
@@ -534,6 +535,7 @@ class DocketReport(BaseDocketReport, BaseReport):
         return valid_content
 
     @property
+    @override
     def data(self):
         """Get all the data back from this endpoint after validations."""
         if self.is_valid is False or self.docket_report_has_content is False:

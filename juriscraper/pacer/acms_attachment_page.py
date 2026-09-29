@@ -3,6 +3,8 @@ import pprint
 import sys
 import unicodedata
 
+from typing_extensions import override
+
 from juriscraper.lib.html_utils import strip_bad_html_tags_insecure
 from juriscraper.lib.log_tools import make_default_logger
 from juriscraper.lib.network_utils import AcmsApiClient
@@ -166,6 +168,7 @@ class ACMSAttachmentPage(BaseReport):
         }
 
     @property
+    @override
     def data(self) -> dict:
         """Extract relevant information from the JSON payload
         provided by the extension.

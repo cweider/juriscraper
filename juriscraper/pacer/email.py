@@ -4,6 +4,7 @@ from datetime import date
 from typing import TypedDict
 
 from lxml.html import HtmlElement
+from typing_extensions import override
 
 from juriscraper.AbstractSite import logger
 from juriscraper.lib.string_utils import (
@@ -97,6 +98,7 @@ class NotificationEmail(BaseDocketReport, BaseReport):
         super().__init__(court_id)
 
     @property
+    @override
     def data(self):
         # Emails with attached images should be ignored.
         if self.is_valid is False or self.tree is None or self.image_attached:

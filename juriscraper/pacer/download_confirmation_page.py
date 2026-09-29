@@ -1,6 +1,8 @@
 import re
 from datetime import datetime
 
+from typing_extensions import override
+
 from juriscraper.lib.log_tools import make_default_logger
 from juriscraper.lib.string_utils import (
     clean_string,
@@ -59,6 +61,7 @@ class DownloadConfirmationPage(BaseReport):
         self.parse()
 
     @property
+    @override
     def data(self):
         """Get data back from the query for the matching document entry.
 

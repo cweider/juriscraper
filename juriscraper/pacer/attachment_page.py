@@ -2,6 +2,8 @@ import pprint
 import re
 import sys
 
+from typing_extensions import override
+
 from juriscraper.lib.log_tools import make_default_logger
 from juriscraper.lib.string_utils import force_unicode
 
@@ -46,6 +48,7 @@ class AttachmentPage(BaseReport):
         self.parse()
 
     @property
+    @override
     def data(self):
         """Get data back from the query for the matching document entry.
 

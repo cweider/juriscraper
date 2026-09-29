@@ -1,4 +1,5 @@
 from lxml import etree
+from typing_extensions import override
 
 from juriscraper.lib.diff_tools import get_closest_match_index
 from juriscraper.lib.exceptions import ParsingException
@@ -47,6 +48,7 @@ class PossibleCaseNumberApi(BaseReport):
         """
         self.tree = etree.fromstring(text)
 
+    @override
     def data(
         self, case_name=None, office_number=None, docket_number_letters=None
     ):
@@ -233,6 +235,7 @@ class ShowCaseDocApi(BaseReport):
         pass
 
     @property
+    @override
     def data(self):
         """Get the URL out of the response object."""
         url = self.response.url
@@ -263,6 +266,7 @@ class AcmsCaseSearch(BaseReport):
         pass
 
     @property
+    @override
     def data(self):
         """
         Retrieves the parsed case data from the API response.

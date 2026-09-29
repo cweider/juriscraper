@@ -10,6 +10,8 @@ In the cases, we look up search results by name, date, etc.
 import pprint
 import sys
 
+from typing_extensions import override
+
 from juriscraper.lib.log_tools import make_default_logger
 from juriscraper.lib.string_utils import (
     clean_string,
@@ -46,6 +48,7 @@ class BaseCaseQueryAdvanced(BaseDocketReport, BaseReport):
         super().parse()
 
     @property
+    @override
     def data(self):
         """Get all the data back from this endpoint.
 

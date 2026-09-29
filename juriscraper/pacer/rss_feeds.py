@@ -7,6 +7,7 @@ from html import unescape
 
 import feedparser
 from requests import Session
+from typing_extensions import override
 
 from juriscraper.lib.log_tools import make_default_logger
 from juriscraper.lib.string_utils import clean_string, harmonize
@@ -212,6 +213,7 @@ class PacerRssFeed(DocketReport):
         self.feed = feedparser.parse(text)
 
     @property
+    @override
     def data(self):
         """Override this to create a list of docket-like objects instead of the
         usual dict that is usually provided by the docket report.

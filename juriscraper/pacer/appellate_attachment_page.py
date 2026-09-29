@@ -3,6 +3,7 @@ import re
 import sys
 
 from lxml import html
+from typing_extensions import override
 
 from juriscraper.lib.html_utils import strip_bad_html_tags_insecure
 from juriscraper.lib.log_tools import make_default_logger
@@ -58,6 +59,7 @@ class AppellateAttachmentPage(BaseReport):
         self.tree = strip_bad_html_tags_insecure(text, remove_scripts=False)
 
     @property
+    @override
     def data(self) -> dict:
         """Get data back from the query for the matching document entry.
 

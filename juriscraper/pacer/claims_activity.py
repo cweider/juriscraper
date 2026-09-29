@@ -2,6 +2,7 @@ import re
 from datetime import date
 
 from lxml.html import HtmlElement
+from typing_extensions import override
 
 from juriscraper.lib.log_tools import make_default_logger
 from juriscraper.lib.string_utils import (
@@ -40,6 +41,7 @@ class ClaimsActivity(BaseDocketReport, BaseReport):
         )
 
     @property
+    @override
     def data(self):
         """Get all the data back from this endpoint."""
         if self.is_valid is False:
