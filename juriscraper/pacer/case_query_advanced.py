@@ -28,7 +28,7 @@ from .utils import get_pacer_case_id_from_nonce_url
 logger = make_default_logger()
 
 
-class BaseCaseQueryAdvanced(BaseDocketReport, BaseReport):
+class BaseCaseQueryAdvanced(BaseDocketReport, BaseReport[dict]):
     """Base query for both district and bankruptcy queries."""
 
     PATH = "cgi-bin/iquery.pl"

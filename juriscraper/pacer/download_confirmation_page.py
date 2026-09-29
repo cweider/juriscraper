@@ -16,7 +16,7 @@ from .utils import is_pdf, make_doc1_url, make_docs1_url
 logger = make_default_logger()
 
 
-class DownloadConfirmationPage(BaseReport):
+class DownloadConfirmationPage(BaseReport[dict]):
     """An object for querying and parsing appellate PACER documents confirmation
     download page.
     """

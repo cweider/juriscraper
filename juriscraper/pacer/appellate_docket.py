@@ -33,7 +33,7 @@ from .utils import (
 logger = make_default_logger()
 
 
-class AppellateDocketReport(BaseDocketReport, BaseReport):
+class AppellateDocketReport(BaseDocketReport, BaseReport[dict]):
     """Parse appellate dockets.
 
     These can be particularly detailed and for the most part we parse the data

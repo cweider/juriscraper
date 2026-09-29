@@ -33,7 +33,7 @@ from .reports import BaseReport
 logger = make_default_logger()
 
 
-class FreeOpinionReport(BaseReport):
+class FreeOpinionReport(BaseReport[list[dict]]):
     """An object for querying and parsing the free opinion report."""
 
     EXCLUDED_COURT_IDS = ["casb", "innb", "ohsb"]

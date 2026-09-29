@@ -18,7 +18,7 @@ from .reports import BaseReport
 logger = make_default_logger()
 
 
-class AppellateAttachmentPage(BaseReport):
+class AppellateAttachmentPage(BaseReport[dict]):
     """An object for querying and parsing the appellate att. page report.
 
     * Some notes on Appellate attachement pages.

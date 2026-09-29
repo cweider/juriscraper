@@ -12,7 +12,7 @@ from .utils import get_pacer_doc_id_from_doc1_url
 logger = make_default_logger()
 
 
-class PossibleCaseNumberApi(BaseReport):
+class PossibleCaseNumberApi(BaseReport[dict[str, str] | None]):
     """Tools for gathering data from the "Possible case numbers" hidden API.
 
     This API takes a docket number and a court as input, and returns an XML
@@ -185,7 +185,7 @@ class PossibleCaseNumberApi(BaseReport):
             raise ParsingException("Unable to identify case.")
 
 
-class ShowCaseDocApi(BaseReport):
+class ShowCaseDocApi(BaseReport[str]):
     """Lookup a pacer_doc_id using the pacer_case_id and document_number
 
     There is a URL that's available at:
@@ -247,7 +247,7 @@ class ShowCaseDocApi(BaseReport):
             )
 
 
-class AcmsCaseSearch(BaseReport):
+class AcmsCaseSearch(BaseReport[dict]):
     """
     Looks up an ACMS case by its docket number using the CaseSearch API.
     """

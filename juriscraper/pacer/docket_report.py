@@ -433,7 +433,7 @@ class BaseDocketReport:
         return data
 
 
-class DocketReport(BaseDocketReport, BaseReport):
+class DocketReport(BaseDocketReport, BaseReport[dict]):
     case_name_str = r"(?:Case\s+title:\s+)?(.*\bvs?\.?\s.*)"
     case_name_regex = re.compile(case_name_str)
     case_name_i_regex = re.compile(case_name_str, flags=re.IGNORECASE)

@@ -19,7 +19,7 @@ from .utils import get_pacer_case_id_from_doc1_url
 logger = make_default_logger()
 
 
-class ClaimsActivity(BaseDocketReport, BaseReport):
+class ClaimsActivity(BaseDocketReport, BaseReport[dict]):
     """Query and parse the claims activity."""
 
     PATH = "cgi-bin/ClaimsActRpt.pl"

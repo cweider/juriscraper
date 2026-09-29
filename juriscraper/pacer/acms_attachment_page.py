@@ -15,7 +15,7 @@ from .reports import BaseReport
 logger = make_default_logger()
 
 
-class ACMSAttachmentPage(BaseReport):
+class ACMSAttachmentPage(BaseReport[dict]):
     """Parse ACMS attachment pages' JSON."""
 
     def __init__(self, court_id, pacer_session=None) -> None:

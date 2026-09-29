@@ -18,7 +18,7 @@ from .utils import get_pacer_doc_id_from_doc1_url
 logger = make_default_logger()
 
 
-class ClaimsRegister(BaseDocketReport, BaseReport):
+class ClaimsRegister(BaseDocketReport, BaseReport[dict]):
     """Query and parse the claims registry.
 
     This is the most naive version of this parser possible. It does not support

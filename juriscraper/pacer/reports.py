@@ -1,4 +1,5 @@
 import re
+from typing import Generic, TypeVar
 from urllib.parse import urljoin
 
 import requests
@@ -36,8 +37,10 @@ def re_xpath(self, path):
 
 HtmlElement.re_xpath = re_xpath
 
+_DataT = TypeVar("_DataT")
 
-class BaseReport:
+
+class BaseReport(Generic[_DataT]):
     """A base report for working with pages on PACER."""
 
     # Subclasses should override PATH
@@ -130,7 +133,7 @@ class BaseReport:
         self.is_valid = True
 
     @property
-    def data(self) -> dict | list[dict] | str | None:
+    def data(self) -> _DataT:
         """Extract the data from the tree and return it."""
         raise NotImplementedError(".data() must be overridden.")
 

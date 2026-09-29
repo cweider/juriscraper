@@ -17,7 +17,7 @@ from .reports import BaseReport
 logger = make_default_logger()
 
 
-class MobileQuery(BaseDocketReport, BaseReport):
+class MobileQuery(BaseDocketReport, BaseReport[dict]):
     """Parse the mobile_query.pl ("Mobile Query" menu) result.
 
     This provides the total number of docket entries, which is useful for alerts

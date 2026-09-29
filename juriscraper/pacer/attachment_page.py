@@ -19,7 +19,7 @@ from .utils import (
 logger = make_default_logger()
 
 
-class AttachmentPage(BaseReport):
+class AttachmentPage(BaseReport[dict]):
     """An object for querying and parsing the attachment page report."""
 
     PATH = "doc1/"

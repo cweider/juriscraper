@@ -10,7 +10,7 @@ from .docket_report import BaseDocketReport
 logger = make_default_logger()
 
 
-class ListOfCreditors(BaseDocketReport, BaseReport):
+class ListOfCreditors(BaseDocketReport, BaseReport[dict]):
     """Query and parse the List of Creditors report."""
 
     FORMAT_RAW_DATA_SERVICE = "https://ncrs.uscourts.gov/query/cmecf/index.adp"

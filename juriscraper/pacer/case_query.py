@@ -20,7 +20,7 @@ from .reports import BaseReport
 logger = make_default_logger()
 
 
-class CaseQuery(BaseDocketReport, BaseReport):
+class CaseQuery(BaseDocketReport, BaseReport[dict]):
     """Parse the iquery.pl ("Query" menu) result.
 
     This is pretty limited metadata about the case, although it

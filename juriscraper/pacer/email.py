@@ -43,7 +43,7 @@ class DocketType(TypedDict):
     docket_number: str
 
 
-class NotificationEmail(BaseDocketReport, BaseReport):
+class NotificationEmail(BaseDocketReport, BaseReport[dict]):
     """A BaseDocketReport for parsing PACER notification email parsing"""
 
     ERROR_STRINGS = [
