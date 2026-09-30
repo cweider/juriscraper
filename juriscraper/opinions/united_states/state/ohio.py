@@ -14,6 +14,8 @@ History:
 
 from datetime import date
 
+from typing_extensions import override
+
 from juriscraper.AbstractSite import logger
 from juriscraper.lib.utils import backscrape_over_paginated_results
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
@@ -38,6 +40,7 @@ class Site(OpinionSiteLinear):
         self.is_first_request = True
         self.should_have_results = True
 
+    @override
     async def _process_html(self) -> None:
         """Process the HTML and extract the data
 
