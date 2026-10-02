@@ -13,7 +13,7 @@ from urllib.parse import urljoin
 
 from typing_extensions import override
 
-from juriscraper.AbstractSite import logger
+from juriscraper.AbstractSite import UnpreparedContentError, logger
 from juriscraper.lib.string_utils import normalize_dashes
 from juriscraper.lib.utils import (
     PaginatedHtmlBackscrapeSite,
@@ -53,6 +53,9 @@ class Site(OpinionSiteLinear, PaginatedHtmlBackscrapeSite[Any]):
         Citation used to be available, now must be got from inside
         the document's text
         """
+        if self.html is None:
+            raise UnpreparedContentError()
+
         # Consolidated cases return the same document once per each base docket
         # This may cause the scrape to abort prematurely due to number of
         # consecutive duplicates

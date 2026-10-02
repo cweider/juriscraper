@@ -12,6 +12,7 @@ from urllib.parse import urlencode, urljoin
 
 from typing_extensions import override
 
+from juriscraper.AbstractSite import UnpreparedContentError
 from juriscraper.lib.string_utils import titlecase
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
@@ -32,6 +33,9 @@ class Site(OpinionSiteLinear):
 
     @override
     def _process_html(self) -> None:
+        if self.html is None:
+            raise UnpreparedContentError()
+
         for row in self.html.xpath(
             ".//div[contains(@class,'list__items')]/article"
         ):

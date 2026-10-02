@@ -11,6 +11,7 @@ from urllib.parse import urljoin
 from dateutil import parser
 from typing_extensions import override
 
+from juriscraper.AbstractSite import UnpreparedContentError
 from juriscraper.lib.log_tools import make_default_logger
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
@@ -37,6 +38,8 @@ class Site(OpinionSiteLinear):
 
         :return None
         """
+        if self.html is None:
+            raise UnpreparedContentError()
 
         # The example saved in 2025 had the whole panel repeated 7 times;
         # track seen URLs in case the source ever duplicates content again

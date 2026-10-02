@@ -15,6 +15,7 @@ from urllib.parse import urljoin
 
 from typing_extensions import override
 
+from juriscraper.AbstractSite import UnpreparedContentError
 from juriscraper.lib.string_utils import titlecase
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
@@ -53,6 +54,9 @@ class Site(OpinionSiteLinear):
 
         :return: None
         """
+        if self.html is None:
+            raise UnpreparedContentError()
+
         path = "//table[@class='Dashboard']/tbody/tr"
         for item in self.html.xpath(path):
             url = item.xpath(".//td/a/@href")[0]

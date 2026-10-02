@@ -9,6 +9,7 @@ History:
 
 from typing_extensions import override
 
+from juriscraper.AbstractSite import UnpreparedContentError
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
@@ -23,6 +24,9 @@ class Site(OpinionSiteLinear):
 
     @override
     def _process_html(self) -> None:
+        if self.html is None:
+            raise UnpreparedContentError()
+
         for row in self.html.xpath(
             '//*[@id="Opinions_ResizeContainer"]/table/tbody/tr'
         ):

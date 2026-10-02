@@ -6,6 +6,7 @@ from dateutil import parser
 from lxml.html import fromstring
 from typing_extensions import override
 
+from juriscraper.AbstractSite import UnpreparedContentError
 from juriscraper.lib.string_utils import clean_string
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
@@ -57,6 +58,9 @@ class Site(OpinionSiteLinear):
 
         :return None
         """
+        if self.html is None:
+            raise UnpreparedContentError()
+
         for row in self.html.xpath("//tr[td/a]"):
             _, date_filed_str, *name = row.xpath("td/text()")
             # Edge case where date is a range "December 8, 2000 - January 3, 2001"

@@ -13,7 +13,7 @@ from urllib.parse import urlencode
 
 from typing_extensions import override
 
-from juriscraper.AbstractSite import logger
+from juriscraper.AbstractSite import UnpreparedContentError, logger
 from juriscraper.lib.auth_utils import get_justice_dot_gov_auth_cookies
 from juriscraper.lib.exceptions import UnexpectedContentTypeError
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
@@ -35,6 +35,9 @@ class Site(OpinionSiteLinear):
 
     @override
     def _process_html(self) -> None:
+        if self.html is None:
+            raise UnpreparedContentError()
+
         for row in self.html.xpath(".//article"):
             name = row.xpath(".//h2")[0].text_content().strip()
             if not name:

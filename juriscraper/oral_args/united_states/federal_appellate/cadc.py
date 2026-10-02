@@ -12,7 +12,7 @@ from urllib.parse import urljoin
 
 from typing_extensions import override
 
-from juriscraper.AbstractSite import logger
+from juriscraper.AbstractSite import UnpreparedContentError, logger
 from juriscraper.lib.date_utils import unique_year_month
 from juriscraper.OralArgumentSiteLinear import OralArgumentSiteLinear
 
@@ -32,6 +32,9 @@ class Site(OralArgumentSiteLinear):
 
     @override
     def _process_html(self) -> None:
+        if self.html is None:
+            raise UnpreparedContentError()
+
         anchor_xpath = "a[contains(@href, '/recordings/docs/') and contains(@href, '.mp3')]"
         for row in self.html.xpath(f"//div[div[div[div[{anchor_xpath}]]]]"):
             ahref = row.xpath(f".//{anchor_xpath}")

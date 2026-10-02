@@ -11,6 +11,7 @@ History:
 
 from typing_extensions import override
 
+from juriscraper.AbstractSite import UnpreparedContentError
 from juriscraper.lib.string_utils import clean_if_py3, titlecase
 from juriscraper.opinions.united_states.state import ariz
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
@@ -29,6 +30,9 @@ class Site(OpinionSiteLinear):
 
     @override
     def _process_html(self) -> None:
+        if self.html is None:
+            raise UnpreparedContentError()
+
         path = "//table//a[contains(@href, '.pdf')]"
         for item in self.html.xpath(path):
             docket = item.xpath("./text()")[0]

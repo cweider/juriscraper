@@ -13,6 +13,7 @@ from datetime import date
 
 from typing_extensions import override
 
+from juriscraper.AbstractSite import UnpreparedContentError
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
@@ -46,6 +47,9 @@ class Site(OpinionSiteLinear):
 
         :return: None
         """
+
+        if self.html is None:
+            raise UnpreparedContentError()
 
         for row in self.html.xpath("//tr")[1:]:
             docket_number = row.xpath(".//td//a/text()")[0].strip()

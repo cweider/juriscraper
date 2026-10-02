@@ -4,7 +4,7 @@ from urllib.parse import urlencode
 
 from typing_extensions import override
 
-from juriscraper.AbstractSite import logger
+from juriscraper.AbstractSite import UnpreparedContentError, logger
 from juriscraper.lib.string_utils import titlecase
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
@@ -33,6 +33,9 @@ class Site(OpinionSiteLinear):
 
         :return: None
         """
+        if self.html is None:
+            raise UnpreparedContentError()
+
         for row in self.html.xpath("//div[@class='card-body']"):
             container = row.xpath(".//a[@class='text-underline-hover']")
             if not container:

@@ -9,6 +9,7 @@ from datetime import date
 from dateutil import parser
 from typing_extensions import override
 
+from juriscraper.AbstractSite import UnpreparedContentError
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
@@ -28,6 +29,9 @@ class Site(OpinionSiteLinear):
 
     @override
     def _process_html(self) -> None:
+        if self.html is None:
+            raise UnpreparedContentError()
+
         self.json = self.html
         for row in self.json["d"]["results"]:
             docket_number = row["Title"]

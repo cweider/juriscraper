@@ -13,6 +13,7 @@ from datetime import date, datetime
 from lxml import html
 from typing_extensions import override
 
+from juriscraper.AbstractSite import UnpreparedContentError
 from juriscraper.lib.string_utils import titlecase
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
@@ -34,6 +35,9 @@ class Site(OpinionSiteLinear):
         Some rows have mutliple documents and hence urls for each case.
         We will "pad" every other metadata field to match the urls
         """
+        if self.html is None:
+            raise UnpreparedContentError()
+
         for row in self.html.xpath("//table[2]//tr[not(th)]"):
             case_name = titlecase(
                 row.xpath("td[2]//text()[preceding-sibling::br]")[0].lower()

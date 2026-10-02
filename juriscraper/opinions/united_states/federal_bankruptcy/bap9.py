@@ -11,7 +11,7 @@ from urllib.parse import urljoin
 
 from typing_extensions import override
 
-from juriscraper.AbstractSite import logger
+from juriscraper.AbstractSite import UnpreparedContentError, logger
 from juriscraper.lib.auth_utils import generate_aws_sigv4_headers
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
@@ -113,6 +113,9 @@ class Site(OpinionSiteLinear):
 
         :return: None; updates self.cases with extracted case details.
         """
+        if self.html is None:
+            raise UnpreparedContentError()
+
         for item in self.html:
             date_str = item.get("date_filed").get("S")
             try:

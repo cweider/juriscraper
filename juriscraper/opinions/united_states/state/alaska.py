@@ -23,7 +23,7 @@ from urllib.parse import urlencode, urljoin
 from lxml import html
 from typing_extensions import override
 
-from juriscraper.AbstractSite import logger
+from juriscraper.AbstractSite import UnpreparedContentError, logger
 from juriscraper.lib.exceptions import InvalidDocumentError
 from juriscraper.lib.string_utils import titlecase
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
@@ -129,6 +129,9 @@ class Site(OpinionSiteLinear):
 
     @override
     async def _process_html(self) -> None:
+        if self.html is None:
+            raise UnpreparedContentError()
+
         self._parse_results_page(self.html)
         if self.test_mode_enabled():
             return

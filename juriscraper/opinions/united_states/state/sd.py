@@ -13,7 +13,7 @@ from typing import Any
 
 from typing_extensions import override
 
-from juriscraper.AbstractSite import logger
+from juriscraper.AbstractSite import UnpreparedContentError, logger
 from juriscraper.lib.html_utils import get_row_column_text
 from juriscraper.lib.string_utils import titlecase
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
@@ -64,6 +64,9 @@ class Site(OpinionSiteLinear):
 
         :return None
         """
+        if self.html is None:
+            raise UnpreparedContentError()
+
         for row in self.html.xpath("//tr[td/strong/a]"):
             title = get_row_column_text(row, 2)
 

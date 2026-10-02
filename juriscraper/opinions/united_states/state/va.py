@@ -3,6 +3,7 @@ from datetime import date, datetime, timedelta
 
 from typing_extensions import override
 
+from juriscraper.AbstractSite import UnpreparedContentError
 from juriscraper.lib.string_utils import titlecase
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
@@ -23,6 +24,9 @@ class Site(OpinionSiteLinear):
 
         :return: None
         """
+        if self.html is None:
+            raise UnpreparedContentError()
+
         if self.test_mode_enabled():
             today = datetime.strptime("11/20/2023", "%m/%d/%Y").date()
         else:

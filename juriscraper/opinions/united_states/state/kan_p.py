@@ -17,7 +17,7 @@ from urllib.parse import urlencode, urljoin
 
 from typing_extensions import override
 
-from juriscraper.AbstractSite import logger
+from juriscraper.AbstractSite import UnpreparedContentError, logger
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
@@ -54,6 +54,9 @@ class Site(OpinionSiteLinear):
 
         Columns: Release Date, Case Number, Case Title, Court, Status, PDF
         """
+
+        if self.html is None:
+            raise UnpreparedContentError()
 
         for row in self.html.xpath("//table//tr[not(.//th)]"):
             cells = row.xpath(".//td")

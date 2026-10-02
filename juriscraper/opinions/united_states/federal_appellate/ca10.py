@@ -1,6 +1,7 @@
 from lxml import html
 from typing_extensions import override
 
+from juriscraper.AbstractSite import UnpreparedContentError
 from juriscraper.lib.string_utils import convert_date_string
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
@@ -15,6 +16,9 @@ class Site(OpinionSiteLinear):
 
     @override
     def _process_html(self) -> None:
+        if self.html is None:
+            raise UnpreparedContentError()
+
         for item in self.html.xpath(".//item"):
             for e in item.xpath(
                 ".//description/text()",

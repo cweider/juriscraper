@@ -3,7 +3,7 @@ from datetime import datetime
 
 from typing_extensions import override
 
-from juriscraper.AbstractSite import logger
+from juriscraper.AbstractSite import UnpreparedContentError, logger
 from juriscraper.lib.exceptions import BotChallengeError, ParsingException
 from juriscraper.lib.string_utils import titlecase
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
@@ -43,6 +43,9 @@ class Site(OpinionSiteLinear):
 
     @override
     async def _process_html(self) -> None:
+        if self.html is None:
+            raise UnpreparedContentError()
+
         self.check_panel_is_present()
 
         for row in self.html.xpath(self.row_xpath):

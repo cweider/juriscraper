@@ -13,7 +13,7 @@ from datetime import datetime
 
 from typing_extensions import override
 
-from juriscraper.AbstractSite import logger
+from juriscraper.AbstractSite import UnpreparedContentError, logger
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
@@ -78,6 +78,9 @@ class Site(OpinionSiteLinear):
 
     @override
     def _process_html(self) -> None:
+        if self.html is None:
+            raise UnpreparedContentError()
+
         json_data = self.html
         for item in json_data["d"]["DataObject"]:
             docket, clean_name = self.extract_case_name_info(item["Name"])

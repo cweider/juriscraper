@@ -12,7 +12,7 @@ from datetime import date, datetime
 from dateparser import parse
 from typing_extensions import override
 
-from juriscraper.AbstractSite import logger
+from juriscraper.AbstractSite import UnpreparedContentError, logger
 from juriscraper.lib.string_utils import titlecase
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
@@ -36,6 +36,9 @@ class Site(OpinionSiteLinear):
 
         :return: None
         """
+        if self.html is None:
+            raise UnpreparedContentError()
+
         # The website has used 3 different HTML layouts over the years.
         # We detect the format by counting sibling TDs of the TSPR link:
         #   >=5 → middle format (2005-2022)

@@ -2,7 +2,7 @@ from datetime import datetime
 
 from typing_extensions import override
 
-from juriscraper.AbstractSite import logger
+from juriscraper.AbstractSite import UnpreparedContentError, logger
 from juriscraper.lib.type_utils import OpinionType
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
@@ -31,6 +31,9 @@ class Site(OpinionSiteLinear):
 
     @override
     def _process_html(self) -> None:
+        if self.html is None:
+            raise UnpreparedContentError()
+
         anchor_xpath = "a[contains(@href, '/opinions/pdf/')]"
 
         for row in self.html.xpath(f"//tr[td[{anchor_xpath}]]"):

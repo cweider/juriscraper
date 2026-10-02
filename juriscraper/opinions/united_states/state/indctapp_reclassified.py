@@ -9,6 +9,7 @@ History:
 
 from typing_extensions import override
 
+from juriscraper.AbstractSite import UnpreparedContentError
 from juriscraper.lib.string_utils import titlecase
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
@@ -28,6 +29,9 @@ class Site(OpinionSiteLinear):
 
         :return None
         """
+
+        if self.html is None:
+            raise UnpreparedContentError()
 
         rows = self.html.xpath("//table/tbody/tr")
         for row in rows:

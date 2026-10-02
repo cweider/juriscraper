@@ -2,7 +2,7 @@ import re
 
 from typing_extensions import override
 
-from juriscraper.AbstractSite import logger
+from juriscraper.AbstractSite import UnpreparedContentError, logger
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
@@ -16,6 +16,9 @@ class Site(OpinionSiteLinear):
 
     @override
     def _process_html(self) -> None:
+        if self.html is None:
+            raise UnpreparedContentError()
+
         for row in self.html.xpath(
             "//div[@id='content']//p[a[contains(@href, '.pdf')]]"
         ):

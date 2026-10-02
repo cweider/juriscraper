@@ -246,27 +246,6 @@
       "severity": "error"
     },
     {
-      "column": 16,
-      "path": "juriscraper/opinions/united_states/administrative_agency/asbca.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 24,
-      "path": "juriscraper/opinions/united_states/administrative_agency/bia.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 37,
-      "path": "juriscraper/opinions/united_states/administrative_agency/bia.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
       "column": 20,
       "path": "juriscraper/opinions/united_states/administrative_agency/bia.py",
       "name": "missing-attribute",
@@ -278,13 +257,6 @@
       "path": "juriscraper/opinions/united_states/administrative_agency/bia.py",
       "name": "unsupported-operation",
       "concise_description": "`None` is not subscriptable",
-      "severity": "error"
-    },
-    {
-      "column": 16,
-      "path": "juriscraper/opinions/united_states/administrative_agency/bva.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
       "severity": "error"
     },
     {
@@ -309,45 +281,10 @@
       "severity": "error"
     },
     {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states/administrative_agency/mspb_p.py",
-      "name": "unsupported-operation",
-      "concise_description": "`None` is not subscriptable",
-      "severity": "error"
-    },
-    {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states/administrative_agency/olc.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
       "column": 25,
       "path": "juriscraper/opinions/united_states/administrative_agency/olc.py",
       "name": "unsupported-operation",
       "concise_description": "`None` is not subscriptable",
-      "severity": "error"
-    },
-    {
-      "column": 19,
-      "path": "juriscraper/opinions/united_states/administrative_agency/ttab.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `get`",
-      "severity": "error"
-    },
-    {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states/federal_appellate/ca1.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 21,
-      "path": "juriscraper/opinions/united_states/federal_appellate/ca10.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
       "severity": "error"
     },
     {
@@ -372,52 +309,10 @@
       "severity": "error"
     },
     {
-      "column": 16,
-      "path": "juriscraper/opinions/united_states/federal_appellate/ca11_p.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states/federal_appellate/ca2_p.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states/federal_appellate/ca4.py",
-      "name": "unsupported-operation",
-      "concise_description": "`None` is not subscriptable",
-      "severity": "error"
-    },
-    {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states/federal_appellate/ca5.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states/federal_appellate/ca6.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
       "column": 33,
       "path": "juriscraper/opinions/united_states/federal_appellate/ca7.py",
       "name": "missing-attribute",
       "concise_description": "Object of type `AsyncClient | dict[Unknown, Unknown] | dict[str, str] | None` has no attribute `content`",
-      "severity": "error"
-    },
-    {
-      "column": 21,
-      "path": "juriscraper/opinions/united_states/federal_appellate/ca8.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
       "severity": "error"
     },
     {
@@ -435,31 +330,10 @@
       "severity": "error"
     },
     {
-      "column": 42,
-      "path": "juriscraper/opinions/united_states/federal_appellate/ca9_p.py",
-      "name": "bad-argument-type",
-      "concise_description": "Argument `Any | None` is not assignable to parameter `doc` with type `HtmlElement | _ElementTree[HtmlElement]` in function `lxml.html._funcs.tostring`",
-      "severity": "error"
-    },
-    {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states/federal_appellate/cadc.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
       "column": 33,
       "path": "juriscraper/opinions/united_states/federal_appellate/cafc.py",
       "name": "missing-attribute",
       "concise_description": "Object of type `AsyncClient | dict[Unknown, Unknown] | dict[str, str] | None` has no attribute `content`",
-      "severity": "error"
-    },
-    {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states/federal_appellate/scotus_slip.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
       "severity": "error"
     },
     {
@@ -477,24 +351,10 @@
       "severity": "error"
     },
     {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states/federal_bankruptcy/bap1.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
       "column": 16,
       "path": "juriscraper/opinions/united_states/federal_bankruptcy/bap10.py",
       "name": "bad-override-mutable-attribute",
       "concise_description": "Class member `Site.url` overrides parent class `OpinionSiteLinear` in an inconsistent manner",
-      "severity": "error"
-    },
-    {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states/federal_bankruptcy/bap10.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
       "severity": "error"
     },
     {
@@ -513,20 +373,6 @@
     },
     {
       "column": 21,
-      "path": "juriscraper/opinions/united_states/federal_bankruptcy/bap9.py",
-      "name": "not-iterable",
-      "concise_description": "Type `None` is not iterable",
-      "severity": "error"
-    },
-    {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states/federal_district/dcd.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 21,
       "path": "juriscraper/opinions/united_states/federal_district/dcd.py",
       "name": "missing-attribute",
       "concise_description": "Object of class `NoneType` has no attribute `group`",
@@ -537,104 +383,6 @@
       "path": "juriscraper/opinions/united_states/federal_district/dcd.py",
       "name": "bad-return",
       "concise_description": "Returned type `str | Any` is not assignable to declared return type `tuple[str, str]`",
-      "severity": "error"
-    },
-    {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states/federal_special/acca_p.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states/federal_special/afcca.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states/federal_special/ag.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states/federal_special/armfor.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 17,
-      "path": "juriscraper/opinions/united_states/federal_special/cavc.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states/federal_special/fisc.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 25,
-      "path": "juriscraper/opinions/united_states/federal_special/fisc.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states/federal_special/nmcca.py",
-      "name": "unsupported-operation",
-      "concise_description": "`None` is not subscriptable",
-      "severity": "error"
-    },
-    {
-      "column": 21,
-      "path": "juriscraper/opinions/united_states/federal_special/tax.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `get`",
-      "severity": "error"
-    },
-    {
-      "column": 17,
-      "path": "juriscraper/opinions/united_states/federal_special/tax.py",
-      "name": "bad-argument-type",
-      "concise_description": "Argument `Any | None` is not assignable to parameter `obj` with type `Sized` in function `len`",
-      "severity": "error"
-    },
-    {
-      "column": 16,
-      "path": "juriscraper/opinions/united_states/federal_special/tax.py",
-      "name": "bad-argument-type",
-      "concise_description": "Argument `Any | None` is not assignable to parameter `obj` with type `Sized` in function `len`",
-      "severity": "error"
-    },
-    {
-      "column": 27,
-      "path": "juriscraper/opinions/united_states/federal_special/uscfc.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 13,
-      "path": "juriscraper/opinions/united_states/federal_special/uscfc.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 21,
-      "path": "juriscraper/opinions/united_states/federal_special/uscgcoca.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
       "severity": "error"
     },
     {
@@ -687,87 +435,10 @@
       "severity": "error"
     },
     {
-      "column": 23,
-      "path": "juriscraper/opinions/united_states/state/ariz.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `get`",
-      "severity": "error"
-    },
-    {
-      "column": 22,
-      "path": "juriscraper/opinions/united_states/state/ariz.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `get`",
-      "severity": "error"
-    },
-    {
-      "column": 21,
-      "path": "juriscraper/opinions/united_states/state/ariz.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `get`",
-      "severity": "error"
-    },
-    {
-      "column": 24,
-      "path": "juriscraper/opinions/united_states/state/ariz.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `get`",
-      "severity": "error"
-    },
-    {
-      "column": 21,
-      "path": "juriscraper/opinions/united_states/state/arizctapp_div_2.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 16,
-      "path": "juriscraper/opinions/united_states/state/ark.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
       "column": 19,
       "path": "juriscraper/opinions/united_states/state/ark.py",
       "name": "missing-attribute",
       "concise_description": "Object of class `NoneType` has no attribute `strftime`",
-      "severity": "error"
-    },
-    {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states/state/cal.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states/state/calag.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 23,
-      "path": "juriscraper/opinions/united_states/state/colo.py",
-      "name": "unsupported-operation",
-      "concise_description": "`None` is not subscriptable",
-      "severity": "error"
-    },
-    {
-      "column": 31,
-      "path": "juriscraper/opinions/united_states/state/colo.py",
-      "name": "unsupported-operation",
-      "concise_description": "`None` is not subscriptable",
-      "severity": "error"
-    },
-    {
-      "column": 23,
-      "path": "juriscraper/opinions/united_states/state/colo.py",
-      "name": "unsupported-operation",
-      "concise_description": "`None` is not subscriptable",
       "severity": "error"
     },
     {
@@ -834,59 +505,10 @@
       "severity": "error"
     },
     {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states/state/conn.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
       "column": 25,
       "path": "juriscraper/opinions/united_states/state/conn.py",
       "name": "unbound-name",
       "concise_description": "`date_filed` may be uninitialized",
-      "severity": "error"
-    },
-    {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states/state/dc.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states/state/delaware.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states/state/fla.py",
-      "name": "unsupported-operation",
-      "concise_description": "`None` is not subscriptable",
-      "severity": "error"
-    },
-    {
-      "column": 21,
-      "path": "juriscraper/opinions/united_states/state/ga.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states/state/gactapp.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states/state/haw.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
       "severity": "error"
     },
     {
@@ -897,36 +519,8 @@
       "severity": "error"
     },
     {
-      "column": 16,
-      "path": "juriscraper/opinions/united_states/state/ill.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
       "column": 18,
       "path": "juriscraper/opinions/united_states/state/ill.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 21,
-      "path": "juriscraper/opinions/united_states/state/ind.py",
-      "name": "not-iterable",
-      "concise_description": "Type `None` is not iterable",
-      "severity": "error"
-    },
-    {
-      "column": 16,
-      "path": "juriscraper/opinions/united_states/state/indctapp_reclassified.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states/state/kan_p.py",
       "name": "missing-attribute",
       "concise_description": "Object of class `NoneType` has no attribute `xpath`",
       "severity": "error"
@@ -939,59 +533,10 @@
       "severity": "error"
     },
     {
-      "column": 23,
-      "path": "juriscraper/opinions/united_states/state/ky.py",
-      "name": "unsupported-operation",
-      "concise_description": "`None` is not subscriptable",
-      "severity": "error"
-    },
-    {
-      "column": 21,
-      "path": "juriscraper/opinions/united_states/state/la.py",
-      "name": "not-iterable",
-      "concise_description": "Type `None` is not iterable",
-      "severity": "error"
-    },
-    {
       "column": 36,
       "path": "juriscraper/opinions/united_states/state/la.py",
       "name": "bad-assignment",
       "concise_description": "`Response` is not assignable to dict key `response` with type `AsyncClient | dict[Unknown, Unknown] | dict[str, str] | None`",
-      "severity": "error"
-    },
-    {
-      "column": 21,
-      "path": "juriscraper/opinions/united_states/state/lactapp_1.py",
-      "name": "unsupported-operation",
-      "concise_description": "`None` is not subscriptable",
-      "severity": "error"
-    },
-    {
-      "column": 16,
-      "path": "juriscraper/opinions/united_states/state/lactapp_2.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 16,
-      "path": "juriscraper/opinions/united_states/state/lactapp_3.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states/state/lactapp_3.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 19,
-      "path": "juriscraper/opinions/united_states/state/lactapp_4.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
       "severity": "error"
     },
     {
@@ -1006,13 +551,6 @@
       "path": "juriscraper/opinions/united_states/state/lactapp_4.py",
       "name": "bad-argument-type",
       "concise_description": "Argument `Unknown | None` is not assignable to parameter `date_list` with type `list[tuple[Unknown]] | list[Unknown]` in function `juriscraper.lib.date_utils.unique_year_month`",
-      "severity": "error"
-    },
-    {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states/state/lactapp_5.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
       "severity": "error"
     },
     {
@@ -1039,20 +577,6 @@
     {
       "column": 16,
       "path": "juriscraper/opinions/united_states/state/lactapp_5.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states/state/mass.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states/state/massappct_u.py",
       "name": "missing-attribute",
       "concise_description": "Object of class `NoneType` has no attribute `xpath`",
       "severity": "error"
@@ -1107,13 +631,6 @@
       "severity": "error"
     },
     {
-      "column": 21,
-      "path": "juriscraper/opinions/united_states/state/masssuperct.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
       "column": 13,
       "path": "juriscraper/opinions/united_states/state/masssuperct.py",
       "name": "bad-argument-type",
@@ -1121,52 +638,10 @@
       "severity": "error"
     },
     {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states/state/md.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states/state/mdag.py",
-      "name": "unsupported-operation",
-      "concise_description": "`None` is not subscriptable",
-      "severity": "error"
-    },
-    {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states/state/me.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
       "column": 31,
       "path": "juriscraper/opinions/united_states/state/me.py",
       "name": "missing-attribute",
       "concise_description": "Object of class `NoneType` has no attribute `strftime`",
-      "severity": "error"
-    },
-    {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states/state/mesuperct.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 21,
-      "path": "juriscraper/opinions/united_states/state/mich.py",
-      "name": "unsupported-operation",
-      "concise_description": "`None` is not subscriptable",
-      "severity": "error"
-    },
-    {
-      "column": 21,
-      "path": "juriscraper/opinions/united_states/state/michctapp.py",
-      "name": "unsupported-operation",
-      "concise_description": "`None` is not subscriptable",
       "severity": "error"
     },
     {
@@ -1188,27 +663,6 @@
       "path": "juriscraper/opinions/united_states/state/minn.py",
       "name": "missing-attribute",
       "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states/state/mo.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states/state/moctapp_southern.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states/state/mont.py",
-      "name": "not-iterable",
-      "concise_description": "Type `None` is not iterable",
       "severity": "error"
     },
     {
@@ -1247,13 +701,6 @@
       "severity": "error"
     },
     {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states/state/nc.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
       "column": 46,
       "path": "juriscraper/opinions/united_states/state/nc.py",
       "name": "missing-attribute",
@@ -1268,13 +715,6 @@
       "severity": "error"
     },
     {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states/state/ncbizct.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
       "column": 14,
       "path": "juriscraper/opinions/united_states/state/nd.py",
       "name": "bad-override-mutable-attribute",
@@ -1286,13 +726,6 @@
       "path": "juriscraper/opinions/united_states/state/nd.py",
       "name": "bad-override-mutable-attribute",
       "concise_description": "Class member `Site.url` overrides parent class `OpinionSiteLinear` in an inconsistent manner",
-      "severity": "error"
-    },
-    {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states/state/nd.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
       "severity": "error"
     },
     {
@@ -1345,20 +778,6 @@
       "severity": "error"
     },
     {
-      "column": 22,
-      "path": "juriscraper/opinions/united_states/state/neb.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 23,
-      "path": "juriscraper/opinions/united_states/state/nev.py",
-      "name": "unsupported-operation",
-      "concise_description": "`None` is not subscriptable",
-      "severity": "error"
-    },
-    {
       "column": 17,
       "path": "juriscraper/opinions/united_states/state/nev.py",
       "name": "unsupported-operation",
@@ -1373,13 +792,6 @@
       "severity": "error"
     },
     {
-      "column": 21,
-      "path": "juriscraper/opinions/united_states/state/nh_p.py",
-      "name": "unsupported-operation",
-      "concise_description": "`None` is not subscriptable",
-      "severity": "error"
-    },
-    {
       "column": 26,
       "path": "juriscraper/opinions/united_states/state/nh_p.py",
       "name": "missing-attribute",
@@ -1387,38 +799,10 @@
       "severity": "error"
     },
     {
-      "column": 56,
-      "path": "juriscraper/opinions/united_states/state/nh_p.py",
-      "name": "unsupported-operation",
-      "concise_description": "`None` is not subscriptable",
-      "severity": "error"
-    },
-    {
-      "column": 30,
-      "path": "juriscraper/opinions/united_states/state/nh_p.py",
-      "name": "unsupported-operation",
-      "concise_description": "`None` is not subscriptable",
-      "severity": "error"
-    },
-    {
       "column": 24,
       "path": "juriscraper/opinions/united_states/state/nh_p.py",
       "name": "missing-attribute",
       "concise_description": "Object of class `NoneType` has no attribute `replace`",
-      "severity": "error"
-    },
-    {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states/state/nj.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 16,
-      "path": "juriscraper/opinions/united_states/state/nm.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
       "severity": "error"
     },
     {
@@ -1436,46 +820,11 @@
       "severity": "error"
     },
     {
-      "column": 17,
-      "path": "juriscraper/opinions/united_states/state/ny.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
       "column": 30,
       "path": "juriscraper/opinions/united_states/state/ny.py",
       "name": "unnecessary-type-conversion",
       "concise_description": "Unnecessary `str()` call; argument is already of type `str`",
       "severity": "warn"
-    },
-    {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states/state/nyag.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 17,
-      "path": "juriscraper/opinions/united_states/state/nytrial.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 18,
-      "path": "juriscraper/opinions/united_states/state/nytrial.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states/state/nytrial.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
     },
     {
       "column": 13,
@@ -1499,13 +848,6 @@
       "severity": "error"
     },
     {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states/state/ohio.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
       "column": 22,
       "path": "juriscraper/opinions/united_states/state/ohio.py",
       "name": "missing-attribute",
@@ -1535,27 +877,6 @@
     },
     {
       "column": 20,
-      "path": "juriscraper/opinions/united_states/state/okla.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states/state/oklaag.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 33,
-      "path": "juriscraper/opinions/united_states/state/or.py",
-      "name": "unsupported-operation",
-      "concise_description": "`None` is not subscriptable",
-      "severity": "error"
-    },
-    {
-      "column": 20,
       "path": "juriscraper/opinions/united_states/state/or.py",
       "name": "missing-attribute",
       "concise_description": "Object of type `AsyncClient | dict[Unknown, Unknown] | dict[str, str] | None` has no attribute `json`",
@@ -1569,31 +890,10 @@
       "severity": "error"
     },
     {
-      "column": 24,
-      "path": "juriscraper/opinions/united_states/state/pa.py",
-      "name": "unsupported-operation",
-      "concise_description": "`None` is not subscriptable",
-      "severity": "error"
-    },
-    {
       "column": 33,
       "path": "juriscraper/opinions/united_states/state/pa.py",
       "name": "missing-attribute",
       "concise_description": "Object of class `str` has no attribute `value`",
-      "severity": "error"
-    },
-    {
-      "column": 45,
-      "path": "juriscraper/opinions/united_states/state/pa.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `get`",
-      "severity": "error"
-    },
-    {
-      "column": 25,
-      "path": "juriscraper/opinions/united_states/state/pa.py",
-      "name": "unsupported-operation",
-      "concise_description": "`None` is not subscriptable",
       "severity": "error"
     },
     {
@@ -1618,31 +918,10 @@
       "severity": "error"
     },
     {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states/state/sc.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
       "column": 13,
       "path": "juriscraper/opinions/united_states/state/sc.py",
       "name": "bad-argument-type",
       "concise_description": "Argument `Unknown | None` is not assignable to parameter `date_list` with type `list[tuple[Unknown]] | list[Unknown]` in function `juriscraper.lib.date_utils.unique_year_month`",
-      "severity": "error"
-    },
-    {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states/state/sd.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 26,
-      "path": "juriscraper/opinions/united_states/state/sd.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
       "severity": "error"
     },
     {
@@ -1655,13 +934,6 @@
     {
       "column": 28,
       "path": "juriscraper/opinions/united_states/state/sd.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states/state/tenn.py",
       "name": "missing-attribute",
       "concise_description": "Object of class `NoneType` has no attribute `xpath`",
       "severity": "error"
@@ -1723,28 +995,7 @@
       "severity": "error"
     },
     {
-      "column": 17,
-      "path": "juriscraper/opinions/united_states/state/texag.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
       "column": 23,
-      "path": "juriscraper/opinions/united_states/state/texapp.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states/state/texapp.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 26,
       "path": "juriscraper/opinions/united_states/state/texapp.py",
       "name": "missing-attribute",
       "concise_description": "Object of class `NoneType` has no attribute `xpath`",
@@ -1772,52 +1023,10 @@
       "severity": "error"
     },
     {
-      "column": 17,
-      "path": "juriscraper/opinions/united_states/state/texbizct.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states/state/utah.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
       "column": 24,
       "path": "juriscraper/opinions/united_states/state/utah.py",
       "name": "missing-attribute",
       "concise_description": "Object of class `NoneType` has no attribute `group`",
-      "severity": "error"
-    },
-    {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states/state/va.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states/state/vactapp_p.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states/state/vactapp_u.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 21,
-      "path": "juriscraper/opinions/united_states/state/vt.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
       "severity": "error"
     },
     {
@@ -1856,13 +1065,6 @@
       "severity": "error"
     },
     {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states/state/wash.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
       "column": 17,
       "path": "juriscraper/opinions/united_states/state/wis.py",
       "name": "bad-assignment",
@@ -1877,27 +1079,6 @@
       "severity": "error"
     },
     {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states/state/wis.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states/state/wisctapp.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states/state/wva.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
       "column": 27,
       "path": "juriscraper/opinions/united_states/state/wva.py",
       "name": "bad-assignment",
@@ -1905,24 +1086,10 @@
       "severity": "error"
     },
     {
-      "column": 24,
-      "path": "juriscraper/opinions/united_states/state/wyo.py",
-      "name": "not-iterable",
-      "concise_description": "Type `None` is not iterable",
-      "severity": "error"
-    },
-    {
       "column": 29,
       "path": "juriscraper/opinions/united_states/state/wyo.py",
       "name": "missing-attribute",
       "concise_description": "Object of class `NoneType` has no attribute `group`",
-      "severity": "error"
-    },
-    {
-      "column": 19,
-      "path": "juriscraper/opinions/united_states/territories/guam.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
       "severity": "error"
     },
     {
@@ -1954,13 +1121,6 @@
       "severity": "error"
     },
     {
-      "column": 18,
-      "path": "juriscraper/opinions/united_states/territories/nmariana.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
       "column": 15,
       "path": "juriscraper/opinions/united_states/territories/prapp.py",
       "name": "bad-override",
@@ -1976,42 +1136,7 @@
     },
     {
       "column": 21,
-      "path": "juriscraper/opinions/united_states/territories/prsupreme.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 22,
       "path": "juriscraper/opinions/united_states/territories/superctguam.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 21,
-      "path": "juriscraper/opinions/united_states/territories/superctguam.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 18,
-      "path": "juriscraper/opinions/united_states/territories/virginislands.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states/territories/visuper.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `get`",
-      "severity": "error"
-    },
-    {
-      "column": 20,
-      "path": "juriscraper/opinions/united_states_backscrapers/state/mass.py",
       "name": "missing-attribute",
       "concise_description": "Object of class `NoneType` has no attribute `xpath`",
       "severity": "error"
@@ -2080,59 +1205,10 @@
       "severity": "error"
     },
     {
-      "column": 20,
-      "path": "juriscraper/oral_args/united_states/federal_appellate/ca11.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 20,
-      "path": "juriscraper/oral_args/united_states/federal_appellate/ca2.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 20,
-      "path": "juriscraper/oral_args/united_states/federal_appellate/ca3.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 21,
-      "path": "juriscraper/oral_args/united_states/federal_appellate/ca5.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 21,
-      "path": "juriscraper/oral_args/united_states/federal_appellate/ca6.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
       "column": 15,
       "path": "juriscraper/oral_args/united_states/federal_appellate/ca9.py",
       "name": "bad-override",
       "concise_description": "Class member `Site._download` overrides parent class `OralArgumentSiteLinear` in an inconsistent manner",
-      "severity": "error"
-    },
-    {
-      "column": 23,
-      "path": "juriscraper/oral_args/united_states/federal_appellate/ca9.py",
-      "name": "not-iterable",
-      "concise_description": "Type `None` is not iterable",
-      "severity": "error"
-    },
-    {
-      "column": 20,
-      "path": "juriscraper/oral_args/united_states/federal_appellate/cadc.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
       "severity": "error"
     },
     {
@@ -2152,27 +1228,6 @@
     {
       "column": 21,
       "path": "juriscraper/oral_args/united_states/federal_appellate/cafc.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 20,
-      "path": "juriscraper/oral_args/united_states/state/ill.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 20,
-      "path": "juriscraper/oral_args/united_states/state/illappct_1st_dist.py",
-      "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
-      "severity": "error"
-    },
-    {
-      "column": 16,
-      "path": "juriscraper/oral_args/united_states/state/md.py",
       "name": "missing-attribute",
       "concise_description": "Object of class `NoneType` has no attribute `xpath`",
       "severity": "error"

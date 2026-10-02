@@ -22,7 +22,7 @@ from urllib.parse import urlencode
 
 from typing_extensions import override
 
-from juriscraper.AbstractSite import logger
+from juriscraper.AbstractSite import UnpreparedContentError, logger
 from juriscraper.lib.judge_parsers import normalize_judge_string
 from juriscraper.lib.string_utils import titlecase
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
@@ -87,6 +87,9 @@ class Site(OpinionSiteLinear):
 
         :return None
         """
+        if self.html is None:
+            raise UnpreparedContentError()
+
         result_json = self.html
 
         for result in result_json["resultItems"]:

@@ -13,6 +13,7 @@ from urllib.parse import urlencode
 
 from typing_extensions import override
 
+from juriscraper.AbstractSite import UnpreparedContentError
 from juriscraper.lib.string_utils import titlecase
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
@@ -62,6 +63,9 @@ class Site(OpinionSiteLinear):
 
         :return: None
         """
+        if self.html is None:
+            raise UnpreparedContentError()
+
         for row in self.html.xpath("//div[@data-rowtype]"):
             docket, name, date = row.xpath(
                 ".//div[@class='col-md-7 font-bold']/text()"

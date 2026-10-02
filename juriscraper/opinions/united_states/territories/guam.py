@@ -17,7 +17,7 @@ from dateutil import parser
 from dateutil.parser import ParserError
 from typing_extensions import override
 
-from juriscraper.AbstractSite import logger
+from juriscraper.AbstractSite import UnpreparedContentError, logger
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
@@ -58,6 +58,9 @@ class Site(OpinionSiteLinear):
 
         :return: None
         """
+        if self.html is None:
+            raise UnpreparedContentError()
+
         anchors = self.html.xpath(
             '//div[contains(@class, "field--name-body")]'
             '//p//a[contains(@href, ".pdf")]'

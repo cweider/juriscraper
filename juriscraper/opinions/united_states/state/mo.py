@@ -9,6 +9,7 @@ from datetime import date
 
 from typing_extensions import override
 
+from juriscraper.AbstractSite import UnpreparedContentError
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
@@ -26,6 +27,9 @@ class Site(OpinionSiteLinear):
 
     @override
     def _process_html(self) -> None:
+        if self.html is None:
+            raise UnpreparedContentError()
+
         for row in self.html.xpath("//div[@class='margin-bottom-15']"):
             date = row.xpath(".//input")[0].value
             for opinion in row.xpath(".//div[@class='list-group-item-text']"):

@@ -26,7 +26,7 @@ from dateutil import parser
 from lxml import html as lxmlHTML
 from typing_extensions import override
 
-from juriscraper.AbstractSite import logger
+from juriscraper.AbstractSite import UnpreparedContentError, logger
 from juriscraper.ClusterSite import ClusterSite
 from juriscraper.lib.string_utils import titlecase
 from juriscraper.lib.type_utils import OpinionType
@@ -147,6 +147,9 @@ class Site(ClusterSite):
             self.method = "POST"
             self._set_parameters()
             self.html = await super()._download()
+
+        if self.html is None:
+            raise UnpreparedContentError()
 
         for row in self.html.xpath(self.rows_xpath):
             # `Document search` page returns OpinionClusters separated,

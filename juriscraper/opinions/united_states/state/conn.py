@@ -19,7 +19,7 @@ from datetime import date
 from dateutil.parser import parse
 from typing_extensions import override
 
-from juriscraper.AbstractSite import logger
+from juriscraper.AbstractSite import UnpreparedContentError, logger
 from juriscraper.ClusterSite import ClusterSite
 from juriscraper.lib.string_utils import clean_string
 from juriscraper.lib.type_utils import OpinionType
@@ -116,6 +116,9 @@ class Site(ClusterSite):
 
         :return: None
         """
+        if self.html is None:
+            raise UnpreparedContentError()
+
         for row in self.html.xpath(".//*[contains(@href, '.pdf')]"):
             pub = row.xpath('preceding::*[contains(., "Published")][1]/text()')
             date_filed_is_approximate = True

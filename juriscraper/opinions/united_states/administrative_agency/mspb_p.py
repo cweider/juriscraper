@@ -11,6 +11,7 @@ import json
 
 from typing_extensions import override
 
+from juriscraper.AbstractSite import UnpreparedContentError
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
@@ -28,6 +29,9 @@ class Site(OpinionSiteLinear):
         if self.test_mode_enabled():
             with open(self.mock_url) as file:
                 self.html = json.load(file)
+        if self.html is None:
+            raise UnpreparedContentError()
+
         for row in self.html["data"]:
             url = row["FILE_NAME"]
             name = f"{row['APL_FIRST_NAME']} {row['APL_LAST_NAME']} v. {row['AGENCY']}"

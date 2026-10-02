@@ -9,7 +9,7 @@ from datetime import date, datetime, timedelta
 
 from typing_extensions import override
 
-from juriscraper.AbstractSite import logger
+from juriscraper.AbstractSite import UnpreparedContentError, logger
 from juriscraper.lib.string_utils import titlecase
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
@@ -69,6 +69,9 @@ class Site(OpinionSiteLinear):
         Iterate over each item on the page collecting our data.
         return: None
         """
+        if self.html is None:
+            raise UnpreparedContentError()
+
         self.json = self.html
 
         for case in self.json.get("results", []):

@@ -13,7 +13,7 @@ from urllib.parse import urljoin
 
 from typing_extensions import override
 
-from juriscraper.AbstractSite import logger
+from juriscraper.AbstractSite import UnpreparedContentError, logger
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
@@ -46,6 +46,9 @@ class Site(OpinionSiteLinear):
 
     @override
     def _process_html(self) -> None:
+        if self.html is None:
+            raise UnpreparedContentError()
+
         # Exclude headers and rows that only have the month name
         if self.test_mode_enabled():
             self.year = "2026"

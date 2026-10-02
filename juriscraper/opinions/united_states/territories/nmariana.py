@@ -14,6 +14,7 @@ from urllib.parse import urljoin
 
 from typing_extensions import override
 
+from juriscraper.AbstractSite import UnpreparedContentError
 from juriscraper.lib.string_utils import normalize_dashes
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
@@ -59,6 +60,9 @@ class Site(OpinionSiteLinear):
 
     @override
     def _process_html(self) -> None:
+        if self.html is None:
+            raise UnpreparedContentError()
+
         for s in self.html.xpath(".//a[@class='pdf-link']/ancestor::tr"):
             cells = s.xpath(".//td")
             judge_text = cells[3].text_content()
