@@ -16,7 +16,11 @@ from urllib.parse import urlencode
 
 from typing_extensions import override
 
-from juriscraper.AbstractSite import UnpreparedContentError, logger
+from juriscraper.AbstractSite import (
+    HtmlTypeError,
+    UnpreparedContentError,
+    logger,
+)
 from juriscraper.ClusterSite import ClusterSite
 from juriscraper.lib.type_utils import OpinionType
 from juriscraper.opinions.united_states.state import mich
@@ -42,6 +46,8 @@ class Site(ClusterSite, mich.Site):
         """
         if self.html is None:
             raise UnpreparedContentError()
+        if not isinstance(self.html, dict):
+            raise HtmlTypeError(dict, self.html)
 
         for item in self.html["searchItems"]:
             case_dict = await self._extract_case_data_from_item(item)

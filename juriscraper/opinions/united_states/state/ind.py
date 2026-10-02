@@ -11,7 +11,7 @@ History:
 
 from typing_extensions import override
 
-from juriscraper.AbstractSite import UnpreparedContentError
+from juriscraper.AbstractSite import HtmlTypeError, UnpreparedContentError
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
@@ -34,6 +34,8 @@ class Site(OpinionSiteLinear):
         """
         if self.html is None:
             raise UnpreparedContentError()
+        if not isinstance(self.html, list):
+            raise HtmlTypeError(list, self.html)
 
         for case in self.html:
             lower_court, lower_court_number = self.parse_court_info(case)

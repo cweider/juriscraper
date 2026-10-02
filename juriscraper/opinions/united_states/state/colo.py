@@ -20,7 +20,11 @@ from urllib.parse import urlencode
 from lxml import etree, html
 from typing_extensions import override
 
-from juriscraper.AbstractSite import UnpreparedContentError, logger
+from juriscraper.AbstractSite import (
+    HtmlTypeError,
+    UnpreparedContentError,
+    logger,
+)
 from juriscraper.lib.html_utils import strip_bad_html_tags_insecure
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
@@ -146,6 +150,8 @@ class Site(OpinionSiteLinear):
     async def _process_html(self) -> None:
         if self.html is None:
             raise UnpreparedContentError()
+        if not isinstance(self.html, dict):
+            raise HtmlTypeError(dict, self.html)
 
         search_json = self.html
         total_count = search_json["count"]

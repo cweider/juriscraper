@@ -12,7 +12,11 @@ from datetime import datetime, timedelta
 
 from typing_extensions import override
 
-from juriscraper.AbstractSite import UnpreparedContentError, logger
+from juriscraper.AbstractSite import (
+    HtmlTypeError,
+    UnpreparedContentError,
+    logger,
+)
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
@@ -35,6 +39,8 @@ class Site(OpinionSiteLinear):
     async def _process_html(self) -> None:
         if self.html is None:
             raise UnpreparedContentError()
+        if not isinstance(self.html, dict):
+            raise HtmlTypeError(dict, self.html)
 
         for i, row in enumerate(self.html["items"]):
             # Honor robots.txt Crawl-Delay: 1 advertised by

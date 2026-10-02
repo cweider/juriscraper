@@ -13,7 +13,11 @@ from urllib.parse import urljoin
 
 from typing_extensions import override
 
-from juriscraper.AbstractSite import UnpreparedContentError, logger
+from juriscraper.AbstractSite import (
+    HtmlTypeError,
+    UnpreparedContentError,
+    logger,
+)
 from juriscraper.lib.auth_utils import generate_aws_sigv4_headers
 from juriscraper.OralArgumentSiteLinear import OralArgumentSiteLinear
 
@@ -173,6 +177,8 @@ class Site(OralArgumentSiteLinear):
 
         if self.html is None:
             raise UnpreparedContentError()
+        if not isinstance(self.html, list):
+            raise HtmlTypeError(list, self.html)
 
         for record in self.html:
             date_str = record.get("hearing_date", {}).get("S")

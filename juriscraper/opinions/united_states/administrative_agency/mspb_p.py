@@ -11,7 +11,7 @@ import json
 
 from typing_extensions import override
 
-from juriscraper.AbstractSite import UnpreparedContentError
+from juriscraper.AbstractSite import HtmlTypeError, UnpreparedContentError
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
@@ -31,6 +31,8 @@ class Site(OpinionSiteLinear):
                 self.html = json.load(file)
         if self.html is None:
             raise UnpreparedContentError()
+        if not isinstance(self.html, dict):
+            raise HtmlTypeError(dict, self.html)
 
         for row in self.html["data"]:
             url = row["FILE_NAME"]

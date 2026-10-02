@@ -10,7 +10,11 @@ from urllib.parse import urlencode
 
 from typing_extensions import override
 
-from juriscraper.AbstractSite import UnpreparedContentError, logger
+from juriscraper.AbstractSite import (
+    HtmlTypeError,
+    UnpreparedContentError,
+    logger,
+)
 from juriscraper.ClusterSite import ClusterSite
 from juriscraper.lib.type_utils import OpinionType
 
@@ -68,6 +72,8 @@ class Site(ClusterSite):
         """
         if self.html is None:
             raise UnpreparedContentError()
+        if not isinstance(self.html, dict):
+            raise HtmlTypeError(dict, self.html)
 
         json_response = self.html
 

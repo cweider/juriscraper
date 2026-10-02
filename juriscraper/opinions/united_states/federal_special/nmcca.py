@@ -11,7 +11,11 @@ from urllib.parse import urlencode
 
 from typing_extensions import override
 
-from juriscraper.AbstractSite import UnpreparedContentError, logger
+from juriscraper.AbstractSite import (
+    HtmlTypeError,
+    UnpreparedContentError,
+    logger,
+)
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
@@ -31,6 +35,8 @@ class Site(OpinionSiteLinear):
     def _process_html(self) -> None:
         if self.html is None:
             raise UnpreparedContentError()
+        if not isinstance(self.html, dict):
+            raise HtmlTypeError(dict, self.html)
 
         for row in self.html["results"]:
             date, docket, notes, name = list(row["data"].values())

@@ -13,7 +13,11 @@ from datetime import datetime
 
 from typing_extensions import override
 
-from juriscraper.AbstractSite import UnpreparedContentError, logger
+from juriscraper.AbstractSite import (
+    HtmlTypeError,
+    UnpreparedContentError,
+    logger,
+)
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
@@ -80,6 +84,8 @@ class Site(OpinionSiteLinear):
     def _process_html(self) -> None:
         if self.html is None:
             raise UnpreparedContentError()
+        if not isinstance(self.html, dict):
+            raise HtmlTypeError(dict, self.html)
 
         json_data = self.html
         for item in json_data["d"]["DataObject"]:

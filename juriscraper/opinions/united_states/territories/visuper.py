@@ -20,7 +20,11 @@ from urllib.parse import urljoin
 
 from typing_extensions import override
 
-from juriscraper.AbstractSite import UnpreparedContentError, logger
+from juriscraper.AbstractSite import (
+    HtmlTypeError,
+    UnpreparedContentError,
+    logger,
+)
 from juriscraper.lib.string_utils import convert_date_string, titlecase
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
@@ -81,6 +85,8 @@ class Site(OpinionSiteLinear):
         """
         if self.html is None:
             raise UnpreparedContentError()
+        if not isinstance(self.html, dict):
+            raise HtmlTypeError(dict, self.html)
 
         for pub in self.html.get("_embedded", {}).get("results", []):
             if self.test_mode_enabled() and "detailJson" in pub:

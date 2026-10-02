@@ -14,7 +14,11 @@ from urllib.parse import urljoin
 import httpx
 from typing_extensions import override
 
-from juriscraper.AbstractSite import UnpreparedContentError, logger
+from juriscraper.AbstractSite import (
+    HtmlTypeError,
+    UnpreparedContentError,
+    logger,
+)
 from juriscraper.lib.exceptions import ParsingException
 from juriscraper.lib.html_utils import get_html_parsed_text
 from juriscraper.lib.string_utils import titlecase
@@ -77,6 +81,8 @@ class Site(OpinionSiteLinear):
         xpath = "//a[contains(@href, 'opinions') and contains(@href, 'pdf')]"
         if self.html is None:
             raise UnpreparedContentError()
+        if not isinstance(self.html, list):
+            raise HtmlTypeError(list, self.html)
 
         for html in self.html:
             date_string = self._get_date_for_opinions(html)
