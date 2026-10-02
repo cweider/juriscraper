@@ -10,6 +10,7 @@ from datetime import date, datetime
 
 from dateparser import parse
 from dateutil.relativedelta import relativedelta
+from lxml.html import HtmlElement
 from typing_extensions import override
 
 from juriscraper.AbstractSite import logger
@@ -17,7 +18,7 @@ from juriscraper.lib.string_utils import titlecase
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[HtmlElement]):
     first_opinion_date = "2015/01/01"
     today = today_str = datetime.now().strftime("%Y/%m/%d")
     base_url = "https://poderjudicial.pr/tribunal-apelaciones/decisiones-finales-del-tribunal-de-apelaciones"

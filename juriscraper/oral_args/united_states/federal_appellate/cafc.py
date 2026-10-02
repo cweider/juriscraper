@@ -13,13 +13,14 @@ History:
 from datetime import date, timedelta
 from urllib.parse import urljoin
 
+from lxml.html import HtmlElement
 from typing_extensions import override
 
 from juriscraper.AbstractSite import logger
 from juriscraper.OralArgumentSiteLinear import OralArgumentSiteLinear
 
 
-class Site(OralArgumentSiteLinear):
+class Site(OralArgumentSiteLinear[HtmlElement]):
     days_interval = 15
     first_opinion_date = date(2003, 2, 4)
 

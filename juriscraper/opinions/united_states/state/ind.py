@@ -9,13 +9,15 @@ History:
     2025-07-09: Updated bt luism add new fields for lower court details and judge names
 """
 
+from typing import Any
+
 from typing_extensions import override
 
 from juriscraper.AbstractSite import HtmlTypeError, UnpreparedContentError
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[list[dict[str, Any]]]):
     page_court_id = "9510"
 
     def __init__(self, *args, **kwargs):

@@ -18,7 +18,7 @@ from juriscraper.lib.string_utils import titlecase
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[HtmlElement]):
     days_interval = 7
     use_urllib = True
 

@@ -23,7 +23,7 @@ from juriscraper.lib.string_utils import fix_camel_case
 from juriscraper.OralArgumentSiteLinear import OralArgumentSiteLinear
 
 
-class Site(OralArgumentSiteLinear):
+class Site(OralArgumentSiteLinear[HtmlElement]):
     docket_regex = r"\d{2}-\d{3,4}"
 
     def __init__(self, *args, **kwargs):

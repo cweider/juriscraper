@@ -10,6 +10,7 @@ History:
 import json
 import re
 from datetime import datetime
+from typing import Any
 
 from typing_extensions import override
 
@@ -21,7 +22,7 @@ from juriscraper.AbstractSite import (
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[dict[str, Any]]):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.court_id = self.__module__

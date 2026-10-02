@@ -30,7 +30,7 @@ from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 logger = make_default_logger()
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[HtmlElement]):
     base_url = "https://www.la3circuit.org"
     first_opinion_date = datetime(1992, 1, 1)
     days_interval = 28

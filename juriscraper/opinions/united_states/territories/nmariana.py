@@ -20,7 +20,7 @@ from juriscraper.lib.string_utils import normalize_dashes
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[HtmlElement]):
     use_urllib = True  # Use urllib to pass Cloudflare
 
     def __init__(self, *args, **kwargs):

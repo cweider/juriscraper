@@ -8,12 +8,13 @@ History:
 """
 
 from lxml import html
+from lxml.html import HtmlElement
 
 from juriscraper.lib.string_utils import convert_date_string, titlecase
 from juriscraper.OpinionSite import OpinionSite
 
 
-class Site(OpinionSite):
+class Site(OpinionSite[HtmlElement]):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.court_id = self.__module__

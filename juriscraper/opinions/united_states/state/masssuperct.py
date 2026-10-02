@@ -31,7 +31,7 @@ from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 logger = make_default_logger()
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[HtmlElement]):
     court_name = "Superior Court"
     first_opinion_date = datetime(2017, 6, 20)
     use_urllib = True

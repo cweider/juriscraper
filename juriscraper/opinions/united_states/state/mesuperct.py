@@ -18,7 +18,7 @@ from juriscraper.AbstractSite import HtmlTypeError, UnpreparedContentError
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[HtmlElement]):
     base_url = "https://apps.maine.edu/SuperiorCourt/show_list.jsp?plaintiff=&defendant=&year={}&code=&rule=&title=&number=&section=&Search=Search"
     start_year = 1999
 

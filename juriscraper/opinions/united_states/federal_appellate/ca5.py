@@ -19,7 +19,7 @@ from juriscraper.AbstractSite import (
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[HtmlElement]):
     # https://www.ca5.uscourts.gov/opinions?group=flat&pageSize=1000&quick=30
     base_url = "https://www.ca5.uscourts.gov/opinions/results"
     # Oldest opinion available on the court's search

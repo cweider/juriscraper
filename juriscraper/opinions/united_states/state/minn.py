@@ -12,6 +12,7 @@ import re
 from datetime import date, datetime, timezone
 from urllib.parse import urljoin
 
+from lxml.html import HtmlElement
 from typing_extensions import override
 
 from juriscraper.AbstractSite import logger
@@ -20,7 +21,7 @@ from juriscraper.lib.network_utils import add_delay
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[HtmlElement]):
     court_query = "supct"
     days_interval = 7
     first_opinion_date = date(1998, 1, 1)

@@ -37,7 +37,7 @@ from juriscraper.lib.string_utils import titlecase
 from juriscraper.lib.type_utils import OpinionType
 
 
-class Site(ClusterSite):
+class Site(ClusterSite[HtmlElement]):
     param_date_format = "%-m/%-d/%Y"
     first_opinion_date = datetime(2002, 1, 24, 0, 0, 0)
     # Interval for default scrape and backscrape iterable generation

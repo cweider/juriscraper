@@ -9,7 +9,7 @@ from juriscraper.lib.string_utils import titlecase
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[HtmlElement]):
     lower_court_regex = re.compile(r"FROM THE (?P<lower_court>.+)")
 
     def __init__(self, *args, **kwargs):

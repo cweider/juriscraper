@@ -15,7 +15,7 @@ from juriscraper.AbstractSite import HtmlTypeError, UnpreparedContentError
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[HtmlElement]):
     base_url = "http://afcca.law.af.mil/content/opinions_date_{}.html"
     start_year = 2002
 

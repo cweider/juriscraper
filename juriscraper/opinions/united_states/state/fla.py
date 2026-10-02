@@ -18,7 +18,7 @@ from juriscraper.lib.string_utils import titlecase
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[dict[str, Any]]):
     days_interval = 20
     # Days to look back on a regular scrape, kept short to bound pagination
     scrape_interval = 30

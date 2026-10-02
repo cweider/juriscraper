@@ -5,6 +5,8 @@ Author: mlr
 
 import datetime
 
+from lxml.html import HtmlElement
+
 from juriscraper.lib.html_utils import (
     get_table_column_links,
     get_table_column_text,
@@ -13,7 +15,7 @@ from juriscraper.lib.string_utils import convert_date_string
 from juriscraper.OralArgumentSite import OralArgumentSite
 
 
-class Site(OralArgumentSite):
+class Site(OralArgumentSite[HtmlElement]):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.court_id = self.__module__

@@ -18,7 +18,7 @@ from juriscraper.opinions.united_states.state import ariz
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[HtmlElement]):
     extract_from_text = ariz.Site.extract_from_text
 
     def __init__(self, *args, **kwargs):

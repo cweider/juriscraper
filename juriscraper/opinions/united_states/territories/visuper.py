@@ -16,6 +16,7 @@
 
 import re
 from datetime import date
+from typing import Any
 from urllib.parse import urljoin
 
 from typing_extensions import override
@@ -29,7 +30,7 @@ from juriscraper.lib.string_utils import convert_date_string, titlecase
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[dict[str, Any]]):
     # https://usvipublicportal.vicourts.org/portal/search/publication
     base_url = "https://usvipublicportal-api.vicourts.org"
     # USVI Superior Court. Supreme Court also available in this portal

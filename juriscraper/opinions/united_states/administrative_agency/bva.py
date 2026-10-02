@@ -44,7 +44,7 @@ from juriscraper.AbstractSite import (
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[HtmlElement]):
     # Sitemaps available from 1992 to present
     first_opinion_date = datetime(1992, 1, 1)
     days_interval = 365

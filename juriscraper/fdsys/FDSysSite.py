@@ -131,7 +131,7 @@ class FDSysModsContent:
     #     return ''
 
 
-class FDSysSite(AbstractSite):
+class FDSysSite(AbstractSite[etree._ElementTree]):
     """Contains generic methods for scraping fdsys. Should be extended by all
     scrapers for fdsys.
 

@@ -10,6 +10,7 @@ History:
 
 import re
 from datetime import date, datetime
+from typing import Any
 from urllib.parse import urlencode
 
 from typing_extensions import override
@@ -22,7 +23,7 @@ from juriscraper.AbstractSite import (
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[list[dict[str, Any]]]):
     date_re = re.compile(r"^/Date\((\d+)\)/$")
     base_url = "http://www.courts.state.wy.us"
     api_url = "https://opinions.courts.state.wy.us/Home/GetOpinions"

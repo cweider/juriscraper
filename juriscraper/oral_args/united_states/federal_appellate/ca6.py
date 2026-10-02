@@ -24,7 +24,7 @@ from juriscraper.AbstractSite import (
 from juriscraper.OralArgumentSiteLinear import OralArgumentSiteLinear
 
 
-class Site(OralArgumentSiteLinear):
+class Site(OralArgumentSiteLinear[HtmlElement]):
     days_interval = 10000  # force a single interval
     first_opinion_date = datetime(2012, 12, 1)
     # check the first 100 records; Otherwise, it will try to download more

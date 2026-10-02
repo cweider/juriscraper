@@ -6,6 +6,7 @@ Court Short Name: pa
 
 import re
 from datetime import date, datetime, timedelta
+from typing import Any
 from urllib.parse import urlencode
 
 from typing_extensions import override
@@ -19,7 +20,7 @@ from juriscraper.ClusterSite import ClusterSite
 from juriscraper.lib.type_utils import OpinionType
 
 
-class Site(ClusterSite):
+class Site(ClusterSite[dict[str, Any]]):
     court = "Supreme"
     base_url = "https://www.pacourts.us/api/opinion?"
     document_url = "https://www.pacourts.us/assets/opinions/{}/out/{}"

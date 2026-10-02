@@ -7,6 +7,7 @@ History:
 """
 
 from datetime import date, datetime
+from typing import Any
 from urllib.parse import urlencode
 
 from typing_extensions import override
@@ -19,7 +20,7 @@ from juriscraper.AbstractSite import (
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[dict[str, Any]]):
     base_url = "https://www.jag.navy.mil/api/tables/decisions-opinions/data/"
     days_interval = 60
     first_opinion_date = datetime(2004, 1, 8)

@@ -30,7 +30,7 @@ from juriscraper.lib.string_utils import clean_string
 from juriscraper.lib.type_utils import OpinionType
 
 
-class Site(ClusterSite):
+class Site(ClusterSite[HtmlElement]):
     court_abbv = "sup"
     start_year = 2000
     base_url = "https://www.jud.ct.gov/external/supapp/archiveARO{}{}.htm"

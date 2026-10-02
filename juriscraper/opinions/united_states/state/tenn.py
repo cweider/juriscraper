@@ -20,7 +20,7 @@ from juriscraper.ClusterSite import ClusterSite
 from juriscraper.lib.type_utils import OpinionType
 
 
-class Site(ClusterSite):
+class Site(ClusterSite[HtmlElement]):
     first_opinion_date = datetime(1993, 1, 22)
     days_interval = 7
 

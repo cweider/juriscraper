@@ -14,7 +14,7 @@ from juriscraper.lib.string_utils import titlecase
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[HtmlElement]):
     id_to_case_mapper = {
         "lblCaseTitle": "name",
         "lblCaseNum": "docket",

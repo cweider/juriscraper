@@ -12,7 +12,7 @@ from juriscraper.lib.type_utils import OpinionType
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[HtmlElement]):
     # Example URL:
     # https://www.courts.wa.gov/opinions/index.cfm?fa=opinions.byYear&fileYear=2025&crtLevel=S&pubStatus=PUB
     # crtLevel = S; is the Supreme Court

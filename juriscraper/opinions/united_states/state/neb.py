@@ -14,7 +14,7 @@ from juriscraper.lib.string_utils import titlecase
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[HtmlElement]):
     citation_regex = re.compile(
         r"Cite\s+as\s+(?P<citation>\d+ +Neb\.( App\.)? \d+)"
     )

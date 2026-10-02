@@ -4,13 +4,15 @@ Court Contact: https://www.supremecourt.gov/contact/contact_webmaster.aspx
 
 from datetime import date
 
+from lxml.html import HtmlElement
+
 from juriscraper.AbstractSite import logger
 from juriscraper.lib.exceptions import InsanityException
 from juriscraper.lib.string_utils import convert_date_string
 from juriscraper.OpinionSite import OpinionSite
 
 
-class Site(OpinionSite):
+class Site(OpinionSite[HtmlElement]):
     required_headers = ["Date", "Docket", "Name", "J."]
     expected_headers = required_headers + ["Revised", "R-", "Pt."]
     justices = {

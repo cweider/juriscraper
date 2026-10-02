@@ -8,7 +8,6 @@
 
 import re
 from datetime import date, datetime
-from typing import Any
 from urllib.parse import urljoin
 
 from lxml.html import HtmlElement
@@ -27,7 +26,9 @@ from juriscraper.lib.utils import (
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear, PaginatedHtmlBackscrapeSite[Any]):
+class Site(
+    OpinionSiteLinear[HtmlElement], PaginatedHtmlBackscrapeSite[HtmlElement]
+):
     base_url = "https://www.ndcourts.gov/"
     ordered_fields = [
         "citation",

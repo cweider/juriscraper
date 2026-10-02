@@ -16,7 +16,7 @@ from juriscraper.ClusterSite import ClusterSite
 from juriscraper.lib.type_utils import OpinionType
 
 
-class Site(ClusterSite):
+class Site(ClusterSite[HtmlElement]):
     """
     About decision types
 

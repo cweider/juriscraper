@@ -7,6 +7,7 @@ Court Short Name: 9th Cir. BAP
 import json
 import re
 from datetime import date, datetime, timedelta
+from typing import Any
 from urllib.parse import urljoin
 
 from typing_extensions import override
@@ -20,7 +21,7 @@ from juriscraper.lib.auth_utils import generate_aws_sigv4_headers
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[list[dict[str, Any]]]):
     query_url = "https://dynamodb.us-west-2.amazonaws.com/"
     days_interval = 31
     first_opinion_date = datetime(2005, 1, 6)

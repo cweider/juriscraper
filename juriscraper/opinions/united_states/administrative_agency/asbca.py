@@ -22,7 +22,7 @@ from juriscraper.AbstractSite import (
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[HtmlElement]):
     base_url = "https://www.asbca.mil/"
 
     def __init__(self, *args, **kwargs):

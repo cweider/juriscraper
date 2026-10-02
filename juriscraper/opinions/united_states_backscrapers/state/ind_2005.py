@@ -12,11 +12,12 @@ import time
 from datetime import date
 
 from lxml import html
+from lxml.html import HtmlElement
 
 from juriscraper.OpinionSite import OpinionSite
 
 
-class Site(OpinionSite):
+class Site(OpinionSite[HtmlElement]):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.url = "http://www.in.gov/judiciary/opinions/previous/archsup.html"

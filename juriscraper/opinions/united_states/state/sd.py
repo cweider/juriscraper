@@ -24,7 +24,7 @@ from juriscraper.lib.string_utils import titlecase
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[HtmlElement]):
     # data available in HTML format since 1996, in PDF since 2006
     start_year = 2006
     # judges full names from https://ujs.sd.gov/Supreme_Court/Justices.aspx

@@ -12,7 +12,7 @@ from juriscraper.AbstractSite import (
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[HtmlElement]):
     # This URL will show most recent opinions
     base_url = "https://www.ca1.uscourts.gov/opn/aci"
     days_interval = 5

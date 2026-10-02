@@ -6,11 +6,12 @@ import time
 from datetime import date
 
 from lxml import html
+from lxml.html import HtmlElement
 
 from juriscraper.OpinionSite import OpinionSite
 
 
-class Site(OpinionSite):
+class Site(OpinionSite[HtmlElement]):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         # This is a special backscraper to deal with problems on the 2008 page.

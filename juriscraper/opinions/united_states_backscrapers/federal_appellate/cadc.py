@@ -2,11 +2,12 @@ import time
 from datetime import date
 
 from dateutil.rrule import MONTHLY, rrule
+from lxml.html import HtmlElement
 
 from juriscraper.OpinionSite import OpinionSite
 
 
-class Site(OpinionSite):
+class Site(OpinionSite[HtmlElement]):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.url = "https://www.cadc.uscourts.gov/internet/opinions.nsf/OpinionsByMonday?OpenView&StartKey=20151020150928&Count=2&scode=1"

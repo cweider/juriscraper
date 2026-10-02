@@ -33,7 +33,7 @@ from juriscraper.lib.string_utils import convert_date_string, titlecase
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[HtmlElement]):
     url_template = (
         "https://www.courts.maine.gov/courts/sjc/lawcourt/{}/index.html"
     )

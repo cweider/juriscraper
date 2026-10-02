@@ -15,6 +15,7 @@ History:
 
 import re
 from datetime import date, datetime, timedelta
+from typing import Any
 from urllib.parse import urlencode
 
 from lxml import etree, html
@@ -29,7 +30,7 @@ from juriscraper.lib.html_utils import strip_bad_html_tags_insecure
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[dict[str, Any]]):
     base_url = "https://research.coloradojudicial.gov/search.json"
     detail_url = "https://research.coloradojudicial.gov/vid/{}.json?include=abstract%2Cparent%2Cmeta%2Cformats%2Cchildren%2Cproperties_with_ids%2Clibrary%2Csource&fat=1&locale=en&hide_ct6=true&t={}"
     days_interval = 30

@@ -18,6 +18,7 @@ History:
 
 import re
 from datetime import date, datetime, timedelta
+from typing import Any
 from urllib.parse import urlencode
 
 from typing_extensions import override
@@ -32,7 +33,7 @@ from juriscraper.lib.string_utils import titlecase
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[dict[str, Any]]):
     # Home: https://appellatepublic.kycourts.net/login
     first_opinion_date = datetime(1982, 2, 18).date()
     days_interval = 7  # page size of 25

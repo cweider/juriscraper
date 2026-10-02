@@ -29,7 +29,7 @@ from juriscraper.lib.html_utils import (
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[HtmlElement]):
     days_interval = 200
     first_opinion_date = datetime(1996, 5, 22)
     court_filter = "Supreme Court"

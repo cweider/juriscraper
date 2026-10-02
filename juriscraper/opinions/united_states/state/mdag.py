@@ -5,6 +5,7 @@ Court Short Name: Maryland Attorney General
 
 import re
 from datetime import date
+from typing import Any
 
 from dateutil import parser
 from typing_extensions import override
@@ -13,7 +14,7 @@ from juriscraper.AbstractSite import HtmlTypeError, UnpreparedContentError
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[dict[str, Any]]):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.court_id = self.__module__

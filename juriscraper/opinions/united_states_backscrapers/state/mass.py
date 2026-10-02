@@ -11,7 +11,7 @@ from juriscraper.lib.string_utils import clean_string
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[HtmlElement]):
     first_opinion_date = datetime(1931, 2, 26)
     docket_number_regex = r"SJC-\d+"
     # This mapper is missing older volumes

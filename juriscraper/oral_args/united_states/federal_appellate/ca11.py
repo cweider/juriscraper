@@ -13,7 +13,7 @@ from juriscraper.AbstractSite import HtmlTypeError, UnpreparedContentError
 from juriscraper.OralArgumentSiteLinear import OralArgumentSiteLinear
 
 
-class Site(OralArgumentSiteLinear):
+class Site(OralArgumentSiteLinear[HtmlElement]):
     base_url = "https://www.ca11.uscourts.gov/oral-argument-recordings"
 
     def __init__(self, *args, **kwargs):

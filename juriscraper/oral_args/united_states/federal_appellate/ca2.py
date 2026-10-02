@@ -33,7 +33,7 @@ from juriscraper.opinions.united_states.federal_appellate.ca2_p import (
 from juriscraper.OralArgumentSiteLinear import OralArgumentSiteLinear
 
 
-class Site(OralArgumentSiteLinear):
+class Site(OralArgumentSiteLinear[HtmlElement]):
     base_url = "https://ww3.ca2.uscourts.gov"
     search_url = urljoin(base_url, "/dtSearch/dtisapi6.dll")
     # The dtSearch index ID for Oral Argument audio (see ca2_p for the

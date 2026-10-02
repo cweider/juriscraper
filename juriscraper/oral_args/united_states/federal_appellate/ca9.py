@@ -9,6 +9,7 @@ History:
 
 import json
 from datetime import datetime, timedelta
+from typing import Any
 from urllib.parse import urljoin
 
 from typing_extensions import override
@@ -22,7 +23,7 @@ from juriscraper.lib.auth_utils import generate_aws_sigv4_headers
 from juriscraper.OralArgumentSiteLinear import OralArgumentSiteLinear
 
 
-class Site(OralArgumentSiteLinear):
+class Site(OralArgumentSiteLinear[list[dict[str, Any]]]):
     query_url = "https://dynamodb.us-west-2.amazonaws.com/"
     # Lookback for the regular scrape, in `created_date` terms. The cron runs
     # hourly, so this only needs to cover a scraper outage. Widening it is

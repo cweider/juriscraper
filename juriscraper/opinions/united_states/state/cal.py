@@ -7,7 +7,7 @@ from juriscraper.AbstractSite import HtmlTypeError, UnpreparedContentError
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[HtmlElement]):
     court_code = "S"
     division = ""
     date_regex = re.compile(r" \d\d?/\d\d?/\d\d| filed")

@@ -3,6 +3,7 @@
 # Date updated: 2020-02-25
 
 import re
+from typing import Any
 
 from typing_extensions import override
 
@@ -15,7 +16,7 @@ from juriscraper.lib.exceptions import InvalidDocumentError
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[list[dict[str, Any]]]):
     # Home: https://juddocumentservice.mt.gov/getDailyOrders
     base_url = "https://juddocumentservice.mt.gov"
     download_base = f"{base_url}/getDocByCTrackId?DocId="

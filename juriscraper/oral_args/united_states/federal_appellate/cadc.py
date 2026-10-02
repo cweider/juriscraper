@@ -22,7 +22,7 @@ from juriscraper.lib.date_utils import unique_year_month
 from juriscraper.OralArgumentSiteLinear import OralArgumentSiteLinear
 
 
-class Site(OralArgumentSiteLinear):
+class Site(OralArgumentSiteLinear[HtmlElement]):
     days_interval = 28  # ensure monthly backscraper ticks
     first_opinion_date = datetime(2007, 9, 10)
     base_url = "https://media.cadc.uscourts.gov/recordings/bydate/{}"

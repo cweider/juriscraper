@@ -1,5 +1,6 @@
 import re
 from datetime import date, datetime
+from typing import Any
 
 from dateutil.relativedelta import relativedelta
 from typing_extensions import override
@@ -12,7 +13,7 @@ from juriscraper.AbstractSite import (
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[dict[str, Any]]):
     oldest_opinion = "2002-03-20"
     court_name = "United States Court of Appeals for the Fourth Circuit"
 

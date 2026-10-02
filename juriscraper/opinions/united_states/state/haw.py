@@ -16,7 +16,7 @@ from juriscraper.lib.type_utils import OpinionType
 logger = make_default_logger()
 
 
-class Site(ClusterSite):
+class Site(ClusterSite[HtmlElement]):
     first_opinion_date = datetime(2010, 1, 1)
     days_interval = 1
 

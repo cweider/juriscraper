@@ -16,7 +16,7 @@ from juriscraper.AbstractSite import (
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[HtmlElement]):
     initials_to_judges = {
         # See https://www.ca6.uscourts.gov/judges
         # Commented is their "Comission date"

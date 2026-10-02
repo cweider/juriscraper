@@ -5,12 +5,13 @@ from datetime import datetime
 
 from dateutil import parser
 from lxml import html
+from lxml.html import HtmlElement
 
 from juriscraper.AbstractSite import logger
 from juriscraper.OpinionSite import OpinionSite
 
 
-class Site(OpinionSite):
+class Site(OpinionSite[HtmlElement]):
     def __init__(self):
         super().__init__()
         self.year = 0

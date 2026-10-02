@@ -13,7 +13,6 @@ History:
 """
 
 from datetime import date
-from typing import Any
 
 from lxml.html import HtmlElement
 from typing_extensions import override
@@ -30,7 +29,9 @@ from juriscraper.lib.utils import (
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear, PaginatedHtmlBackscrapeSite[Any]):
+class Site(
+    OpinionSiteLinear[HtmlElement], PaginatedHtmlBackscrapeSite[HtmlElement]
+):
     days_interval = 50 * 365  # get the formatted input dates
     first_opinion_date = date(1992, 1, 1)
 

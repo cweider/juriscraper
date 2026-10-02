@@ -20,6 +20,7 @@ History:
 
 import re
 from datetime import datetime
+from typing import Any
 from urllib.parse import urlencode, urljoin
 
 from typing_extensions import override
@@ -32,7 +33,7 @@ from juriscraper.AbstractSite import (
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[dict[str, Any]]):
     """
     Regular site:
     https://www.courts.nh.gov/our-courts/supreme-court/orders-and-opinions/opinions

@@ -13,7 +13,7 @@ from juriscraper.lib.string_utils import clean_if_py3
 from juriscraper.OralArgumentSite import OralArgumentSite
 
 
-class Site(OralArgumentSite):
+class Site(OralArgumentSite[None]):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.court_id = self.__module__

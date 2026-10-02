@@ -25,7 +25,7 @@ from juriscraper.AbstractSite import (
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[HtmlElement]):
     base_url = url = "https://www.bap10.uscourts.gov/opinion/search/results"
     first_opinion_date = datetime(1996, 11, 12)
     days_interval = 120

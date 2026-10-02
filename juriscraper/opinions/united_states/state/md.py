@@ -16,7 +16,7 @@ from juriscraper.AbstractSite import HtmlTypeError, UnpreparedContentError
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[HtmlElement]):
     base_url = "https://www.mdcourts.gov/cgi-bin/indexlist.pl?court={}&year={}&order=bydate&submit=Submit"
     court = "coa"
     start_year = 1995

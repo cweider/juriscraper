@@ -19,7 +19,7 @@ from juriscraper.lib.string_utils import titlecase
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[HtmlElement]):
     judge_regex = re.compile(r"Signed by[\w\s]+(Master|Judge)(?P<judge>.+?)\(")
     other_date_regex = re.compile(r"\([Oo]riginally filed:?[\d\s/]+\)")
 

@@ -27,7 +27,7 @@ from juriscraper.lib.string_utils import titlecase
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[HtmlElement]):
     base_url = "https://www.vermontjudiciary.org/opinions-decisions"
     days_interval = 30
     first_opinion_date = datetime(2000, 1, 1)

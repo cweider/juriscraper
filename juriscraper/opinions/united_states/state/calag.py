@@ -12,7 +12,7 @@ from juriscraper.AbstractSite import HtmlTypeError, UnpreparedContentError
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[HtmlElement]):
     def __init__(self, *args, **kwargs):
         cipher = "ECDHE-RSA-AES128-GCM-SHA256"
         kwargs.setdefault("verify", self.set_custom_adapter(cipher))

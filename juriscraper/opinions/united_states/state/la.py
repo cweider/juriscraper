@@ -12,6 +12,7 @@ import re
 from urllib.parse import urljoin
 
 import httpx
+from lxml.html import HtmlElement
 from typing_extensions import override
 
 from juriscraper.AbstractSite import (
@@ -28,7 +29,7 @@ from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 RECORD_SEPARATOR = b"\x1e"
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[list[HtmlElement]]):
     """Louisiana Supreme Court.
 
     Since early 2026 lasc.org is a Blazor Server application (#1983): the

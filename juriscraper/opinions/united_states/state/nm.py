@@ -15,7 +15,7 @@ from juriscraper.lib.string_utils import titlecase
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[HtmlElement]):
     """This site has an artificial limit of 50/1 minute and 100/5 minutes.
 
     To stay under that cap we are going to just request the first 10 opinions.  Judging on the number of opinions

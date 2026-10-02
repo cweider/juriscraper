@@ -30,7 +30,7 @@ from juriscraper.lib.judge_parsers import normalize_judge_string
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[HtmlElement]):
     first_opinion_date = date(2003, 9, 25)
     days_interval = 30
     court_id_map = {

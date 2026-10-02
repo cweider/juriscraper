@@ -9,6 +9,7 @@ History:
 
 import re
 from datetime import date, datetime
+from typing import Any
 from urllib.parse import urlencode
 
 from typing_extensions import override
@@ -22,7 +23,7 @@ from juriscraper.lib.string_utils import titlecase
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[dict[str, Any]]):
     # Index https://nvcourts.gov/supreme/decisions
     base_url = "https://acis-api.nvcourts.gov/courts/cms/docketentrydocuments"
     document_url = "https://acis-api.nvcourts.gov/courts/{court}/cms/case/{case}/docketentrydocuments/{document}"

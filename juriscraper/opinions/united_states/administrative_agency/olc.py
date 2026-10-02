@@ -24,7 +24,7 @@ from juriscraper.lib.exceptions import UnexpectedContentTypeError
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[HtmlElement]):
     base_url = "https://www.justice.gov/olc/opinions"
     days_interval = 180
     first_opinion_date = datetime(1934, 3, 16)

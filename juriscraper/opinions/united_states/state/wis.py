@@ -13,7 +13,7 @@ from juriscraper.AbstractSite import (
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[HtmlElement]):
     days_interval = 15
     first_opinion_date = datetime(1995, 6, 1).date()
 

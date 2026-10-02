@@ -26,7 +26,7 @@ from juriscraper.AbstractSite import (
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[HtmlElement]):
     # Current-year opinions are published here; the legacy endpoint below
     # lags behind and stops getting updated mid-year (#2004)
     base_url = "https://guamcourts.gov/courts-council/supreme-court/opinions"

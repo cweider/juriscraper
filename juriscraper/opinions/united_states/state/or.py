@@ -9,6 +9,7 @@ History:
 import asyncio
 import re
 from datetime import datetime, timedelta
+from typing import Any
 
 from typing_extensions import override
 
@@ -20,7 +21,7 @@ from juriscraper.AbstractSite import (
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[dict[str, Any]]):
     court_code = "p17027coll3"
     citation_field = "cita"
     base_url = "https://cdm17027.contentdm.oclc.org/digital/api/search/collection/{}/searchterm/{}-{}/field/dated/mode/exact/conn/and/maxRecords/200"

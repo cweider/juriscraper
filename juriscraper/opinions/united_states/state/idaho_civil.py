@@ -17,6 +17,7 @@ History:
 
 import re
 from datetime import date, datetime
+from typing import Any
 from urllib.parse import urlencode, urljoin
 
 from typing_extensions import override
@@ -26,7 +27,7 @@ from juriscraper.lib.string_utils import titlecase
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[dict[str, Any]]):
     base_url = "https://isc.idaho.gov"
     list_path = "/api/cms-content-search"
     doc_path = "/api/cms-document"

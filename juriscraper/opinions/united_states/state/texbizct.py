@@ -25,7 +25,7 @@ byline_regex = re.compile(
 )
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[HtmlElement]):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.url = "https://www.txcourts.gov/businesscourt/opinions/"

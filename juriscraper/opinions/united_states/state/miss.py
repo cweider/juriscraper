@@ -13,7 +13,7 @@ from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
 # Landing page: https://courts.ms.gov/appellatecourts/sc/scdecisions.php
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[None]):
     court_parameter = "SCT"
     domain = "https://courts.ms.gov"
     first_opinion_year = 1996

@@ -13,11 +13,13 @@ Notes:
 
 import datetime
 
+from lxml.html import HtmlElement
+
 from juriscraper.lib.string_utils import convert_date_string, titlecase
 from juriscraper.OpinionSiteLinear import OpinionSite
 
 
-class Site(OpinionSite):
+class Site(OpinionSite[HtmlElement]):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.url = "http://www.masscases.com/land_date.html"

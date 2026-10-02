@@ -18,7 +18,7 @@ from typing_extensions import override
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[None]):
     court_str = "68f021c4-6a44-4735-9a76-5360b2e8af13"
     base_url = "https://publicportal-api.alappeals.gov"
 

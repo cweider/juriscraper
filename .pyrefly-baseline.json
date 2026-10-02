@@ -372,6 +372,41 @@
       "severity": "error"
     },
     {
+      "column": 24,
+      "path": "juriscraper/opinions/united_states/federal_bankruptcy/bap9.py",
+      "name": "missing-attribute",
+      "concise_description": "Object of class `NoneType` has no attribute `get`",
+      "severity": "error"
+    },
+    {
+      "column": 20,
+      "path": "juriscraper/opinions/united_states/federal_bankruptcy/bap9.py",
+      "name": "missing-attribute",
+      "concise_description": "Object of class `NoneType` has no attribute `get`",
+      "severity": "error"
+    },
+    {
+      "column": 22,
+      "path": "juriscraper/opinions/united_states/federal_bankruptcy/bap9.py",
+      "name": "missing-attribute",
+      "concise_description": "Object of class `NoneType` has no attribute `get`",
+      "severity": "error"
+    },
+    {
+      "column": 39,
+      "path": "juriscraper/opinions/united_states/federal_bankruptcy/bap9.py",
+      "name": "missing-attribute",
+      "concise_description": "Object of class `NoneType` has no attribute `get`",
+      "severity": "error"
+    },
+    {
+      "column": 29,
+      "path": "juriscraper/opinions/united_states/federal_bankruptcy/bap9.py",
+      "name": "missing-attribute",
+      "concise_description": "Object of class `NoneType` has no attribute `get`",
+      "severity": "error"
+    },
+    {
       "column": 21,
       "path": "juriscraper/opinions/united_states/federal_district/dcd.py",
       "name": "missing-attribute",
@@ -410,7 +445,7 @@
       "column": 22,
       "path": "juriscraper/opinions/united_states/state/ariz.py",
       "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
+      "concise_description": "Object of type `dict[str, Any] | None` has no attribute `xpath`",
       "severity": "error"
     },
     {
@@ -424,14 +459,14 @@
       "column": 29,
       "path": "juriscraper/opinions/united_states/state/ariz.py",
       "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
+      "concise_description": "Object of type `dict[str, Any] | None` has no attribute `xpath`",
       "severity": "error"
     },
     {
       "column": 45,
       "path": "juriscraper/opinions/united_states/state/ariz.py",
       "name": "missing-attribute",
-      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
+      "concise_description": "Object of type `dict[str, Any] | None` has no attribute `xpath`",
       "severity": "error"
     },
     {
@@ -523,6 +558,20 @@
       "path": "juriscraper/opinions/united_states/state/ill.py",
       "name": "missing-attribute",
       "concise_description": "Object of class `NoneType` has no attribute `xpath`",
+      "severity": "error"
+    },
+    {
+      "column": 26,
+      "path": "juriscraper/opinions/united_states/state/ind.py",
+      "name": "missing-attribute",
+      "concise_description": "Object of class `NoneType` has no attribute `get`",
+      "severity": "error"
+    },
+    {
+      "column": 35,
+      "path": "juriscraper/opinions/united_states/state/ind.py",
+      "name": "missing-attribute",
+      "concise_description": "Object of class `NoneType` has no attribute `get`",
       "severity": "error"
     },
     {
@@ -907,7 +956,7 @@
       "column": 33,
       "path": "juriscraper/opinions/united_states/state/ri.py",
       "name": "bad-argument-type",
-      "concise_description": "Argument `Any | None` is not assignable to parameter `doc` with type `HtmlElement | _ElementTree[HtmlElement]` in function `lxml.html._funcs.tostring`",
+      "concise_description": "Argument `HtmlElement | None` is not assignable to parameter `doc` with type `HtmlElement | _ElementTree[HtmlElement]` in function `lxml.html._funcs.tostring`",
       "severity": "error"
     },
     {

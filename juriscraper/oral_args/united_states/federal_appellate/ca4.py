@@ -5,11 +5,13 @@
 # Reviewer: mlr
 # Date created: 18 July 2014
 
+from lxml.html import HtmlElement
+
 from juriscraper.lib.string_utils import convert_date_string
 from juriscraper.OralArgumentSite import OralArgumentSite
 
 
-class Site(OralArgumentSite):
+class Site(OralArgumentSite[HtmlElement]):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.court_id = self.__module__

@@ -29,7 +29,7 @@ from juriscraper.lib.string_utils import convert_date_string
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[HtmlElement]):
     days_interval = 7
     lower_court_to_abbreviation = {
         "USBC - District of New Hampshire": "NH",

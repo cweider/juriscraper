@@ -26,7 +26,7 @@ from juriscraper.AbstractSite import (
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[HtmlElement]):
     base_url = "https://searchdro.kscourts.gov"
     court_string = "Supreme Court"
     court_filter = "10"

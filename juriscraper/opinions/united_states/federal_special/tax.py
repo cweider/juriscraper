@@ -6,6 +6,7 @@
 # Neutral Citation Format (Summary opinions: T.C. Summary Opinion 2012-1
 import asyncio
 from datetime import date, datetime, timedelta
+from typing import Any
 
 from typing_extensions import override
 
@@ -18,7 +19,7 @@ from juriscraper.lib.string_utils import titlecase
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[dict[str, Any]]):
     first_opinion_date = datetime(1986, 5, 1)
     days_interval = 10
     base_url = "https://public-api-green.dawson.ustaxcourt.gov/public-api"

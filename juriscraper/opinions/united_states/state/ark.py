@@ -19,7 +19,7 @@ from juriscraper.lib.string_utils import normalize_dashes, titlecase
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[HtmlElement]):
     base_url = "https://opinions.arcourts.gov/ark/en/d/s/index.do"
     court_code = "144"
     cite_regex = re.compile(r"\d{2,4} Ark\. \d+", re.IGNORECASE)

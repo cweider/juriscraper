@@ -17,7 +17,7 @@ from juriscraper.lib.string_utils import titlecase
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[HtmlElement]):
     url_template = "https://www.gasupreme.us/opinions/{}-opinions/"
     first_opinion_year = 2017
 

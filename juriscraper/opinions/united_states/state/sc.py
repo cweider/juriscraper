@@ -35,7 +35,7 @@ from juriscraper.lib.date_utils import unique_year_month
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[HtmlElement]):
     # Full URL example:
     # https://www.sccourts.org/opinions-orders/opinions/published-opinions/supreme-court/?term=2024-09
     base_url = (

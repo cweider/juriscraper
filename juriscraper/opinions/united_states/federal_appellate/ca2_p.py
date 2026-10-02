@@ -30,7 +30,7 @@ from juriscraper.lib.string_utils import titlecase
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[HtmlElement]):
     base_url = "https://ww3.ca2.uscourts.gov"
     search_url = urljoin(base_url, "/dtSearch/dtisapi6.dll")
     # The dtSearch index ID for Opinions. The companion ID for Summary

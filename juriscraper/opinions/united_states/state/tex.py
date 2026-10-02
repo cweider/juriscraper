@@ -24,6 +24,7 @@ from datetime import date
 from datetime import datetime as dt
 
 from lxml import etree
+from lxml.html import HtmlElement
 from typing_extensions import override
 
 from juriscraper.AbstractSite import logger
@@ -32,7 +33,7 @@ from juriscraper.lib.string_utils import titlecase
 from juriscraper.lib.type_utils import OpinionType
 
 
-class Site(ClusterSite):
+class Site(ClusterSite[HtmlElement]):
     base_url = "https://www.txcourts.gov/supreme/orders-opinions/{}/"
     # link_xp targets the year-index page's bullet list of dated order
     # subpages (one <li><a> per date); date_xp targets the "Orders

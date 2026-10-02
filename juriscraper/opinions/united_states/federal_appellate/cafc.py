@@ -13,14 +13,14 @@ History:
 import re
 
 import feedparser
-from lxml.html import fromstring
+from lxml.html import HtmlElement, fromstring
 from typing_extensions import override
 
 from juriscraper.lib.string_utils import titlecase
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[HtmlElement]):
     def __init__(self, *args, **kwargs):
         kwargs.setdefault("verify", False)
         super().__init__(*args, **kwargs)

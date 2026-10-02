@@ -12,6 +12,7 @@ History:
 
 import re
 from datetime import datetime
+from typing import Any
 from urllib.parse import urlencode
 
 from typing_extensions import override
@@ -27,7 +28,7 @@ from juriscraper.opinions.united_states.state import mich
 from juriscraper.OpinionSite import OpinionSite
 
 
-class Site(ClusterSite, mich.Site):
+class Site(ClusterSite[dict[str, Any]], mich.Site):
     court = "Court Of Appeals"
     first_opinion_date = datetime(1996, 4, 9)
     extract_from_text = OpinionSite.extract_from_text

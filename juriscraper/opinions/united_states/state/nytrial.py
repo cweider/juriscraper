@@ -57,7 +57,7 @@ pdf_caption_regex = re.compile(
 )
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[HtmlElement]):
     court_regex: str  # to be defined on inheriting classes
     base_url = "https://nycourts.gov/reporter/current/index/miscolo.shtml"
     # month pages from this date on live in "current/index", older ones in

@@ -2,12 +2,13 @@ import time
 from datetime import date
 
 from lxml import html
+from lxml.html import HtmlElement
 
 from juriscraper.AbstractSite import logger
 from juriscraper.OpinionSite import OpinionSite
 
 
-class Site(OpinionSite):
+class Site(OpinionSite[list[HtmlElement]]):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.base_url = (

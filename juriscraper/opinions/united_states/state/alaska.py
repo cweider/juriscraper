@@ -34,7 +34,7 @@ from juriscraper.lib.string_utils import titlecase
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[HtmlElement]):
     base_url = "https://govt.westlaw.com/akcases/"
     # Court label as rendered in each result's description line. Subclasses
     # override this to scrape a different court from the same result feed.

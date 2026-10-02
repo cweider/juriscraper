@@ -13,7 +13,7 @@ from juriscraper.AbstractSite import (
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class Site(OpinionSiteLinear):
+class Site(OpinionSiteLinear[HtmlElement]):
     lower_court_regexes = [
         re.compile(r"(?P<lower_court>U\.S\. District Court.+)"),
         re.compile(r"(?P<lower_court>Board of Immigration Appeals)"),
