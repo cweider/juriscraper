@@ -14,7 +14,7 @@ from urllib.parse import urljoin
 import httpx
 from typing_extensions import override
 
-from juriscraper.AbstractSite import logger
+from juriscraper.AbstractSite import UnpreparedContentError, logger
 from juriscraper.lib.exceptions import ParsingException
 from juriscraper.lib.html_utils import get_html_parsed_text
 from juriscraper.lib.string_utils import titlecase
@@ -75,6 +75,9 @@ class Site(OpinionSiteLinear):
     @override
     def _process_html(self) -> None:
         xpath = "//a[contains(@href, 'opinions') and contains(@href, 'pdf')]"
+        if self.html is None:
+            raise UnpreparedContentError()
+
         for html in self.html:
             date_string = self._get_date_for_opinions(html)
             for anchor in html.xpath(xpath):

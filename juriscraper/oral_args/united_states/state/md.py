@@ -22,6 +22,7 @@ Court Short Name: Md.
 
 from typing_extensions import override
 
+from juriscraper.AbstractSite import UnpreparedContentError
 from juriscraper.OralArgumentSiteLinear import OralArgumentSiteLinear
 
 
@@ -37,6 +38,9 @@ class Site(OralArgumentSiteLinear):
         path = (
             "//tr[.//td[2]//a/@href][not(contains(.//@href, 'baradmission'))]"
         )
+        if self.html is None:
+            raise UnpreparedContentError()
+
         rows = self.html.xpath(path)
 
         for row in rows:

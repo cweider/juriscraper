@@ -13,6 +13,7 @@ from urllib.parse import urljoin
 
 from typing_extensions import override
 
+from juriscraper.AbstractSite import UnpreparedContentError
 from juriscraper.lib.string_utils import titlecase
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
@@ -33,6 +34,9 @@ class Site(OpinionSiteLinear):
         The opinions are inside a <script> tag, as a Javascript constant
         that will be parsed using json.loads
         """
+        if self.html is None:
+            raise UnpreparedContentError()
+
         judges_mapper = {
             option.get("value"): option.text_content()
             for option in self.html.xpath("//select[@name='judge']//option")

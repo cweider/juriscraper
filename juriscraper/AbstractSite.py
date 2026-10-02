@@ -21,6 +21,7 @@ from juriscraper.lib.date_utils import (
 )
 from juriscraper.lib.exceptions import (
     InsanityException,
+    JuriscraperException,
 )
 from juriscraper.lib.html_utils import (
     clean_html,
@@ -45,6 +46,20 @@ from juriscraper.lib.utils import (
 )
 
 logger = make_default_logger()
+
+
+class UnpreparedContentError(JuriscraperException):
+    """Raised when `Site.html` is `None` where downloaded content is needed
+
+    `html` is populated from `_download()`'s return value, so it is `None`
+    if used before downloading, or if the download produced no content.
+    """
+
+    def __init__(
+        self,
+        message: str = "`html` is `None`; was its content downloaded?",
+    ):
+        super().__init__(message)
 
 
 class AbstractSite:

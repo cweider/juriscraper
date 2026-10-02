@@ -19,7 +19,7 @@ from lxml.etree import ParserError
 from lxml.html import fromstring
 from typing_extensions import override
 
-from juriscraper.AbstractSite import logger
+from juriscraper.AbstractSite import UnpreparedContentError, logger
 from juriscraper.lib.auth_utils import set_api_token_header
 from juriscraper.lib.date_utils import unique_year_month
 from juriscraper.lib.exceptions import ParsingException
@@ -117,6 +117,9 @@ class Site(OpinionSiteLinear):
         :return: None
         """
         # a missing page is served with a 200 status code
+        if self.html is None:
+            raise UnpreparedContentError()
+
         title = self.html.xpath("string(//title)")
         if "404 ERROR" in title:
             raise ParsingException(f"nytrial: page not found {self.url}")

@@ -12,7 +12,7 @@ from html import unescape
 
 from typing_extensions import override
 
-from juriscraper.AbstractSite import logger
+from juriscraper.AbstractSite import UnpreparedContentError, logger
 from juriscraper.OralArgumentSiteLinear import OralArgumentSiteLinear
 
 
@@ -27,6 +27,9 @@ class Site(OralArgumentSiteLinear):
 
     @override
     def _process_html(self) -> None:
+        if self.html is None:
+            raise UnpreparedContentError()
+
         for item in self.html.xpath("//item"):
             # The feed escapes the `<br/>` separators, so the whole record
             # reaches us as a single text node. Ex:

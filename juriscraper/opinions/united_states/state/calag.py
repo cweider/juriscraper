@@ -8,6 +8,7 @@ import datetime
 from lxml.html import HtmlElement
 from typing_extensions import override
 
+from juriscraper.AbstractSite import UnpreparedContentError
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
@@ -38,6 +39,9 @@ class Site(OpinionSiteLinear):
 
         :return: none
         """
+        if self.html is None:
+            raise UnpreparedContentError()
+
         for row in self.html.xpath("//table/tbody/tr[.//a]"):
             docket = row.xpath(".//a//strong/text()")[0].strip()
             # Citation may not exist (yet?)

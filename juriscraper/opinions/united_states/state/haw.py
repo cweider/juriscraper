@@ -6,6 +6,7 @@ from datetime import date, datetime
 
 from typing_extensions import override
 
+from juriscraper.AbstractSite import UnpreparedContentError
 from juriscraper.ClusterSite import ClusterSite
 from juriscraper.lib.date_utils import unique_year_month
 from juriscraper.lib.log_tools import make_default_logger
@@ -35,6 +36,9 @@ class Site(ClusterSite):
 
         :return: None
         """
+        if self.html is None:
+            raise UnpreparedContentError()
+
         for row in self.html.xpath("//tr[@class='row-']"):
             (
                 date,

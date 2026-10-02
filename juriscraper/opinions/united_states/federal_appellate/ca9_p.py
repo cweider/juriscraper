@@ -15,6 +15,7 @@ import feedparser
 from lxml.html import tostring
 from typing_extensions import override
 
+from juriscraper.AbstractSite import UnpreparedContentError
 from juriscraper.lib.string_utils import titlecase
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
@@ -29,6 +30,9 @@ class Site(OpinionSiteLinear):
 
     @override
     def _process_html(self) -> None:
+        if self.html is None:
+            raise UnpreparedContentError()
+
         feed = feedparser.parse(tostring(self.html))
         for item in feed["entries"]:
             case = {

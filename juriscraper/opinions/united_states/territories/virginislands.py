@@ -11,6 +11,7 @@ from datetime import date, datetime, timedelta
 
 from typing_extensions import override
 
+from juriscraper.AbstractSite import UnpreparedContentError
 from juriscraper.lib.string_utils import convert_date_string
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
@@ -31,6 +32,9 @@ class Site(OpinionSiteLinear):
     def _process_html(self) -> None:
         if self.test_mode_enabled():
             self.previous_date = datetime(2023, 9, 21).date()
+
+        if self.html is None:
+            raise UnpreparedContentError()
 
         for s in self.html.xpath(".//tr/td/.."):
             cells = s.xpath(".//td")

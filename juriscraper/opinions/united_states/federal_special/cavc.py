@@ -14,6 +14,7 @@ from typing import Any
 
 from typing_extensions import override
 
+from juriscraper.AbstractSite import UnpreparedContentError
 from juriscraper.lib.string_utils import titlecase
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
@@ -34,6 +35,9 @@ class Site(OpinionSiteLinear):
         """
         if self.test_mode_enabled():
             self.last_month = datetime.datetime(2022, 12, 27).date()
+        if self.html is None:
+            raise UnpreparedContentError()
+
         cases = self.html.xpath(".//tbody/tr/td/a/parent::td/parent::tr")
         for case in cases:
             try:

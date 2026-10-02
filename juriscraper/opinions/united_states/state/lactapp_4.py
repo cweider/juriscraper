@@ -12,6 +12,7 @@ from datetime import date, datetime
 from lxml.html import HtmlElement
 from typing_extensions import override
 
+from juriscraper.AbstractSite import UnpreparedContentError
 from juriscraper.lib.date_utils import unique_year_month
 from juriscraper.lib.string_utils import titlecase
 from juriscraper.lib.type_utils import OpinionType
@@ -42,6 +43,9 @@ class Site(OpinionSiteLinear):
 
         # XPath for the opinion results
         opinion_results_xpath = "//div[contains(@class, 'opinion-result')]"
+        if self.html is None:
+            raise UnpreparedContentError()
+
         results = self.html.xpath(opinion_results_xpath)
 
         self.cases = []

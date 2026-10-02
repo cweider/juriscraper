@@ -10,7 +10,7 @@ from urllib.parse import urlencode, urljoin
 
 from typing_extensions import override
 
-from juriscraper.AbstractSite import logger
+from juriscraper.AbstractSite import UnpreparedContentError, logger
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
@@ -45,6 +45,9 @@ class Site(OpinionSiteLinear):
 
     @override
     def _process_html(self) -> None:
+        if self.html is None:
+            raise UnpreparedContentError()
+
         for row in self.html.xpath("//a[contains(@class, 'oprow')]"):
             docket = row.xpath("span[@class='oprow__docket']/text()")
             name = row.xpath("span[@class='oprow__caption']/text()")

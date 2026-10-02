@@ -11,6 +11,7 @@ from urllib.parse import urljoin
 from dateutil import parser
 from typing_extensions import override
 
+from juriscraper.AbstractSite import UnpreparedContentError
 from juriscraper.lib.log_tools import make_default_logger
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
@@ -41,6 +42,9 @@ class Site(OpinionSiteLinear):
         # The example saved in 2025 had the whole panel repeated 7 times;
         # track seen URLs in case the source ever duplicates content again
         seen_urls = set()
+        if self.html is None:
+            raise UnpreparedContentError()
+
         links = self.html.xpath('//div[@class="panel-content"]//h2/a')
         for link in links:
             title = link.get("title")

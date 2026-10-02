@@ -13,7 +13,7 @@ from urllib.parse import urlencode, urljoin
 
 from typing_extensions import override
 
-from juriscraper.AbstractSite import logger
+from juriscraper.AbstractSite import UnpreparedContentError, logger
 from juriscraper.lib.html_utils import (
     get_row_column_links,
     get_row_column_text,
@@ -37,6 +37,9 @@ class Site(OpinionSiteLinear):
     @override
     def _process_html(self) -> None:
         """Process the HTML and extract case information"""
+        if self.html is None:
+            raise UnpreparedContentError()
+
         rows = self.html.xpath('//table[@id="datatable"]/tbody/tr')
 
         for row in rows:

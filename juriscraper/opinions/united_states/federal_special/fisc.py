@@ -2,6 +2,7 @@ from urllib.parse import urljoin
 
 from typing_extensions import override
 
+from juriscraper.AbstractSite import UnpreparedContentError
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
@@ -21,6 +22,9 @@ class Site(OpinionSiteLinear):
 
         :return None
         """
+        if self.html is None:
+            raise UnpreparedContentError()
+
         for row in self.html.xpath("//tr[td/a]"):
             filing_name, *_, filename = row.xpath("td/a/text()")
             if "opinion" not in filing_name.lower():

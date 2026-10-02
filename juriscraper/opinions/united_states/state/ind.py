@@ -11,6 +11,7 @@ History:
 
 from typing_extensions import override
 
+from juriscraper.AbstractSite import UnpreparedContentError
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
@@ -31,6 +32,9 @@ class Site(OpinionSiteLinear):
 
         :return None
         """
+        if self.html is None:
+            raise UnpreparedContentError()
+
         for case in self.html:
             lower_court, lower_court_number = self.parse_court_info(case)
 

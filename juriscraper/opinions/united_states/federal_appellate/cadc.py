@@ -12,6 +12,7 @@ import re
 
 from typing_extensions import override
 
+from juriscraper.AbstractSite import UnpreparedContentError
 from juriscraper.lib.string_utils import titlecase
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
@@ -27,6 +28,9 @@ class Site(OpinionSiteLinear):
     @override
     def _process_html(self) -> None:
         link_xpath = "a[contains(@href, '.pdf')]"
+        if self.html is None:
+            raise UnpreparedContentError()
+
         for row in self.html.xpath(f"//div[div[div[div[{link_xpath}]]]]"):
             self.cases.append(
                 {

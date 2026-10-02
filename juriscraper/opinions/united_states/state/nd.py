@@ -13,7 +13,7 @@ from urllib.parse import urljoin
 
 from typing_extensions import override
 
-from juriscraper.AbstractSite import logger
+from juriscraper.AbstractSite import UnpreparedContentError, logger
 from juriscraper.lib.string_utils import normalize_dashes
 from juriscraper.lib.utils import (
     PaginatedHtmlBackscrapeSite,
@@ -57,6 +57,9 @@ class Site(OpinionSiteLinear, PaginatedHtmlBackscrapeSite[Any]):
         # This may cause the scrape to abort prematurely due to number of
         # consecutive duplicates
         seen_urls = set()
+
+        if self.html is None:
+            raise UnpreparedContentError()
 
         for row in self.html.xpath('//table//div[@class="row"]'):
             onclick = row.xpath(".//button[@onclick]/@onclick")

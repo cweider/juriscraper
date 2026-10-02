@@ -8,6 +8,7 @@ Date created: 28 Aug 2018
 
 from typing_extensions import override
 
+from juriscraper.AbstractSite import UnpreparedContentError
 from juriscraper.OralArgumentSiteLinear import OralArgumentSiteLinear
 
 
@@ -22,6 +23,9 @@ class Site(OralArgumentSiteLinear):
 
     @override
     def _process_html(self) -> None:
+        if self.html is None:
+            raise UnpreparedContentError()
+
         for row in self.html.xpath("//tr[not(th)]"):
             # normalize docket numbers
             # get rid of "consolidated with" text

@@ -15,7 +15,7 @@ from datetime import date, datetime
 
 from typing_extensions import override
 
-from juriscraper.AbstractSite import logger
+from juriscraper.AbstractSite import UnpreparedContentError, logger
 from juriscraper.OralArgumentSiteLinear import OralArgumentSiteLinear
 
 
@@ -41,6 +41,9 @@ class Site(OralArgumentSiteLinear):
         Parsing the URL helps simplifying the backscraper which has a different
         HTML structure than the regular page
         """
+        if self.html is None:
+            raise UnpreparedContentError()
+
         for link in self.html.xpath("//a[text()='Play']/@href")[: self.limit]:
             *_, date_str, case = link.split("/")
             docket_match = re.search(r"(\d{2}-\d{4}\s?)+", case)

@@ -35,7 +35,7 @@ from datetime import datetime
 
 from typing_extensions import override
 
-from juriscraper.AbstractSite import logger
+from juriscraper.AbstractSite import UnpreparedContentError, logger
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
@@ -106,6 +106,9 @@ class Site(OpinionSiteLinear):
         """
         # lxml's HTML parser can handle the sitemap XML; namespace
         # prefixes are stripped so //loc works directly
+        if self.html is None:
+            raise UnpreparedContentError()
+
         locs = self.html.xpath("//loc/text()")
 
         for loc in reversed(locs):

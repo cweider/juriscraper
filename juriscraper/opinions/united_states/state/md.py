@@ -11,6 +11,7 @@ from datetime import date
 
 from typing_extensions import override
 
+from juriscraper.AbstractSite import UnpreparedContentError
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
@@ -36,6 +37,9 @@ class Site(OpinionSiteLinear):
 
         :return None
         """
+        if self.html is None:
+            raise UnpreparedContentError()
+
         for row in self.html.xpath("//table//tr[td and not (.//h2)]"):
             url = row.xpath("td//a[contains(@href,'pdf')]/@href")[0]
             docket = row.xpath("td[1]//text()")[0]

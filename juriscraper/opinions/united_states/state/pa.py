@@ -10,7 +10,7 @@ from urllib.parse import urlencode
 
 from typing_extensions import override
 
-from juriscraper.AbstractSite import logger
+from juriscraper.AbstractSite import UnpreparedContentError, logger
 from juriscraper.ClusterSite import ClusterSite
 from juriscraper.lib.type_utils import OpinionType
 
@@ -66,6 +66,9 @@ class Site(ClusterSite):
 
         :return: None
         """
+        if self.html is None:
+            raise UnpreparedContentError()
+
         json_response = self.html
 
         for cluster in json_response["Items"]:

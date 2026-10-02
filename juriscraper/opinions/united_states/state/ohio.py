@@ -17,7 +17,7 @@ from typing import Any
 
 from typing_extensions import override
 
-from juriscraper.AbstractSite import logger
+from juriscraper.AbstractSite import UnpreparedContentError, logger
 from juriscraper.lib.utils import (
     PaginatedHtmlBackscrapeSite,
     backscrape_over_paginated_results,
@@ -56,6 +56,9 @@ class Site(OpinionSiteLinear, PaginatedHtmlBackscrapeSite[Any]):
             self.set_parameters()
             self.html = await self._download()
             self.is_first_request = False
+
+        if self.html is None:
+            raise UnpreparedContentError()
 
         for row in self.html.xpath(
             ".//table[@id='MainContent_gvResults']//tr[not(.//a[contains(@href, 'javascript')])]"

@@ -12,6 +12,7 @@ import re
 
 from typing_extensions import override
 
+from juriscraper.AbstractSite import UnpreparedContentError
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
@@ -37,6 +38,9 @@ class Site(OpinionSiteLinear):
 
         :return: None
         """
+
+        if self.html is None:
+            raise UnpreparedContentError()
 
         for row in self.html.xpath(self.base_path):
             docket = row.xpath("./td[1]/a/text()")[0].strip()

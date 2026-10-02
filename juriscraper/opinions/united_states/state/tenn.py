@@ -11,7 +11,7 @@ from urllib.parse import urljoin
 from lxml.html import HtmlElement
 from typing_extensions import override
 
-from juriscraper.AbstractSite import logger
+from juriscraper.AbstractSite import UnpreparedContentError, logger
 from juriscraper.ClusterSite import ClusterSite
 from juriscraper.lib.type_utils import OpinionType
 
@@ -45,6 +45,9 @@ class Site(ClusterSite):
         docket number, judge, lower court judge, summary, per curiam status, and opinion type.
         Appends a dictionary with these details to self.cases.
         """
+        if self.html is None:
+            raise UnpreparedContentError()
+
         for row in self.html.xpath("//tr"):
             date = (
                 row.xpath(

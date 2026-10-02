@@ -12,7 +12,7 @@ from urllib.parse import urljoin
 
 from typing_extensions import override
 
-from juriscraper.AbstractSite import logger
+from juriscraper.AbstractSite import UnpreparedContentError, logger
 from juriscraper.opinions.united_states.territories import guam
 
 
@@ -52,6 +52,9 @@ class Site(guam.Site):
 
         :return: None
         """
+        if self.html is None:
+            raise UnpreparedContentError()
+
         paragraphs = self.html.xpath(
             '//div[contains(@class, "field--name-body")]'
             '//p[.//a[contains(@href, ".pdf")]]'

@@ -21,7 +21,7 @@ from urllib.parse import urlencode, urljoin
 
 from typing_extensions import override
 
-from juriscraper.AbstractSite import logger
+from juriscraper.AbstractSite import UnpreparedContentError, logger
 from juriscraper.lib.string_utils import titlecase
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
@@ -73,6 +73,9 @@ class Site(OpinionSiteLinear):
 
     @override
     async def _process_html(self) -> None:
+        if self.html is None:
+            raise UnpreparedContentError()
+
         if not isinstance(self.html, dict):
             logger.info("Unexpected response type %s", self.html)
             return

@@ -14,7 +14,7 @@ from datetime import datetime
 from lxml import html
 from typing_extensions import override
 
-from juriscraper.AbstractSite import logger
+from juriscraper.AbstractSite import UnpreparedContentError, logger
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
@@ -46,6 +46,9 @@ class Site(OpinionSiteLinear):
 
         :return: None
         """
+        if self.html is None:
+            raise UnpreparedContentError()
+
         for row in self.html.xpath(self.row_xpath):
             title = row.xpath("string(span[@class='title'])")
             links = row.xpath("span[@class='title']/@onclick")

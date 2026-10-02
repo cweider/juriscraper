@@ -4,7 +4,7 @@ from datetime import date, datetime
 from dateutil.rrule import MONTHLY, rrule
 from typing_extensions import override
 
-from juriscraper.AbstractSite import logger
+from juriscraper.AbstractSite import UnpreparedContentError, logger
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
@@ -32,6 +32,9 @@ class Site(OpinionSiteLinear):
 
     @override
     def _process_html(self) -> None:
+        if self.html is None:
+            raise UnpreparedContentError()
+
         for link in self.html.xpath('//a[contains(@href, "opndir")]'):
             url = link.get("href")
             text = link.xpath("following-sibling::text()")[0].strip()

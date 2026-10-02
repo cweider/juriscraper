@@ -16,7 +16,7 @@ from typing import Any
 
 from typing_extensions import override
 
-from juriscraper.AbstractSite import logger
+from juriscraper.AbstractSite import UnpreparedContentError, logger
 from juriscraper.lib.auth_utils import get_justice_dot_gov_auth_cookies
 from juriscraper.lib.exceptions import UnexpectedContentTypeError
 from juriscraper.lib.string_utils import titlecase
@@ -34,6 +34,9 @@ class Site(OpinionSiteLinear):
 
     @override
     async def _process_html(self) -> None:
+        if self.html is None:
+            raise UnpreparedContentError()
+
         if not self.test_mode_enabled():
             # Get last volume URL
             if not self.urls:

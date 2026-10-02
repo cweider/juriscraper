@@ -6,7 +6,7 @@ from urllib.parse import urljoin
 from dateutil import parser
 from typing_extensions import override
 
-from juriscraper.AbstractSite import logger
+from juriscraper.AbstractSite import UnpreparedContentError, logger
 from juriscraper.ClusterSite import ClusterSite
 from juriscraper.lib.type_utils import OpinionType
 
@@ -91,6 +91,9 @@ class Site(ClusterSite):
 
     @override
     def _process_html(self) -> None:
+        if self.html is None:
+            raise UnpreparedContentError()
+
         for row in self.html.xpath("//tr[td[@headers]]"):
             name_cell = row.xpath("td[3]")[0]
             # Replace <br> with space to avoid merged words

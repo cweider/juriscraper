@@ -16,7 +16,7 @@ from datetime import date, datetime
 
 from typing_extensions import override
 
-from juriscraper.AbstractSite import logger
+from juriscraper.AbstractSite import UnpreparedContentError, logger
 from juriscraper.lib.html_utils import (
     get_row_column_links,
     get_row_column_text,
@@ -79,6 +79,9 @@ class Site(OpinionSiteLinear):
 
         Return: None
         """
+        if self.html is None:
+            raise UnpreparedContentError()
+
         rows = self.html.xpath("//table[@id='ctl04_gvDecisions']/tr")[1:]
         for row in rows:
             # Don't parse rows for pagination, headers, footers or announcements

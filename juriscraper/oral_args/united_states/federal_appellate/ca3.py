@@ -13,7 +13,7 @@ from urllib.parse import unquote
 
 from typing_extensions import override
 
-from juriscraper.AbstractSite import logger
+from juriscraper.AbstractSite import UnpreparedContentError, logger
 from juriscraper.lib.string_utils import fix_camel_case
 from juriscraper.OralArgumentSiteLinear import OralArgumentSiteLinear
 
@@ -38,6 +38,9 @@ class Site(OralArgumentSiteLinear):
 
         :return None
         """
+        if self.html is None:
+            raise UnpreparedContentError()
+
         for row in self.html.xpath("//table//tr[td]"):
             links = row.xpath(".//a/@href")
             dates = row.xpath("./td[2]/text()")

@@ -20,6 +20,7 @@ from urllib.parse import urljoin
 from lxml import html as lxml_html
 from typing_extensions import override
 
+from juriscraper.AbstractSite import UnpreparedContentError
 from juriscraper.lib.date_utils import unique_year_month
 from juriscraper.lib.log_tools import make_default_logger
 from juriscraper.lib.string_utils import titlecase
@@ -96,6 +97,9 @@ class Site(OpinionSiteLinear):
 
     @override
     def _process_html(self) -> None:
+        if self.html is None:
+            raise UnpreparedContentError()
+
         tree = self.html
         seen_urls = {case["url"] for case in self.cases}
         rows = tree.xpath(

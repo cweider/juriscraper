@@ -12,7 +12,7 @@ from datetime import date, datetime
 from dateparser import parse
 from typing_extensions import override
 
-from juriscraper.AbstractSite import logger
+from juriscraper.AbstractSite import UnpreparedContentError, logger
 from juriscraper.lib.string_utils import titlecase
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
@@ -46,6 +46,9 @@ class Site(OpinionSiteLinear):
             "ancestor::tr[1]/following-sibling::tr[position() <= 5]"
         )
         cells_in_td_xpath = "ancestor::td[1]/following-sibling::td"
+
+        if self.html is None:
+            raise UnpreparedContentError()
 
         for link in self.html.xpath("//a[contains(string(.), 'TSPR')]"):
             url = link.xpath("@href")[0]

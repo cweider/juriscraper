@@ -19,6 +19,7 @@ from urllib.parse import quote, urljoin
 from lxml import etree, html
 from typing_extensions import override
 
+from juriscraper.AbstractSite import UnpreparedContentError
 from juriscraper.lib.date_utils import unique_year_month
 from juriscraper.lib.exceptions import InvalidDocumentError
 from juriscraper.lib.html_utils import strip_bad_html_tags_insecure
@@ -62,6 +63,9 @@ class Site(OpinionSiteLinear):
 
         :return: None
         """
+        if self.html is None:
+            raise UnpreparedContentError()
+
         for item in self.html.xpath(
             "//div[contains(@class, 'slip-opinions-list')]"
             "//div[@class='accordion-item']"

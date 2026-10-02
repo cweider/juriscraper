@@ -13,7 +13,7 @@ from urllib.parse import urljoin
 
 from typing_extensions import override
 
-from juriscraper.AbstractSite import logger
+from juriscraper.AbstractSite import UnpreparedContentError, logger
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
@@ -49,6 +49,9 @@ class Site(OpinionSiteLinear):
         # Exclude headers and rows that only have the month name
         if self.test_mode_enabled():
             self.year = "2026"
+
+        if self.html is None:
+            raise UnpreparedContentError()
 
         rows = self.html.xpath(
             "//tr[not(th) and not(.//span[@style='background-color:#F8C100;']) and descendant::a]"

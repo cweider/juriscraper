@@ -13,7 +13,7 @@ from datetime import timedelta
 from dateutil.utils import today
 from typing_extensions import override
 
-from juriscraper.AbstractSite import logger
+from juriscraper.AbstractSite import UnpreparedContentError, logger
 from juriscraper.lib.string_utils import clean_string
 from juriscraper.OralArgumentSiteLinear import OralArgumentSiteLinear
 
@@ -45,6 +45,9 @@ class Site(OralArgumentSiteLinear):
 
     @override
     def _process_html(self) -> None:
+        if self.html is None:
+            raise UnpreparedContentError()
+
         for row in self.html.xpath(".//tr")[1:]:
             audio_anchor = row.xpath(".//a/@data-audio")
             if not audio_anchor:
