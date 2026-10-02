@@ -372,6 +372,13 @@
       "severity": "error"
     },
     {
+      "column": 16,
+      "path": "juriscraper/opinions/united_states/federal_appellate/ca11_p.py",
+      "name": "missing-attribute",
+      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
+      "severity": "error"
+    },
+    {
       "column": 20,
       "path": "juriscraper/opinions/united_states/federal_appellate/ca2_p.py",
       "name": "missing-attribute",
@@ -431,7 +438,7 @@
       "column": 42,
       "path": "juriscraper/opinions/united_states/federal_appellate/ca9_p.py",
       "name": "bad-argument-type",
-      "concise_description": "Argument `Unknown | None` is not assignable to parameter `doc` with type `HtmlElement | _ElementTree[HtmlElement]` in function `lxml.html._funcs.tostring`",
+      "concise_description": "Argument `Any | None` is not assignable to parameter `doc` with type `HtmlElement | _ElementTree[HtmlElement]` in function `lxml.html._funcs.tostring`",
       "severity": "error"
     },
     {
@@ -599,14 +606,14 @@
       "column": 17,
       "path": "juriscraper/opinions/united_states/federal_special/tax.py",
       "name": "bad-argument-type",
-      "concise_description": "Argument `Unknown | None` is not assignable to parameter `obj` with type `Sized` in function `len`",
+      "concise_description": "Argument `Any | None` is not assignable to parameter `obj` with type `Sized` in function `len`",
       "severity": "error"
     },
     {
       "column": 16,
       "path": "juriscraper/opinions/united_states/federal_special/tax.py",
       "name": "bad-argument-type",
-      "concise_description": "Argument `Unknown | None` is not assignable to parameter `obj` with type `Sized` in function `len`",
+      "concise_description": "Argument `Any | None` is not assignable to parameter `obj` with type `Sized` in function `len`",
       "severity": "error"
     },
     {
@@ -957,6 +964,13 @@
       "path": "juriscraper/opinions/united_states/state/lactapp_1.py",
       "name": "unsupported-operation",
       "concise_description": "`None` is not subscriptable",
+      "severity": "error"
+    },
+    {
+      "column": 16,
+      "path": "juriscraper/opinions/united_states/state/lactapp_2.py",
+      "name": "missing-attribute",
+      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
       "severity": "error"
     },
     {
@@ -1593,7 +1607,7 @@
       "column": 33,
       "path": "juriscraper/opinions/united_states/state/ri.py",
       "name": "bad-argument-type",
-      "concise_description": "Argument `Unknown | None` is not assignable to parameter `doc` with type `HtmlElement | _ElementTree[HtmlElement]` in function `lxml.html._funcs.tostring`",
+      "concise_description": "Argument `Any | None` is not assignable to parameter `doc` with type `HtmlElement | _ElementTree[HtmlElement]` in function `lxml.html._funcs.tostring`",
       "severity": "error"
     },
     {
@@ -1699,6 +1713,13 @@
       "path": "juriscraper/opinions/united_states/state/tex.py",
       "name": "unsupported-operation",
       "concise_description": "`None` is not subscriptable",
+      "severity": "error"
+    },
+    {
+      "column": 21,
+      "path": "juriscraper/opinions/united_states/state/tex.py",
+      "name": "missing-attribute",
+      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
       "severity": "error"
     },
     {
@@ -2056,6 +2077,13 @@
       "path": "juriscraper/oral_args/united_states/federal_appellate/ca1.py",
       "name": "missing-attribute",
       "concise_description": "Object of type `AsyncClient | dict[Unknown, Unknown] | dict[str, str] | None` has no attribute `content`",
+      "severity": "error"
+    },
+    {
+      "column": 20,
+      "path": "juriscraper/oral_args/united_states/federal_appellate/ca11.py",
+      "name": "missing-attribute",
+      "concise_description": "Object of class `NoneType` has no attribute `xpath`",
       "severity": "error"
     },
     {

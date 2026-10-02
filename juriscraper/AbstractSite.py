@@ -9,6 +9,7 @@ import urllib.parse
 import urllib.request
 from collections.abc import Awaitable
 from datetime import datetime
+from typing import Any
 
 import certifi
 import httpx
@@ -83,7 +84,7 @@ class AbstractSite:
 
         # Computed metadata
         self.hash = None
-        self.html = None
+        self.html: Any | None = None
         self.method = "GET"
         self.back_scrape_iterable = None
         self.downloader_executed = False
