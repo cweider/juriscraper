@@ -62,6 +62,20 @@ class UnpreparedContentError(JuriscraperException):
         super().__init__(message)
 
 
+class HtmlTypeError(JuriscraperException):
+    """Raised when `Site.html` is not the kind of content a scraper expects
+
+    E.g. JSON where an lxml tree is expected, as can happen when a server
+    responds with a different content type than usual.
+    """
+
+    def __init__(self, expected: type, actual: object):
+        super().__init__(
+            f"`html` is `{type(actual).__name__}`, "
+            f"expected `{expected.__name__}`"
+        )
+
+
 class AbstractSite:
     """Contains generic methods for scraping data. Should be extended by all
     scrapers.
