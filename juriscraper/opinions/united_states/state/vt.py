@@ -15,9 +15,14 @@ import re
 from datetime import date, datetime
 from urllib.parse import urlencode
 
+from lxml.html import HtmlElement
 from typing_extensions import override
 
-from juriscraper.AbstractSite import UnpreparedContentError, logger
+from juriscraper.AbstractSite import (
+    HtmlTypeError,
+    UnpreparedContentError,
+    logger,
+)
 from juriscraper.lib.string_utils import titlecase
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
@@ -51,6 +56,8 @@ class Site(OpinionSiteLinear):
         """
         if self.html is None:
             raise UnpreparedContentError()
+        if not isinstance(self.html, HtmlElement):
+            raise HtmlTypeError(HtmlElement, self.html)
 
         for case in self.html.xpath(".//article"):
             name_url_span = case.xpath(

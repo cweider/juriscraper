@@ -8,9 +8,14 @@
 from datetime import date, datetime, timedelta
 
 from dateutil.relativedelta import relativedelta
+from lxml.html import HtmlElement
 from typing_extensions import override
 
-from juriscraper.AbstractSite import UnpreparedContentError, logger
+from juriscraper.AbstractSite import (
+    HtmlTypeError,
+    UnpreparedContentError,
+    logger,
+)
 from juriscraper.lib.string_utils import titlecase
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
@@ -39,6 +44,8 @@ class Site(OpinionSiteLinear):
     def _process_html(self) -> None:
         if self.html is None:
             raise UnpreparedContentError()
+        if not isinstance(self.html, HtmlElement):
+            raise HtmlTypeError(HtmlElement, self.html)
 
         for row in self.html.xpath("//tr")[::-1][:-1]:
             docket, name, date_el, disposition, _, url_el = row.xpath(".//td")

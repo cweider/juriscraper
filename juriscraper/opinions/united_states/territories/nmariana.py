@@ -12,9 +12,10 @@ from datetime import date
 from typing import Any
 from urllib.parse import urljoin
 
+from lxml.html import HtmlElement
 from typing_extensions import override
 
-from juriscraper.AbstractSite import UnpreparedContentError
+from juriscraper.AbstractSite import HtmlTypeError, UnpreparedContentError
 from juriscraper.lib.string_utils import normalize_dashes
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
@@ -62,6 +63,8 @@ class Site(OpinionSiteLinear):
     def _process_html(self) -> None:
         if self.html is None:
             raise UnpreparedContentError()
+        if not isinstance(self.html, HtmlElement):
+            raise HtmlTypeError(HtmlElement, self.html)
 
         for s in self.html.xpath(".//a[@class='pdf-link']/ancestor::tr"):
             cells = s.xpath(".//td")

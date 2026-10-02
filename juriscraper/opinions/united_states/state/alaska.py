@@ -21,9 +21,14 @@ from html import unescape
 from urllib.parse import urlencode, urljoin
 
 from lxml import html
+from lxml.html import HtmlElement
 from typing_extensions import override
 
-from juriscraper.AbstractSite import UnpreparedContentError, logger
+from juriscraper.AbstractSite import (
+    HtmlTypeError,
+    UnpreparedContentError,
+    logger,
+)
 from juriscraper.lib.exceptions import InvalidDocumentError
 from juriscraper.lib.string_utils import titlecase
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
@@ -131,6 +136,8 @@ class Site(OpinionSiteLinear):
     async def _process_html(self) -> None:
         if self.html is None:
             raise UnpreparedContentError()
+        if not isinstance(self.html, HtmlElement):
+            raise HtmlTypeError(HtmlElement, self.html)
 
         self._parse_results_page(self.html)
         if self.test_mode_enabled():

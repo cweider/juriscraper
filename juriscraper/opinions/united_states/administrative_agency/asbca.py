@@ -11,9 +11,14 @@ History:
 from datetime import datetime
 from urllib.parse import urljoin
 
+from lxml.html import HtmlElement
 from typing_extensions import override
 
-from juriscraper.AbstractSite import UnpreparedContentError, logger
+from juriscraper.AbstractSite import (
+    HtmlTypeError,
+    UnpreparedContentError,
+    logger,
+)
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
@@ -52,6 +57,8 @@ class Site(OpinionSiteLinear):
 
         if self.html is None:
             raise UnpreparedContentError()
+        if not isinstance(self.html, HtmlElement):
+            raise HtmlTypeError(HtmlElement, self.html)
 
         rows = self.html.xpath(
             "//tr[not(th) and not(.//span[@style='background-color:#F8C100;']) and descendant::a]"

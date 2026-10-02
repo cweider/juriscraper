@@ -24,9 +24,14 @@ from urllib.parse import urlparse
 
 from dateutil import parser
 from lxml import html as lxmlHTML
+from lxml.html import HtmlElement
 from typing_extensions import override
 
-from juriscraper.AbstractSite import UnpreparedContentError, logger
+from juriscraper.AbstractSite import (
+    HtmlTypeError,
+    UnpreparedContentError,
+    logger,
+)
 from juriscraper.ClusterSite import ClusterSite
 from juriscraper.lib.string_utils import titlecase
 from juriscraper.lib.type_utils import OpinionType
@@ -150,6 +155,8 @@ class Site(ClusterSite):
 
         if self.html is None:
             raise UnpreparedContentError()
+        if not isinstance(self.html, HtmlElement):
+            raise HtmlTypeError(HtmlElement, self.html)
 
         for row in self.html.xpath(self.rows_xpath):
             # `Document search` page returns OpinionClusters separated,

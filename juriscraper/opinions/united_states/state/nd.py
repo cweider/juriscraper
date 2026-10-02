@@ -11,9 +11,14 @@ from datetime import date, datetime
 from typing import Any
 from urllib.parse import urljoin
 
+from lxml.html import HtmlElement
 from typing_extensions import override
 
-from juriscraper.AbstractSite import UnpreparedContentError, logger
+from juriscraper.AbstractSite import (
+    HtmlTypeError,
+    UnpreparedContentError,
+    logger,
+)
 from juriscraper.lib.string_utils import normalize_dashes
 from juriscraper.lib.utils import (
     PaginatedHtmlBackscrapeSite,
@@ -60,6 +65,8 @@ class Site(OpinionSiteLinear, PaginatedHtmlBackscrapeSite[Any]):
 
         if self.html is None:
             raise UnpreparedContentError()
+        if not isinstance(self.html, HtmlElement):
+            raise HtmlTypeError(HtmlElement, self.html)
 
         for row in self.html.xpath('//table//div[@class="row"]'):
             onclick = row.xpath(".//button[@onclick]/@onclick")

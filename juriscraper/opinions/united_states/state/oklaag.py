@@ -7,9 +7,10 @@
 
 from datetime import datetime
 
+from lxml.html import HtmlElement
 from typing_extensions import override
 
-from juriscraper.AbstractSite import UnpreparedContentError
+from juriscraper.AbstractSite import HtmlTypeError, UnpreparedContentError
 from juriscraper.opinions.united_states.state import okla
 
 
@@ -27,6 +28,8 @@ class Site(okla.Site):
     def _process_html(self) -> None:
         if self.html is None:
             raise UnpreparedContentError()
+        if not isinstance(self.html, HtmlElement):
+            raise HtmlTypeError(HtmlElement, self.html)
 
         for row in self.html.xpath("//div/p['@class=document']")[::-1]:
             if "OK" not in row.text_content() or "EMAIL" in row.text_content():

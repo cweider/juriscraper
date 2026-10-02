@@ -1,6 +1,7 @@
+from lxml.html import HtmlElement
 from typing_extensions import override
 
-from juriscraper.AbstractSite import UnpreparedContentError
+from juriscraper.AbstractSite import HtmlTypeError, UnpreparedContentError
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
@@ -16,6 +17,8 @@ class Site(OpinionSiteLinear):
     def _process_html(self) -> None:
         if self.html is None:
             raise UnpreparedContentError()
+        if not isinstance(self.html, HtmlElement):
+            raise HtmlTypeError(HtmlElement, self.html)
 
         for row in self.html.xpath("//p"):
             links = row.xpath(".//a")

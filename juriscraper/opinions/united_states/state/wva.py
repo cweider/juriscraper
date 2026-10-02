@@ -4,9 +4,14 @@ import re
 from urllib.parse import urljoin
 
 from dateutil import parser
+from lxml.html import HtmlElement
 from typing_extensions import override
 
-from juriscraper.AbstractSite import UnpreparedContentError, logger
+from juriscraper.AbstractSite import (
+    HtmlTypeError,
+    UnpreparedContentError,
+    logger,
+)
 from juriscraper.ClusterSite import ClusterSite
 from juriscraper.lib.type_utils import OpinionType
 
@@ -93,6 +98,8 @@ class Site(ClusterSite):
     def _process_html(self) -> None:
         if self.html is None:
             raise UnpreparedContentError()
+        if not isinstance(self.html, HtmlElement):
+            raise HtmlTypeError(HtmlElement, self.html)
 
         for row in self.html.xpath("//tr[td[@headers]]"):
             name_cell = row.xpath("td[3]")[0]

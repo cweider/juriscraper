@@ -10,9 +10,14 @@ import re
 from datetime import date
 from urllib.parse import urljoin
 
+from lxml.html import HtmlElement
 from typing_extensions import override
 
-from juriscraper.AbstractSite import UnpreparedContentError, logger
+from juriscraper.AbstractSite import (
+    HtmlTypeError,
+    UnpreparedContentError,
+    logger,
+)
 from juriscraper.opinions.united_states.territories import guam
 
 
@@ -54,6 +59,8 @@ class Site(guam.Site):
         """
         if self.html is None:
             raise UnpreparedContentError()
+        if not isinstance(self.html, HtmlElement):
+            raise HtmlTypeError(HtmlElement, self.html)
 
         paragraphs = self.html.xpath(
             '//div[contains(@class, "field--name-body")]'

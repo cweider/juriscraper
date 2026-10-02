@@ -16,10 +16,14 @@ from urllib.parse import urljoin
 
 import httpx
 from lxml.etree import ParserError
-from lxml.html import fromstring
+from lxml.html import HtmlElement, fromstring
 from typing_extensions import override
 
-from juriscraper.AbstractSite import UnpreparedContentError, logger
+from juriscraper.AbstractSite import (
+    HtmlTypeError,
+    UnpreparedContentError,
+    logger,
+)
 from juriscraper.lib.auth_utils import set_api_token_header
 from juriscraper.lib.date_utils import unique_year_month
 from juriscraper.lib.exceptions import ParsingException
@@ -119,6 +123,8 @@ class Site(OpinionSiteLinear):
         # a missing page is served with a 200 status code
         if self.html is None:
             raise UnpreparedContentError()
+        if not isinstance(self.html, HtmlElement):
+            raise HtmlTypeError(HtmlElement, self.html)
 
         title = self.html.xpath("string(//title)")
         if "404 ERROR" in title:

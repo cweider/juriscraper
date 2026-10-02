@@ -33,9 +33,14 @@ import os
 import re
 from datetime import datetime
 
+from lxml.html import HtmlElement
 from typing_extensions import override
 
-from juriscraper.AbstractSite import UnpreparedContentError, logger
+from juriscraper.AbstractSite import (
+    HtmlTypeError,
+    UnpreparedContentError,
+    logger,
+)
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
@@ -108,6 +113,8 @@ class Site(OpinionSiteLinear):
         # prefixes are stripped so //loc works directly
         if self.html is None:
             raise UnpreparedContentError()
+        if not isinstance(self.html, HtmlElement):
+            raise HtmlTypeError(HtmlElement, self.html)
 
         locs = self.html.xpath("//loc/text()")
 

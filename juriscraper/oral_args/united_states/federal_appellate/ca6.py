@@ -13,9 +13,14 @@ History:
 import re
 from datetime import date, datetime
 
+from lxml.html import HtmlElement
 from typing_extensions import override
 
-from juriscraper.AbstractSite import UnpreparedContentError, logger
+from juriscraper.AbstractSite import (
+    HtmlTypeError,
+    UnpreparedContentError,
+    logger,
+)
 from juriscraper.OralArgumentSiteLinear import OralArgumentSiteLinear
 
 
@@ -43,6 +48,8 @@ class Site(OralArgumentSiteLinear):
         """
         if self.html is None:
             raise UnpreparedContentError()
+        if not isinstance(self.html, HtmlElement):
+            raise HtmlTypeError(HtmlElement, self.html)
 
         for link in self.html.xpath("//a[text()='Play']/@href")[: self.limit]:
             *_, date_str, case = link.split("/")

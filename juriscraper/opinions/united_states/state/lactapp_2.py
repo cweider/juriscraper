@@ -11,9 +11,14 @@ import re
 from datetime import datetime
 from urllib.parse import urlencode, urljoin
 
+from lxml.html import HtmlElement
 from typing_extensions import override
 
-from juriscraper.AbstractSite import UnpreparedContentError, logger
+from juriscraper.AbstractSite import (
+    HtmlTypeError,
+    UnpreparedContentError,
+    logger,
+)
 from juriscraper.lib.html_utils import (
     get_row_column_links,
     get_row_column_text,
@@ -39,6 +44,8 @@ class Site(OpinionSiteLinear):
         """Process the HTML and extract case information"""
         if self.html is None:
             raise UnpreparedContentError()
+        if not isinstance(self.html, HtmlElement):
+            raise HtmlTypeError(HtmlElement, self.html)
 
         rows = self.html.xpath('//table[@id="datatable"]/tbody/tr')
 

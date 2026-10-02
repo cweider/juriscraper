@@ -4,9 +4,10 @@
 import re
 from datetime import date, datetime
 
+from lxml.html import HtmlElement
 from typing_extensions import override
 
-from juriscraper.AbstractSite import UnpreparedContentError
+from juriscraper.AbstractSite import HtmlTypeError, UnpreparedContentError
 from juriscraper.ClusterSite import ClusterSite
 from juriscraper.lib.date_utils import unique_year_month
 from juriscraper.lib.log_tools import make_default_logger
@@ -38,6 +39,8 @@ class Site(ClusterSite):
         """
         if self.html is None:
             raise UnpreparedContentError()
+        if not isinstance(self.html, HtmlElement):
+            raise HtmlTypeError(HtmlElement, self.html)
 
         for row in self.html.xpath("//tr[@class='row-']"):
             (

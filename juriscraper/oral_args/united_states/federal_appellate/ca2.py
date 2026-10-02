@@ -18,9 +18,14 @@ History:
 from datetime import date, datetime, timedelta
 from urllib.parse import urljoin
 
+from lxml.html import HtmlElement
 from typing_extensions import override
 
-from juriscraper.AbstractSite import UnpreparedContentError, logger
+from juriscraper.AbstractSite import (
+    HtmlTypeError,
+    UnpreparedContentError,
+    logger,
+)
 from juriscraper.lib.string_utils import titlecase
 from juriscraper.opinions.united_states.federal_appellate.ca2_p import (
     Site as Ca2OpinionSite,
@@ -83,6 +88,8 @@ class Site(OralArgumentSiteLinear):
     def _process_html(self) -> None:
         if self.html is None:
             raise UnpreparedContentError()
+        if not isinstance(self.html, HtmlElement):
+            raise HtmlTypeError(HtmlElement, self.html)
 
         for row in self.html.xpath('//table[@class="ResultsTable"]/tr'):
             anchor = row.xpath('.//td[@class="ResultsItemLeft"]/a')

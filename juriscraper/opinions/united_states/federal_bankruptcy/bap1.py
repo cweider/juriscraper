@@ -19,7 +19,11 @@ from urllib.parse import urlencode
 from lxml.html import HtmlElement
 from typing_extensions import override
 
-from juriscraper.AbstractSite import UnpreparedContentError, logger
+from juriscraper.AbstractSite import (
+    HtmlTypeError,
+    UnpreparedContentError,
+    logger,
+)
 from juriscraper.lib.exceptions import SkipRowError
 from juriscraper.lib.string_utils import convert_date_string
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
@@ -86,6 +90,8 @@ class Site(OpinionSiteLinear):
         """
         if self.html is None:
             raise UnpreparedContentError()
+        if not isinstance(self.html, HtmlElement):
+            raise HtmlTypeError(HtmlElement, self.html)
 
         for row in self.html.xpath("//tr[td]")[::-1]:
             docket_string = self.get_text_by_xpath(row, "td[1]")

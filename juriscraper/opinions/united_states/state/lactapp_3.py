@@ -18,9 +18,10 @@ from datetime import date, datetime
 from urllib.parse import urljoin
 
 from lxml import html as lxml_html
+from lxml.html import HtmlElement
 from typing_extensions import override
 
-from juriscraper.AbstractSite import UnpreparedContentError
+from juriscraper.AbstractSite import HtmlTypeError, UnpreparedContentError
 from juriscraper.lib.date_utils import unique_year_month
 from juriscraper.lib.log_tools import make_default_logger
 from juriscraper.lib.string_utils import titlecase
@@ -99,6 +100,8 @@ class Site(OpinionSiteLinear):
     def _process_html(self) -> None:
         if self.html is None:
             raise UnpreparedContentError()
+        if not isinstance(self.html, HtmlElement):
+            raise HtmlTypeError(HtmlElement, self.html)
 
         tree = self.html
         seen_urls = {case["url"] for case in self.cases}

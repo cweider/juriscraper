@@ -3,10 +3,10 @@ from datetime import datetime
 from typing import Any
 
 from dateutil import parser
-from lxml.html import fromstring
+from lxml.html import HtmlElement, fromstring
 from typing_extensions import override
 
-from juriscraper.AbstractSite import UnpreparedContentError
+from juriscraper.AbstractSite import HtmlTypeError, UnpreparedContentError
 from juriscraper.lib.string_utils import clean_string
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
@@ -60,6 +60,8 @@ class Site(OpinionSiteLinear):
         """
         if self.html is None:
             raise UnpreparedContentError()
+        if not isinstance(self.html, HtmlElement):
+            raise HtmlTypeError(HtmlElement, self.html)
 
         for row in self.html.xpath("//tr[td/a]"):
             _, date_filed_str, *name = row.xpath("td/text()")

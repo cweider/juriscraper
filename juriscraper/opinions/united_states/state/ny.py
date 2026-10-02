@@ -17,10 +17,14 @@ from typing import Any
 from urllib.parse import urljoin
 
 import nh3
-from lxml.html import fromstring, tostring
+from lxml.html import HtmlElement, fromstring, tostring
 from typing_extensions import override
 
-from juriscraper.AbstractSite import UnpreparedContentError, logger
+from juriscraper.AbstractSite import (
+    HtmlTypeError,
+    UnpreparedContentError,
+    logger,
+)
 from juriscraper.lib.auth_utils import set_api_token_header
 from juriscraper.lib.judge_parsers import normalize_judge_string
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
@@ -122,6 +126,8 @@ class Site(OpinionSiteLinear):
     def _process_html(self) -> None:
         if self.html is None:
             raise UnpreparedContentError()
+        if not isinstance(self.html, HtmlElement):
+            raise HtmlTypeError(HtmlElement, self.html)
 
         table = self.html.xpath('.//table[contains(@class, "table")]')
         if not table:

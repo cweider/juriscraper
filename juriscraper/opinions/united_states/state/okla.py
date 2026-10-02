@@ -8,9 +8,14 @@
 
 
 from lxml import html
+from lxml.html import HtmlElement
 from typing_extensions import override
 
-from juriscraper.AbstractSite import UnpreparedContentError, logger
+from juriscraper.AbstractSite import (
+    HtmlTypeError,
+    UnpreparedContentError,
+    logger,
+)
 from juriscraper.lib.html_utils import strip_bad_html_tags_insecure
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
@@ -28,6 +33,8 @@ class Site(OpinionSiteLinear):
     def _process_html(self) -> None:
         if self.html is None:
             raise UnpreparedContentError()
+        if not isinstance(self.html, HtmlElement):
+            raise HtmlTypeError(HtmlElement, self.html)
 
         for row in self.html.xpath(".//li[@class='decision']"):
             name, citation = row.xpath(".//a/text()")

@@ -17,9 +17,14 @@ import re
 from datetime import date
 
 from dateutil.parser import parse
+from lxml.html import HtmlElement
 from typing_extensions import override
 
-from juriscraper.AbstractSite import UnpreparedContentError, logger
+from juriscraper.AbstractSite import (
+    HtmlTypeError,
+    UnpreparedContentError,
+    logger,
+)
 from juriscraper.ClusterSite import ClusterSite
 from juriscraper.lib.string_utils import clean_string
 from juriscraper.lib.type_utils import OpinionType
@@ -118,6 +123,8 @@ class Site(ClusterSite):
         """
         if self.html is None:
             raise UnpreparedContentError()
+        if not isinstance(self.html, HtmlElement):
+            raise HtmlTypeError(HtmlElement, self.html)
 
         for row in self.html.xpath(".//*[contains(@href, '.pdf')]"):
             pub = row.xpath('preceding::*[contains(., "Published")][1]/text()')

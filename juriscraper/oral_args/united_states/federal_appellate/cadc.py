@@ -10,9 +10,14 @@ Updated: 2024-10-10
 from datetime import date, datetime
 from urllib.parse import urljoin
 
+from lxml.html import HtmlElement
 from typing_extensions import override
 
-from juriscraper.AbstractSite import UnpreparedContentError, logger
+from juriscraper.AbstractSite import (
+    HtmlTypeError,
+    UnpreparedContentError,
+    logger,
+)
 from juriscraper.lib.date_utils import unique_year_month
 from juriscraper.OralArgumentSiteLinear import OralArgumentSiteLinear
 
@@ -35,6 +40,8 @@ class Site(OralArgumentSiteLinear):
         anchor_xpath = "a[contains(@href, '/recordings/docs/') and contains(@href, '.mp3')]"
         if self.html is None:
             raise UnpreparedContentError()
+        if not isinstance(self.html, HtmlElement):
+            raise HtmlTypeError(HtmlElement, self.html)
 
         for row in self.html.xpath(f"//div[div[div[div[{anchor_xpath}]]]]"):
             ahref = row.xpath(f".//{anchor_xpath}")

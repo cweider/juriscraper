@@ -11,9 +11,14 @@
 import re
 from urllib.parse import unquote
 
+from lxml.html import HtmlElement
 from typing_extensions import override
 
-from juriscraper.AbstractSite import UnpreparedContentError, logger
+from juriscraper.AbstractSite import (
+    HtmlTypeError,
+    UnpreparedContentError,
+    logger,
+)
 from juriscraper.lib.string_utils import fix_camel_case
 from juriscraper.OralArgumentSiteLinear import OralArgumentSiteLinear
 
@@ -40,6 +45,8 @@ class Site(OralArgumentSiteLinear):
         """
         if self.html is None:
             raise UnpreparedContentError()
+        if not isinstance(self.html, HtmlElement):
+            raise HtmlTypeError(HtmlElement, self.html)
 
         for row in self.html.xpath("//table//tr[td]"):
             links = row.xpath(".//a/@href")

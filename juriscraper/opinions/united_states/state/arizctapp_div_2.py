@@ -9,9 +9,10 @@ History:
     2021-12-10: URL changed to recent opinions page, satsuki-chan
 """
 
+from lxml.html import HtmlElement
 from typing_extensions import override
 
-from juriscraper.AbstractSite import UnpreparedContentError
+from juriscraper.AbstractSite import HtmlTypeError, UnpreparedContentError
 from juriscraper.lib.string_utils import clean_if_py3, titlecase
 from juriscraper.opinions.united_states.state import ariz
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
@@ -33,6 +34,8 @@ class Site(OpinionSiteLinear):
         path = "//table//a[contains(@href, '.pdf')]"
         if self.html is None:
             raise UnpreparedContentError()
+        if not isinstance(self.html, HtmlElement):
+            raise HtmlTypeError(HtmlElement, self.html)
 
         for item in self.html.xpath(path):
             docket = item.xpath("./text()")[0]

@@ -9,9 +9,10 @@ import re
 from urllib.parse import urljoin
 
 from dateutil import parser
+from lxml.html import HtmlElement
 from typing_extensions import override
 
-from juriscraper.AbstractSite import UnpreparedContentError
+from juriscraper.AbstractSite import HtmlTypeError, UnpreparedContentError
 from juriscraper.lib.log_tools import make_default_logger
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
@@ -44,6 +45,8 @@ class Site(OpinionSiteLinear):
         seen_urls = set()
         if self.html is None:
             raise UnpreparedContentError()
+        if not isinstance(self.html, HtmlElement):
+            raise HtmlTypeError(HtmlElement, self.html)
 
         links = self.html.xpath('//div[@class="panel-content"]//h2/a')
         for link in links:
