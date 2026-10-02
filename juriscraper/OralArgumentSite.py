@@ -1,7 +1,7 @@
-from juriscraper.AbstractSite import AbstractSite
+from juriscraper.AbstractSite import AbstractSite, DownloadT
 
 
-class OralArgumentSite(AbstractSite):
+class OralArgumentSite(AbstractSite[DownloadT]):
     """Contains generic methods for scraping data. Should be extended by all
     scrapers.
 

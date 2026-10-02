@@ -9,11 +9,12 @@ import urllib.parse
 import urllib.request
 from collections.abc import Awaitable
 from datetime import datetime
-from typing import Any
+from typing import Any, Generic
 
 import certifi
 import httpx
 from charset_normalizer import from_bytes
+from typing_extensions import TypeVar
 
 from juriscraper.lib.date_utils import (
     json_date_handler,
@@ -76,7 +77,11 @@ class HtmlTypeError(JuriscraperException):
         )
 
 
-class AbstractSite:
+DownloadT = TypeVar("DownloadT", default=Any)
+"""The type of a site's downloaded content, `AbstractSite.html`"""
+
+
+class AbstractSite(Generic[DownloadT]):
     """Contains generic methods for scraping data. Should be extended by all
     scrapers.
 
@@ -113,7 +118,7 @@ class AbstractSite:
 
         # Computed metadata
         self.hash = None
-        self.html: Any | None = None
+        self.html: DownloadT | None = None
         self.method = "GET"
         self.back_scrape_iterable = None
         self.downloader_executed = False

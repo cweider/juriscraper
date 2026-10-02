@@ -2,11 +2,12 @@ from collections.abc import Awaitable
 
 from typing_extensions import override
 
+from juriscraper.AbstractSite import DownloadT
 from juriscraper.lib.string_utils import convert_date_string
 from juriscraper.OpinionSite import OpinionSite
 
 
-class OpinionSiteLinear(OpinionSite):
+class OpinionSiteLinear(OpinionSite[DownloadT]):
     """This class can be used for any site that needs to be scraped linearly,
     instead of, for example, with separate html path parsing getters. Sometimes
     it is just easier and less repetitive to scrape a site this way, in which

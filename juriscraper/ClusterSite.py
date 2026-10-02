@@ -1,6 +1,6 @@
 from dateutil import parser
 
-from juriscraper.AbstractSite import logger
+from juriscraper.AbstractSite import DownloadT, logger
 from juriscraper.lib.exceptions import InsanityException
 from juriscraper.lib.utils import (
     clean_attribute,
@@ -11,7 +11,7 @@ from juriscraper.lib.utils import (
 from juriscraper.OpinionSiteLinear import OpinionSiteLinear
 
 
-class ClusterSite(OpinionSiteLinear):
+class ClusterSite(OpinionSiteLinear[DownloadT]):
     """
     Keeps an interface compatible with AbstractSite
 
