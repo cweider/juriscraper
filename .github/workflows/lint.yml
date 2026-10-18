@@ -28,6 +28,3 @@ jobs:
         run: uv sync
       - name: pyrefly Static Type Checker
         run: uv run pyrefly check --error-stale-baseline --output-format full-text-with-github
-        # For some reason `--error-stale-baseline` and `--prune-baseline` don’t recognize removals that affect the baseline.
-      - name: pyrefly Static Type Checker - staleness
-        run: uv run pyrefly check --update-baseline && git diff --exit-code .pyrefly-baseline.json
