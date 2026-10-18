@@ -134,13 +134,6 @@
       "severity": "error"
     },
     {
-      "column": 12,
-      "path": "juriscraper/lib/html_utils.py",
-      "name": "no-any-return-implicit",
-      "concise_description": "Returning implicit Any from function declared to return \"bool\"",
-      "severity": "error"
-    },
-    {
       "column": 32,
       "path": "juriscraper/lib/html_utils.py",
       "name": "missing-attribute",
@@ -2461,35 +2454,35 @@
       "column": 21,
       "path": "juriscraper/pacer/claims_activity.py",
       "name": "bad-argument-type",
-      "concise_description": "Argument `Unknown | None` is not assignable to parameter `url` with type `str` in function `ClaimsActivity.get_pacer_claim_id_from_claim_url`",
+      "concise_description": "Argument `Any | None` is not assignable to parameter `url` with type `str` in function `ClaimsActivity.get_pacer_claim_id_from_claim_url`",
       "severity": "error"
     },
     {
       "column": 21,
       "path": "juriscraper/pacer/claims_activity.py",
       "name": "bad-argument-type",
-      "concise_description": "Argument `Unknown | None` is not assignable to parameter `url` with type `str` in function `ClaimsActivity.get_claim_number_from_claim_url`",
+      "concise_description": "Argument `Any | None` is not assignable to parameter `url` with type `str` in function `ClaimsActivity.get_claim_number_from_claim_url`",
       "severity": "error"
     },
     {
       "column": 21,
       "path": "juriscraper/pacer/claims_activity.py",
       "name": "bad-argument-type",
-      "concise_description": "Argument `Unknown | None` is not assignable to parameter `url` with type `str` in function `ClaimsActivity.get_pacer_claim_id_from_claim_url`",
+      "concise_description": "Argument `Any | None` is not assignable to parameter `url` with type `str` in function `ClaimsActivity.get_pacer_claim_id_from_claim_url`",
       "severity": "error"
     },
     {
       "column": 58,
       "path": "juriscraper/pacer/claims_activity.py",
       "name": "bad-argument-type",
-      "concise_description": "Argument `Unknown | None` is not assignable to parameter `url` with type `str` in function `ClaimsActivity.get_claim_number_from_claim_url`",
+      "concise_description": "Argument `Any | None` is not assignable to parameter `url` with type `str` in function `ClaimsActivity.get_claim_number_from_claim_url`",
       "severity": "error"
     },
     {
       "column": 59,
       "path": "juriscraper/pacer/claims_activity.py",
       "name": "bad-argument-type",
-      "concise_description": "Argument `Unknown | None` is not assignable to parameter `url` with type `str` in function `ClaimsActivity.get_claim_doc_seq_from_claim_url`",
+      "concise_description": "Argument `Any | None` is not assignable to parameter `url` with type `str` in function `ClaimsActivity.get_claim_doc_seq_from_claim_url`",
       "severity": "error"
     },
     {
@@ -2682,11 +2675,11 @@
       "severity": "error"
     },
     {
-      "column": 41,
+      "column": 9,
       "path": "juriscraper/pacer/docket_report.py",
-      "name": "bad-assignment",
-      "concise_description": "`bool` is not assignable to attribute `_is_adversary_proceeding` with type `Never`",
-      "severity": "error"
+      "name": "attribute-assign-on-never",
+      "concise_description": "Assigning to attribute `_is_adversary_proceeding` on an object with type `Never`",
+      "severity": "warn"
     },
     {
       "column": 15,
@@ -3021,7 +3014,7 @@
       "column": 20,
       "path": "juriscraper/pacer/email.py",
       "name": "bad-return",
-      "concise_description": "Returned type `list[dict[str, date | str | Unknown | None]]` is not assignable to declared return type `list[DocketEntryType]`",
+      "concise_description": "Returned type `list[dict[str, date | str | Any | None]]` is not assignable to declared return type `list[DocketEntryType]`",
       "severity": "error"
     },
     {
@@ -3336,13 +3329,6 @@
       "column": 17,
       "path": "juriscraper/pacer/reports.py",
       "name": "bad-argument-type",
-      "concise_description": "Argument `str | None` is not assignable to parameter `pacer_case_id` with type `str` in function `BaseReport._query_pdf_download`",
-      "severity": "error"
-    },
-    {
-      "column": 17,
-      "path": "juriscraper/pacer/reports.py",
-      "name": "bad-argument-type",
       "concise_description": "Argument `int | None` is not assignable to parameter `pacer_doc_id` with type `str` in function `BaseReport._query_pdf_download`",
       "severity": "error"
     },
@@ -3484,20 +3470,6 @@
       "path": "juriscraper/state/RequestManager.py",
       "name": "bad-override",
       "concise_description": "Class member `RequestManager.send` overrides parent class `AsyncClient` in an inconsistent manner",
-      "severity": "error"
-    },
-    {
-      "column": 13,
-      "path": "juriscraper/state/florida/cases.py",
-      "name": "unknown-variable-type",
-      "concise_description": "The type of `parts` is unknown; it is inferred as an implicit `Any`",
-      "severity": "error"
-    },
-    {
-      "column": 15,
-      "path": "juriscraper/state/florida/cases.py",
-      "name": "unknown-argument-type",
-      "concise_description": "The type of this argument is unknown",
       "severity": "error"
     },
     {
