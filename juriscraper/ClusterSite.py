@@ -1,4 +1,5 @@
 from dateutil import parser
+from typing_extensions import override
 
 from juriscraper.AbstractSite import logger
 from juriscraper.lib.exceptions import InsanityException
@@ -114,6 +115,7 @@ class ClusterSite(OpinionSiteLinear):
 
         raise ValueError(f"Invalid normalized name '{name}'")
 
+    @override
     def _clean_attributes(self):
         """Perform name normalization and standard attribute cleaning.
         Handles nested opinion objects
@@ -148,6 +150,7 @@ class ClusterSite(OpinionSiteLinear):
 
         self.cases = cases
 
+    @override
     def _date_sort(self):
         """Orders cases by values of _req_attributes, beggining with date and name"""
         self.cases.sort(
@@ -157,6 +160,7 @@ class ClusterSite(OpinionSiteLinear):
             reverse=True,
         )
 
+    @override
     def _post_parse(self):
         """Let's use this hook to add default values for required attributes"""
         for case in self.cases:
@@ -176,6 +180,7 @@ class ClusterSite(OpinionSiteLinear):
                         f"No value for `precedential_statuses` for case {case}"
                     )
 
+    @override
     def _make_hash(self):
         """Populate the expected self.cases list; just before calling the parent
         _make_hash
@@ -183,6 +188,7 @@ class ClusterSite(OpinionSiteLinear):
         self.case_names = [i["case_names"] for i in self.cases]
         super()._make_hash()
 
+    @override
     def _check_sanity(self):
         """Perform standard validity checks. Handles nested objects
 

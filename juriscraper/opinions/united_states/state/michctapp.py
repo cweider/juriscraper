@@ -64,6 +64,7 @@ class Site(ClusterSite, mich.Site):
             if not self.cluster_opinions(case_dict, self.cases):
                 self.cases.append(case_dict)
 
+    @override
     async def get_missing_name_and_docket(self, item: dict) -> tuple[str, str]:
         """Try to get the case name using a secondary request
 
@@ -111,6 +112,7 @@ class Site(ClusterSite, mich.Site):
 
         return self.cleanup_case_name(search_items[0]["title"]), docket_number
 
+    @override
     def get_disposition(self, item: dict) -> str:
         """Get the disposition value
 

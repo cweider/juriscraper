@@ -11,6 +11,8 @@ import re
 from datetime import datetime
 from urllib.parse import urlencode
 
+from typing_extensions import override
+
 from juriscraper.opinions.united_states.state import pa
 
 
@@ -52,6 +54,7 @@ class Site(pa.Site):
         )
         self.url = f"{self.base_url}{urlencode(self.params)}"
 
+    @override
     def get_status(self, op: dict) -> str:
         """Get status from opinion object
 
@@ -65,6 +68,7 @@ class Site(pa.Site):
             return "Published"
         return "Unknown"
 
+    @override
     def clean_judge(self, author_str: str) -> str:
         """
         Examples:

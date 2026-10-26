@@ -7,6 +7,7 @@ from datetime import date
 import httpx
 from httpx import InvalidURL
 from lxml import etree
+from typing_extensions import override
 
 from juriscraper.AbstractSite import AbstractSite
 
@@ -186,9 +187,11 @@ class FDSysSite(AbstractSite):
             # function from being run a second time by the parse method.
             self.status = 200
 
+    @override
     def _check_sanity(self):
         pass
 
+    @override
     async def parse(self):
         if self.status is None:
             # Run the downloader if it hasn't been run already

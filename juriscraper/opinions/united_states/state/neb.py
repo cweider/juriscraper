@@ -30,6 +30,7 @@ class Site(OpinionSiteLinear):
         )
         self.should_have_results = True
 
+    @override
     def _return_response_text_object(self):
         """Remove faulty URLs from HTML
 

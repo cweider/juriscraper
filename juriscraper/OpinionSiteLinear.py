@@ -179,6 +179,7 @@ class OpinionSiteLinear(OpinionSite):
         """Goes into Opinion.html or Opinion.plain_text"""
         return self._get_optional_field_by_id("content")
 
+    @override
     def _check_sanity(self):
         super()._check_sanity()
         # Check that all returned keys have the proper name to be used

@@ -3,6 +3,7 @@ import time
 from datetime import date
 
 from lxml import html
+from typing_extensions import override
 
 from juriscraper.lib.string_utils import clean_string
 from juriscraper.OpinionSite import OpinionSite
@@ -14,6 +15,7 @@ class Site(OpinionSite):
         self.url = "http://www.isc.idaho.gov/opinions/cacivil.htm"
         self.court_id = self.__module__
 
+    @override
     def tweak_response_object(self):
         """
         This state uses an HTTP header to indicate an encoding of UTF-8,

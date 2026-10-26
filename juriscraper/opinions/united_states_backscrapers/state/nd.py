@@ -4,6 +4,8 @@
 import re
 from datetime import date, datetime
 
+from typing_extensions import override
+
 from juriscraper.opinions.united_states.state import nd
 
 
@@ -137,6 +139,7 @@ class Site(nd.Site):
                 continue
         return neutral_cites
 
+    @override
     def _post_parse(self):
         # Remove any information that applies to non-appellate cases.
         if self.neutral_citations:

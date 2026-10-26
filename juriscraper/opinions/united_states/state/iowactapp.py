@@ -2,6 +2,8 @@
 # CourtID: iowactapp
 # Court Short Name: iowactapp
 
+from typing_extensions import override
+
 from juriscraper.AbstractSite import logger
 
 from . import iowa
@@ -32,6 +34,7 @@ class Site(iowa.Site):
             )
             self.extract_archive_cases(archive_page_html)
 
+    @override
     def extract_archive_cases(self, html):
         """Overriding this method from parent iowa class because the
         html structure for archived Court of Appeals opinion pages is

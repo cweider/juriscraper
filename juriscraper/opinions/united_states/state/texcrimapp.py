@@ -6,6 +6,8 @@
 # Date: 2015-09-02
 
 
+from typing_extensions import override
+
 from juriscraper.AbstractSite import logger
 from juriscraper.lib.type_utils import OpinionType
 from juriscraper.opinions.united_states.state import texapp
@@ -17,6 +19,7 @@ class Site(texapp.Site):
         self.court_id = self.__module__
         self.checkbox = 1
 
+    @override
     def get_opinions(self, html, _) -> tuple[list[dict], str]:
         """Override from texapp.py. See docstring there for more info
 

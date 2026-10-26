@@ -8,6 +8,7 @@ import re
 from datetime import datetime
 
 from lxml.html import HtmlElement
+from typing_extensions import override
 
 from juriscraper.opinions.united_states.state import tenn
 from juriscraper.OpinionSite import OpinionSite
@@ -29,6 +30,7 @@ class Site(tenn.Site):
         # docket will always contain WC in the docket number
         self.docket_xpath = "text()[contains(., 'WC')]"
 
+    @override
     def get_summary(self, section: HtmlElement) -> str:
         """Get the summary considering some XPath variations
 

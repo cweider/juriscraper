@@ -100,6 +100,7 @@ class Site(guam.Site):
                 }
             )
 
+    @override
     def _process_legacy_html(self) -> None:
         """Process the legacy ``get_items`` API HTML, used for backscraping
 

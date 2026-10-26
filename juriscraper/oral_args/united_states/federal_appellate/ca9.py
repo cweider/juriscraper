@@ -225,6 +225,7 @@ class Site(OralArgumentSiteLinear):
             reverse=True,
         )
 
+    @override
     def _date_sort(self) -> None:
         """Preserve the upload time ordering applied by `_process_html`
 

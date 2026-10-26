@@ -2,6 +2,7 @@ import time
 from datetime import date
 
 from lxml import html
+from typing_extensions import override
 
 from juriscraper.AbstractSite import logger
 from juriscraper.OpinionSite import OpinionSite
@@ -146,6 +147,7 @@ class Site(OpinionSite):
             # function from being run a second time by the parse method.
             self.status = 200
 
+    @override
     def _post_parse(self):
         """This will remove the cases without a case name"""
         to_be_removed = [
